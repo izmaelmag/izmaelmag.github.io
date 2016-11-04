@@ -1,19 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <title>DevDays</title>
+</head>
+<body>
+  <div class="wrap">
+  <h1>DevDays</h1>
+  <h2>До конца хакатона осталось:</h2>
 
-    <title><DEAD>SEAGULL</DEAD></title>
-  </head>
-  <body>
+  <div class="countdown">
+    <div class="bloc-time hours" data-init-value="48">
+      <span class="count-title">Hours</span>
 
-    <h1>&nbsp;SEAGULL</h1>
-    <audio src="Polyphony - Motionless.mp3" autoplay></audio>
-    <script src="bg.js"></script>
-  </body>
+      <div class="figure hours hours-1">
+        <span class="top">4</span>
+        <span class="top-back">
+          <span>4</span>
+        </span>
+        <span class="bottom">4</span>
+        <span class="bottom-back">
+          <span>4</span>
+        </span>
+      </div>
+
+      <div class="figure hours hours-2">
+        <span class="top">8</span>
+        <span class="top-back">
+          <span>8</span>
+        </span>
+        <span class="bottom">8</span>
+        <span class="bottom-back">
+          <span>8</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="bloc-time min" data-init-value="0">
+      <span class="count-title">Minutes</span>
+
+      <div class="figure min min-1">
+        <span class="top">0</span>
+        <span class="top-back">
+          <span>0</span>
+        </span>
+        <span class="bottom">0</span>
+        <span class="bottom-back">
+          <span>0</span>
+        </span>
+      </div>
+
+      <div class="figure min min-2">
+       <span class="top">0</span>
+        <span class="top-back">
+          <span>0</span>
+        </span>
+        <span class="bottom">0</span>
+        <span class="bottom-back">
+          <span>0</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="bloc-time sec" data-init-value="0">
+      <span class="count-title">Seconds</span>
+
+        <div class="figure sec sec-1">
+        <span class="top">0</span>
+        <span class="top-back">
+          <span>0</span>
+        </span>
+        <span class="bottom">0</span>
+        <span class="bottom-back">
+          <span>0</span>
+        </span>
+      </div>
+
+      <div class="figure sec sec-2">
+        <span class="top">0</span>
+        <span class="top-back">
+          <span>0</span>
+        </span>
+        <span class="bottom">0</span>
+        <span class="bottom-back">
+          <span>0</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="jquery.min.js"></script>
+<script src="TweenMax.min.js"></script>
+<script src="script.js"></script>
+
+</body>
 </html>
