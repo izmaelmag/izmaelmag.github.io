@@ -1,21 +1,5 @@
 "use strict";
 
-// (function() {
-//     const aim_h = document.querySelector(".aim .h");
-//     const aim_v = document.querySelector(".aim .v");
-//     const aim_c = document.querySelector(".aim .c");
-
-//     window.addEventListener("mousemove", (e) => {
-//         let x = e.clientX;
-//         let y = e.clientY;
-
-//         window.requestAnimationFrame(() => {
-//             TweenMax.to(aim_h, 0.4, {y: y});
-//             TweenMax.to(aim_v, 0.4, {x: x});
-//             TweenMax.to(aim_c, 0.2, {x: x, y: y});
-//         });
-//     });
-// })();
 var OPT = {
   selector: ".spark-bg",
   amount: 400,
@@ -44,8 +28,8 @@ if (window.innerWidth < 520) {
   });
 
   function setCanvasWidth() {
-    ctx.canvas.width = window.innerWidth * 2;
-    ctx.canvas.height = window.innerHeight * 2;
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
   }
 
   function rand(min, max) {
@@ -97,8 +81,8 @@ if (window.innerWidth < 520) {
   }
 
   function addSpark() {
-    var x = rand(0, window.innerWidth * 2);
-    var y = rand(0, window.innerHeight * 2);
+    var x = rand(0, window.innerWidth);
+    var y = rand(0, window.innerHeight);
     sparks.push(new Spark(x, y));
   }
 
