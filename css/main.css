@@ -1,4 +1,32 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,100,500,700");
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+
+@-webkit-keyframes zoomIn {
+    from {
+        -webkit-transform: translateZ(-1000px);
+                transform: translateZ(-1000px);
+        opacity: 0;
+    }
+
+    to {
+        -webkit-transform: translateZ(0px);
+                transform: translateZ(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        -webkit-transform: translateZ(-1000px);
+                transform: translateZ(-1000px);
+        opacity: 0;
+    }
+
+    to {
+        -webkit-transform: translateZ(0px);
+                transform: translateZ(0px);
+        opacity: 1;
+    }
+}
 
 * {
     box-sizing: border-box;
@@ -30,6 +58,56 @@ body {
     background: #000000;
 }
 
+.placeholder {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: -moz-flex;
+    display:  -ms-flex;
+    display:   -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display:      flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+}
+
+.placeholder h1 {
+    font-family: "Press Start 2P";
+    font-size: 4rem;
+    text-transform: uppercase;
+    line-height: 8rem;
+    color: #9999ff;
+    letter-spacing: 2rem;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+
+.placeholder h1 span {
+    display: inline-block;
+}
+
+.placeholder h1:first-child span:nth-child(2n) {
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+}
+
+.placeholder h1:last-child span:nth-child(2n + 1) {
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+}
+
 .aim {
     position: fixed;
     width: 100%;
@@ -52,7 +130,8 @@ body {
     margin: -4px 0 0 -4px;
     -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
-    border: 1px solid #7777ff;
+    border: 1px solid #9999ff;
+    opacity: 0.4;
 }
 
 .aim .h {
@@ -61,7 +140,7 @@ body {
     left: -50%;
     width: 200%;
     height: 1px;
-    background: #ffffff;
+    background: #9999ff;
     opacity: 0.2;
 }
 
@@ -71,7 +150,7 @@ body {
     left: 1px;
     width: 1px;
     height: 200%;
-    background: #ffffff;
+    background: #9999ff;
     opacity: 0.2;
 }
 
