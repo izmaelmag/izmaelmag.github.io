@@ -1,0 +1,47 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\Conference\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'start' ]
+2 info using npm@3.10.8
+3 info using node@v6.8.1
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle Atomic-Starter@0.0.1~prestart: Atomic-Starter@0.0.1
+6 silly lifecycle Atomic-Starter@0.0.1~prestart: no script for prestart, continuing
+7 info lifecycle Atomic-Starter@0.0.1~start: Atomic-Starter@0.0.1
+8 verbose lifecycle Atomic-Starter@0.0.1~start: unsafe-perm in lifecycle true
+9 verbose lifecycle Atomic-Starter@0.0.1~start: PATH: C:\Users\Conference\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;C:\Users\Conference\site\node_modules\.bin;C:\Program Files\Haskell\bin;C:\Program Files\Haskell Platform\8.0.1\lib\extralibs\bin;C:\Program Files\Haskell Platform\8.0.1\bin;C:\Python35-32\Scripts\;C:\Python35-32\;C:\Python3\Scripts\;C:\Python3\;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\OpenServer\modules\php\PHP-5.4.22;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Haskell Platform\8.0.1\mingw\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\Conference\AppData\Roaming\cabal\bin;C:\Users\Conference\AppData\Roaming\local\bin;C:\Users\Conference\AppData\Local\atom\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Conference\AppData\Local\Microsoft\WindowsApps;C:\Users\Conference\AppData\Roaming\npm;C:\.yarn\bin
+10 verbose lifecycle Atomic-Starter@0.0.1~start: CWD: C:\Users\Conference\site
+11 silly lifecycle Atomic-Starter@0.0.1~start: Args: [ '/d /s /c', 'gulp serve' ]
+12 silly lifecycle Atomic-Starter@0.0.1~start: Returned: code: 3221225786  signal: null
+13 info lifecycle Atomic-Starter@0.0.1~start: Failed to exec start script
+14 verbose stack Error: Atomic-Starter@0.0.1 start: `gulp serve`
+14 verbose stack Exit status 3221225786
+14 verbose stack     at EventEmitter.<anonymous> (C:\Users\Conference\AppData\Roaming\npm\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Users\Conference\AppData\Roaming\npm\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:877:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid Atomic-Starter@0.0.1
+16 verbose cwd C:\Users\Conference\site
+17 error Windows_NT 10.0.14393
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Conference\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "start"
+19 error node v6.8.1
+20 error npm  v3.10.8
+21 error code ELIFECYCLE
+22 error Atomic-Starter@0.0.1 start: `gulp serve`
+22 error Exit status 3221225786
+23 error Failed at the Atomic-Starter@0.0.1 start script 'gulp serve'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the Atomic-Starter package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     gulp serve
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs Atomic-Starter
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls Atomic-Starter
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
