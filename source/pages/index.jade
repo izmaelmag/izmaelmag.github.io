@@ -1,11 +1,29 @@
 extends ../layouts/main.jade
 
 include ../blocks/spark-bg/spark-bg
-include ../blocks/aim/aim
 
 block title
 	title dead seagull
 
 block content
-	//- +aim()
+
 	+spark-bg()
+
+	.placeholder 
+		h1.js-mover(data-offset="-100 30 -20 20")
+			span c
+			span a
+			span s
+			span p
+			span i
+			span a
+			span n
+
+		h1.js-mover(data-offset="100 -30 20 -20")
+			span s
+			span e
+			span a
+			span g
+			span u
+			span l
+			span l
