@@ -13,7 +13,8 @@
     "postcss": "./node_modules/.bin/postcss source/css/main.css -o source/css/main.min.css -c source/postcss.config.js",
     "server": "./node_modules/.bin/http-server ./ -o",
     "build": "npm run postcss & npm run js && npm run pug:build",
-    "dev": "npm run pug:watch & npm run server"
+    "dev": "npm run pug:watch & npm run server",
+    "fp": "git add --all && git commit -m \"fast push\" && git push"
   },
   "repository": {
     "type": "git",
