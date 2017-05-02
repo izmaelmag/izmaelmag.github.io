@@ -14,7 +14,7 @@
       COUNT = 12,
       SPEED = 0.1,
       ANGLE = 0,
-      COLOR = '#ccc',
+      COLOR = '#aaa',
       CENTER = { x: window.innerWidth, y: window.innerHeight * 2 },
       ANGLEDIFF = 360 / COUNT * (PI / 180);
 

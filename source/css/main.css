@@ -90,6 +90,8 @@ nav {
 }
 
 nav a {
+  position: relative;
+  display: block;
   text-decoration: none;
   color: #888;
   font-family: 'Roboto Slab';
@@ -99,11 +101,37 @@ nav a {
   -webkit-transition: all 1.5s ease;
   transition: all 1.5s ease;
   padding: 0 0rem;
+  min-width: 100px;
+  text-align: center;
 }
 
-nav a:hover {
-  border-bottom: 1px solid #aaa;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-  padding: 0 1rem;
+nav a::after,
+nav a::before {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 55%;
+  left: -2rem;
+  width: 0rem;
+  height: 1px;
+  background: #ccc;
+  transition: all .3s .2s ease
+}
+
+nav a::after {
+  left: auto;
+  right: -0.5rem;
+  transition: all .3s ease
+}
+
+nav a:hover::before {
+  width: 1rem;
+  left: -1.5rem;
+  transition: all .3s ease;
+}
+
+nav a:hover::after {
+  width: 1rem;
+  right: -1.5rem;
+  transition: all .3s .2s ease;
 }

@@ -1,0 +1,17 @@
+extends ../../layouts/article.pug
+
+block meta
+  meta(name="description" content="Введение в работу с HTML5 canvas: основные методы, возможности, геометрические примитивы")
+  meta(name="keywords" content="canvas, html5, animation, frontend, javascript, js, es6, graphics, geometry, анимации, канвас, фронтенд, верстка")
+
+block title
+  title Работаем с canvas | Caspian Seagull
+
+block content
+  .meta
+    a(href="/").home-icon
+    time 02 / 05 / 2017
+
+  h1 Работаем с canvas
+
+  include:markdown-it canvas-intro.md
