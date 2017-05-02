@@ -4,7 +4,7 @@
   "description": "[Caspian Seagull](http://caspian-seagull.github.io/index)",
   "main": "index.js",
   "scripts": {
-    "pug": "pug source/pug/pages/**/*.pug -o ./ -P",
+    "pug": "pug source/pug/pages/ -o ./ -P",
     "pug:watch": "npm run pug -- -w",
     "pug:build": "npm run pug -- -O '{Production: true}'",
     "js": "npm run js:bundle && npm run js:minify",
@@ -29,6 +29,7 @@
   "dependencies": {
     "autoprefixer": "^6.7.7",
     "concat-cli": "^4.0.0",
+    "del-cli": "^0.2.1",
     "http-server": "^0.9.0",
     "jstransformer-markdown-it": "^2.0.0",
     "markdown-it": "^8.3.1",

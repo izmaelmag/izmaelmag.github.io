@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:700');
+html, body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  background: #fefefe;
+  background: linear-gradient(to bottom, #fefefe, #fff) fixed;
+  background-size: 100% 100%;
   padding-top: 2em;
 }
 

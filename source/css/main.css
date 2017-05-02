@@ -135,3 +135,9 @@ nav a:hover::after {
   right: -1.5rem;
   transition: all .3s .2s ease;
 }
+
+@media (max-width: 480px) {
+  nav a {
+    min-width: auto;
+  }
+}
