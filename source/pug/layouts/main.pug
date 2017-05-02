@@ -10,11 +10,11 @@ html(lang="en")
 
     title Caspian Seagull
 
-    style
-      if Production
-        include ../../../css/main.min.css
+    if Production
+      link(rel="stylesheet", href="css/main.min.css")
       
-      else
+    else
+      style
         include ../../css/main.css
 
 
