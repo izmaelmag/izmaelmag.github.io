@@ -22,11 +22,11 @@ html(lang="en")
     block content
       h1 Caspian Seagull
 
-    script
-      if Production
-        script(src="js/bundle.min.js")
+    if Production
+      script(src="js/bundle.min.js")
 
-      else
+    else
+      script
         include ../../js/bg-circles.js
         include ../../js/main.js
 
