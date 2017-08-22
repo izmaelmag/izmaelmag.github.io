@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="43" height="30.031" viewBox="0 0 43 30.031">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Next_slide" data-name="Next slide" class="cls-1" d="M1309.96,477.451a1.529,1.529,0,0,0-2.17,0,1.5,1.5,0,0,0,0,2.128l10.99,10.9h-36.26a1.5,1.5,0,0,0-1.52,1.507,1.52,1.52,0,0,0,1.52,1.527h36.26L1307.79,504.4a1.527,1.527,0,0,0,2.17,2.15l13.59-13.484a1.484,1.484,0,0,0,0-2.129Z" transform="translate(-1281 -477)"/>
+</svg>
