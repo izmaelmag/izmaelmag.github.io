@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Конструктор</title>
+
+	<link rel="stylesheet" href="style/style.css">
+</head>
+
+
+<body>
+
+	<div id="scr_player">
+
+		
+		<div class="player">
+			<div id="close_player"></div>
+			<h2 class="title"></h2>
+			<div class="question"></div>
+			<div class="answers">
+				<!-- ans go here -->
+				<!-- <div class="ans_item">Ответ 1</div> -->
+			</div>
+		</div>
+
+	</div>
+
+	<div class="alert">
+		<p></p>
+	</div>
+
+	<!-- Левое меню -->
+	<div id="menu_open" class="menu_btn"></div>
+
+	<div class="move up" data-dir="1"></div>
+	<div class="move down" data-dir="2"></div>
+	<div class="move right" data-dir="3"></div>
+	<div class="move left" data-dir="4"></div>
+
+	<div class="menu">
+		<span id="menu_close">
+			<img src="img/menu_close.png" alt="">
+		</span>
+
+		<span class="run_script">Запустить скрипт</span>
+
+
+		<div class="all_scripts">
+			<div class="item">Название скрипта</div>
+			<div class="item">Название скрипта</div>
+			<div class="item">Название скрипта</div>
+			<div class="item">Название скрипта</div>
+			<div class="item">Название скрипта</div>
+		</div>
+
+		<div class="add_script">
+
+			<div class="add_button"></div>
+			
+			<div class="add_form">
+				
+			</div>
+		</div>
+	</div>
+
+	<!-- <div class="menu_splash"></div> -->
+
+
+	<!-- Блок конструктора -->
+	<div class="paper">
+
+		<div class="ask main" data-level="1" data-query="1">
+		    
+		    <span class="a">
+		        <h3>Введите вопрос</h3>
+		        <textarea class="cl_question start_question"></textarea>
+		        <span class="add-but">Добавить ответ</span>
+		    </span>
+		    
+		    <p class="c"></p>
+		    
+		</div>
+
+	</div>
+
+
+	<!-- JS -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/underscore-min.js"></script>
+	<script src="js/application.js"></script>
+	<script src="js/scripts.js"></script>
+	
+</body>
+</html>
