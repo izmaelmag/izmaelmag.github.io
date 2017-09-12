@@ -1,0 +1,75 @@
+.baseliner-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.baseliner-panel {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 4px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  padding: 0;
+  z-index: 9999;
+  width: 300px;
+  height: 2rem;
+  width: 2rem;
+  font-family: arial;
+}
+
+.baseliner-panel * {
+  visibility: hidden;
+}
+
+.baseliner-panel.expanded * {
+  visibility: visible;
+}
+
+.baseliner-panel .baseliner-panel__expand {
+  visibility: visible;
+}
+
+.baseliner-panel.expanded {
+  padding: 0.25rem;
+  box-sizing: border-box;
+  height: auto;
+  min-height: 2rem;
+  width: 20rem;
+}
+
+.baseliner-panel__expand {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid rgba(0,0,0,0.3);
+  position: absolute;
+  border-radius: 2px;
+  top: .25rem;
+  right: .25rem;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+
+.main_controls {
+  display: block;
+  /* margin-top: 2rem;
+   */
+}
+
+.main_controls input {
+  width: 2rem;
+}
+
+.item-controls {
+  display: flex;
+}
+
+.item-controls input[type="number"] {
+  width: 2rem;
+}
