@@ -56,20 +56,23 @@
 }
 
 
-.main_controls {
+.baseliner-main_controls {
   display: block;
-  /* margin-top: 2rem;
-   */
 }
 
-.main_controls input {
+.baseliner-main_controls input {
   width: 2rem;
 }
 
-.item-controls {
+.baseliner-item-controls {
   display: flex;
 }
 
-.item-controls input[type="number"] {
+.baseliner-item-controls input[type="number"] {
   width: 2rem;
+}
+
+.baseliner-style-content {
+  width: 95%;
+  height: 50vh;
 }
