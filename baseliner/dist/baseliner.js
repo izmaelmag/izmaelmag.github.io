@@ -22465,11 +22465,14 @@ var App = function (_React$Component) {
     value: function changeGridSize(e) {
       var _this2 = this;
 
-      var lineHeight = e.target.value;
+      var lineHeight = parseInt(e.target.value);
 
-      this.setState({ lineHeight: lineHeight }, function (_) {
-        _this2.state.grid.setLineHeight(_this2.state.lineHeight);
-      });
+      if (lineHeight && typeof lineHeight === "number") {
+        this.setState({ lineHeight: lineHeight }, function (_) {
+          _this2.state.grid.setLineHeight(_this2.state.lineHeight);
+          localStorage.setItem('baseliner-lineheight', lineHeight);
+        });
+      }
     }
   }, {
     key: 'addSelector',
@@ -22562,9 +22565,17 @@ var App = function (_React$Component) {
     value: function componentDidMount() {
       var _this6 = this;
 
-      var grid = new _grid2.default({
-        lineHeight: this.state.lineHeight
-      });
+      var savedLineHeight = localStorage.getItem('baseliner-lineheight');
+
+      var lineHeight = void 0;
+      console.log(savedLineHeight);
+      if (savedLineHeight) {
+        lineHeight = savedLineHeight;
+      } else {
+        lineHeight = this.state.lineHeight;
+      }
+
+      var grid = new _grid2.default({ lineHeight: lineHeight });
 
       var styles = {};
 
@@ -22572,7 +22583,7 @@ var App = function (_React$Component) {
 
       if (!styles) styles = this.state.styles;
 
-      this.setState({ grid: grid, styles: styles }, function (_) {
+      this.setState({ grid: grid, styles: styles, lineHeight: lineHeight }, function (_) {
         grid.generate();
         _this6.setStyleContent();
       });
@@ -22632,7 +22643,7 @@ var App = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'selectors' },
+        { className: 'baseliner-selectors' },
         styles.map(function (styleObject) {
           return _react2.default.createElement(
             'div',
@@ -22715,10 +22726,8 @@ var Grid = function () {
   }, {
     key: "setCanvasSize",
     value: function setCanvasSize() {
-      this.canvasNode.style.height = document.body.offsetHeight;
-
-      this.ctx.canvas.width = this.canvasNode.offsetWidth;
-      this.ctx.canvas.height = this.canvasNode.offsetHeight;
+      this.ctx.canvas.width = this.canvasNode.offsetWidth * 2;
+      this.ctx.canvas.height = this.canvasNode.offsetHeight * 2;
     }
   }, {
     key: "createCanvasNode",
@@ -22726,6 +22735,7 @@ var Grid = function () {
       var canvasNode = document.createElement('canvas');
       document.body.style.margin = 0;
       canvasNode.className = className;
+      canvasNode.height = document.body.offsetHeight;
       document.body.appendChild(canvasNode);
     }
   }, {
@@ -22750,9 +22760,10 @@ var Grid = function () {
 
         this.ctx.save();
 
-        this.ctx.globalAlpha = 0.7;
+        this.ctx.globalAlpha = 0.8;
         this.ctx.strokeStyle = '#00f';
-        this.drawLine(0, stepY, cw, stepY);
+        this.ctx.lineWidth = 0.5;
+        this.drawLine(0, stepY * 2, cw * 2, stepY * 2);
 
         this.ctx.restore();
       }
