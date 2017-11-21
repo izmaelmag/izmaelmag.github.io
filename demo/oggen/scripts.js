@@ -67,34 +67,39 @@ class OGGenerator {
   }
 }
 
-const OGImage = new OGGenerator({
-  img: document.querySelector('#source'),
-  width: 1200,
-  height: 550,
-  blur: 50,
+
+
+window.addEventListener('load', function() {
+  const OGImage = new OGGenerator({
+    img: document.querySelector('#source'),
+    width: 1200,
+    height: 550,
+    blur: 50,
+    
+    label: {
+      text: 'МОМЕНТЫ',
+      color: '#ffffff',
+      font: `bold 13px 'Montserrat'`,
+      topOffset: 100
+    },
+    
+    title: {
+      text: `Ноябрьский Родос`,
+      color: '#ffffff',
+      font: `bold 100px 'Montserrat'`,
+      topOffset: 200
+    },
+    
+    subtitle: {
+      text: 'Ксения Кушнаренко',
+      color: '#ffffff',
+      font: `normal 24px 'PT Serif'`,
+      topOffset: 300
+    }
+  });
   
-  label: {
-    text: 'МОМЕНТЫ',
-    color: '#ffffff',
-    font: `bold 13px 'Montserrat'`,
-    topOffset: 100
-  },
+  let src = OGImage.generate();
   
-  title: {
-    text: `Ноябрьский Родос`,
-    color: '#ffffff',
-    font: `bold 100px 'Montserrat'`,
-    topOffset: 200
-  },
-  
-  subtitle: {
-    text: 'Ксения Кушнаренко',
-    color: '#ffffff',
-    font: `normal 24px 'PT Serif'`,
-    topOffset: 300
-  }
+  document.querySelector('#ogimage').setAttribute('content', src);
 });
 
-let src = OGImage.generate();
-
-document.querySelector('#ogimage').setAttribute('content', src);
