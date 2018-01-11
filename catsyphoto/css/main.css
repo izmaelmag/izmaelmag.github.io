@@ -491,6 +491,14 @@ body {
   .header {
     padding: 16px;
     padding-bottom: none;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+@media (max-width: 768px) {
+  .header__logo {
+    margin-right: 10px;
   }
 }
 .main-slider {
