@@ -134,12 +134,9 @@ var MainSlider = function () {
         prevNextButtons: false,
         pageDots: false,
         wrapAround: true,
-        autoPlay: 5000,
+        autoPlay: 6000,
         pauseAutoPlayOnHover: false,
-        selectedAttraction: 0.02,
-        friction: 0.25,
         draggable: true
-
       },
 
       nav: {
@@ -178,6 +175,12 @@ var MainSlider = function () {
           }
         });
       }
+
+      window.addEventListener('load', function () {
+        window.setTimeout(function () {
+          document.body.classList.add('loaded');
+        }, 1000);
+      });
     }
   }, {
     key: 'init',
