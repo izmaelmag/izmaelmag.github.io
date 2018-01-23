@@ -1008,22 +1008,10 @@ body.loaded .header {
   z-index: 5;
   opacity: 0;
 }
-@media (max-width: 1440px) {
-  .main-slider__nav {
-    width: 640px;
-  }
-}
-@media (max-width: 1024px) {
-  .main-slider__nav {
-    height: 108px;
-    overflow: hidden;
-    width: 55%;
-  }
-}
 @media (max-width: 768px) {
   .main-slider__nav {
     width: calc(100% - 32px);
-    right: 16px;
+    left: 16px;
     height: 76px;
   }
 }
