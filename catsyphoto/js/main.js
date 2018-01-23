@@ -80,17 +80,29 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 //region Setup
-var mainSlider = new _mainSlider2.default();
+var mainSlider = new _mainSlider2.default(); //region Dependencies
+
+
+document.querySelector('.js-show-photos').addEventListener('click', function (e) {
+  document.body.classList.add('show-photos');
+});
+
+document.querySelector('.js-show-contacts').addEventListener('click', function (e) {
+  document.body.classList.remove('show-photos');
+});
+
+window.addEventListener('load', function () {
+  window.setTimeout(function () {
+    document.body.classList.add('loaded');
+  }, 200);
+});
 //endregion
 
 
 //region Functions
-
-//region Dependencies
 function init() {
   mainSlider.init();
 }
-
 //endregion
 
 
@@ -118,7 +130,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var photoInfo = new _photoinfo2.default();
-console.log(photoInfo);
 
 var MainSlider = function () {
   function MainSlider() {
@@ -130,24 +141,24 @@ var MainSlider = function () {
     this.navSliderNode = document.querySelector('.js-main-slider-nav');
     this.options = {
       main: {
+        autoPlay: 6000,
         cellSelector: '.main-slider__slide',
         prevNextButtons: false,
         pageDots: false,
-        wrapAround: true,
-        autoPlay: 6000,
         pauseAutoPlayOnHover: false,
+        wrapAround: true,
         draggable: true
       },
 
       nav: {
         cellSelector: '.main-slider__slide-nav',
+        cellAlign: 'left',
+        asNavFor: '.js-main-slider',
         prevNextButtons: false,
         pageDots: false,
-        wrapAround: true,
+        wrapAround: false,
         groupCells: true,
-        cellAlign: window.innerWidth < 768 ? 'left' : 'right',
-        contain: true,
-        asNavFor: '.js-main-slider'
+        contain: true
       }
     };
   }
@@ -155,9 +166,9 @@ var MainSlider = function () {
   _createClass(MainSlider, [{
     key: 'initFlickity',
     value: function initFlickity() {
-      if (!this.slider) this.slider = new Flickity(this.sliderNode, this.options.main);
+      if (!this.slider && this.sliderNode) this.slider = new Flickity(this.sliderNode, this.options.main);
 
-      if (!this.navSlider) this.navSlider = new Flickity(this.navSliderNode, this.options.nav);
+      if (!this.navSlider && this.navSliderNode) this.navSlider = new Flickity(this.navSliderNode, this.options.nav);
     }
   }, {
     key: 'initEvents',
@@ -175,12 +186,6 @@ var MainSlider = function () {
           }
         });
       }
-
-      window.addEventListener('load', function () {
-        window.setTimeout(function () {
-          document.body.classList.add('loaded');
-        }, 1000);
-      });
     }
   }, {
     key: 'init',
