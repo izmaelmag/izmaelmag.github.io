@@ -35,67 +35,71 @@ function qsAll(query) {
 'use strict';
 
 (function (window) {
-  var mainContainer = qs('.body');
-  var sections = qsAll('.month', mainContainer);
-  var headerTitle = qs('.header h1');
 
-  var bodyHeight = window.innerHeight;
+  if (window.innerWidth > 520) {
+    var setupSections = function setupSections() {
+      var zIndex = 500;
 
-  function setupSections() {
-    var zIndex = 500;
+      bodyHeight = sections.reduce(function (prev, section) {
+        section.style.zIndex = zIndex--;
+        section.dataset.offset = prev;
 
-    bodyHeight = sections.reduce(function (prev, section) {
-      section.style.zIndex = zIndex--;
-      section.dataset.offset = prev;
+        return prev + section.clientHeight;
+      }, 0);
 
-      return prev + section.clientHeight;
-    }, 0);
+      mainContainer.style.height = bodyHeight + 'px';
+    };
 
-    mainContainer.style.height = bodyHeight + 'px';
-  }
-  window.setupSections = setupSections;
+    var changeHeaderMonth = function changeHeaderMonth(month) {
+      currentMonth = month;
+      headerTitle.classList.add('hide');
 
-  var scrolled = 0;
-  var currentMonth = '';
+      window.setTimeout(function () {
+        headerTitle.textContent = month;
+        headerTitle.classList.remove('hide');
+      }, 300);
+    };
 
-  function changeHeaderMonth(month) {
-    currentMonth = month;
-    headerTitle.classList.add('hide');
+    var checkScroll = function checkScroll() {
+      scrolled = window.scrollY;
 
-    window.setTimeout(function () {
-      headerTitle.textContent = month;
-      headerTitle.classList.remove('hide');
-    }, 300);
-  }
+      sections.forEach(function (section) {
+        var topBound = parseInt(section.dataset.offset);
+        var bottomBound = parseInt(topBound + window.innerHeight);
+        var month = section.dataset.month;
 
-  function checkScroll() {
-    scrolled = window.scrollY;
+        if (topBound <= scrolled + 20 || topBound <= scrolled - 20 && bottomBound >= scrolled) {
+          section.classList.add('current');
+          section.style.webkitTransform = 'translateY(' + (scrolled - topBound) * -1 + 'px)';
+        }
 
-    sections.forEach(function (section) {
-      var topBound = parseInt(section.dataset.offset);
-      var bottomBound = parseInt(topBound + window.innerHeight);
-      var month = section.dataset.month;
+        if (topBound <= scrolled && bottomBound >= scrolled && currentMonth != month) {
+          changeHeaderMonth(month);
+        }
 
-      if (topBound <= scrolled + 20 || topBound <= scrolled - 20 && bottomBound >= scrolled) {
-        section.classList.add('current');
-        section.style.webkitTransform = 'translateY(' + (scrolled - topBound) * -1 + 'px)';
-      }
+        if (topBound + section.clientHeight - 64 <= scrolled) {
+          section.classList.remove('current');
+        }
+      });
+    };
 
-      if (topBound <= scrolled && bottomBound >= scrolled && currentMonth != month) {
-        changeHeaderMonth(month);
-      }
+    var mainContainer = qs('.body');
+    var sections = qsAll('.month', mainContainer);
+    var headerTitle = qs('.header h1');
 
-      if (topBound + section.clientHeight - 64 <= scrolled) {
-        section.classList.remove('current');
-      }
+    var bodyHeight = window.innerHeight;
+
+    window.setupSections = setupSections;
+
+    var scrolled = 0;
+    var currentMonth = '';
+
+    checkScroll();
+    // setupSections();
+    window.addEventListener('scroll', function (e) {
+      window.requestAnimationFrame(checkScroll);
     });
   }
-
-  checkScroll();
-  // setupSections();
-  window.addEventListener('scroll', function (e) {
-    window.requestAnimationFrame(checkScroll);
-  });
 })(window);
 'use strict';
 
@@ -103,46 +107,61 @@ function qsAll(query) {
   var sliders = qsAll('.slider');
 
   sliders.forEach(function (sliderNode) {
+    var cards = $(sliderNode).find('.card');
 
-    var slider = new Flickity(sliderNode, {
-      cellAlign: 'left',
-      draggable: true,
-      freeScroll: false,
-      wrapAround: true,
-      // groupCells:      3,
-      cellSelector: '.card',
-      accesibility: true,
-      adaptiveHeight: false,
-      prevNextButtons: false,
-      pageDots: false,
-      on: {
-        ready: function ready() {
-          console.log('ready');
-          window.setupSections();
+    if (window.innerWidth > 520 && cards.length > 3 || window.innerWidth <= 520 && cards.length > 1) {
 
-          var viewport = qs('.flickity-viewport', sliderNode);
+      $(sliderNode).append('\n        <button class="next"></button>\n        <button class="prev"></button>\n      ');
 
-          var timeout = void 0;
-          var currentStyles = viewport.getAttribute('style');
+      var next = qs('.next', sliderNode);
+      var prev = qs('.prev', sliderNode);
 
-          console.log(viewport, currentStyles);
+      cards.wrap('<div class="slide"></div>').parent();
 
-          timeout = window.setTimeout(function () {
-            window.setupSections();
-          }, 1000);
-        },
-        settle: window.setupSections
-      }
-    });
+      var slider = new Flickity(sliderNode, {
+        cellAlign: 'left',
+        draggable: true,
+        freeScroll: false,
+        wrapAround: true,
+        cellSelector: '.slide',
+        accesibility: true,
+        adaptiveHeight: window.innerWidth <= 520,
+        prevNextButtons: false,
+        pageDots: window.innerWidth <= 520,
+        on: {
+          ready: function ready() {
+            if (window.innerWidth > 520) {
+              window.setupSections();
 
-    qs('.next', sliderNode).addEventListener('click', function (e) {
-      e.preventDefault();
-      slider.next();
-    });
+              setTimeout(function () {
+                $(sliderNode).find('.slide').animate({ height: '100%' }, 100);
+                window.setupSections();
+              }, 500);
+            }
+          }
+        }
+      });
 
-    qs('.prev', sliderNode).addEventListener('click', function (e) {
-      e.preventDefault();
-      slider.previous();
-    });
+      slider.on('dragMove', function (event, pointer, moveVector) {
+        if (moveVector.x > 0) {
+          prev.classList.add('active');
+        } else if (moveVector.x < 0) {
+          next.classList.add('active');
+        }
+      });
+
+      slider.on('dragEnd', function (event, pointer) {
+        next.classList.remove('active');
+        prev.classList.remove('active');
+      });
+
+      next.addEventListener('click', function () {
+        slider.next();
+      });
+
+      prev.addEventListener('click', function () {
+        slider.previous();
+      });
+    }
   });
 })(window);
