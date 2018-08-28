@@ -70,7 +70,18 @@ function qsAll(query) {
 
         if (topBound <= scrolled + 20 || topBound <= scrolled - 20 && bottomBound >= scrolled) {
           section.classList.add('current');
-          section.style.webkitTransform = 'translateY(' + (scrolled - topBound) * -1 + 'px)';
+
+          if (section.classList.contains('current')) {
+            TweenMax.to(section, 0.3, {
+              y: (scrolled - topBound) * -1
+            });
+          }
+
+          var nextMonthNode = section.nextSibling.nextSibling;
+
+          if (nextMonthNode) {
+            TweenMax.to(nextMonthNode, 0.3, { y: 0 });
+          }
         }
 
         if (topBound <= scrolled && bottomBound >= scrolled && currentMonth != month) {
@@ -104,10 +115,56 @@ function qsAll(query) {
 'use strict';
 
 (function (window) {
+  var sliders = qsAll('.slider--media');
+
+  sliders.forEach(function (sliderNode) {
+    $(sliderNode).append('\n      <button class="next"></button>\n      <button class="prev"></button>\n    ');
+
+    var next = qs('.next', sliderNode);
+    var prev = qs('.prev', sliderNode);
+
+    var slider = new Flickity(sliderNode, {
+      cellAlign: 'center',
+      draggable: true,
+      freeScroll: false,
+      wrapAround: true,
+      cellSelector: '.slide',
+      accesibility: true,
+      adaptiveHeight: false,
+      prevNextButtons: false,
+      pageDots: true
+    });
+
+    slider.on('dragMove', function (event, pointer, moveVector) {
+      if (moveVector.x > 0) {
+        prev.classList.add('active');
+      } else if (moveVector.x < 0) {
+        next.classList.add('active');
+      }
+    });
+
+    slider.on('dragEnd', function (event, pointer) {
+      next.classList.remove('active');
+      prev.classList.remove('active');
+    });
+
+    next.addEventListener('click', function () {
+      slider.next();
+    });
+
+    prev.addEventListener('click', function () {
+      slider.previous();
+    });
+  });
+})(window);
+'use strict';
+
+(function (window) {
   var sliders = qsAll('.slider');
 
   sliders.forEach(function (sliderNode) {
     var cards = $(sliderNode).find('.card');
+    var heights = [];
 
     if (window.innerWidth > 520 && cards.length > 3 || window.innerWidth <= 520 && cards.length > 1) {
 
@@ -125,16 +182,37 @@ function qsAll(query) {
         wrapAround: true,
         cellSelector: '.slide',
         accesibility: true,
-        adaptiveHeight: window.innerWidth <= 520,
+        adaptiveHeight: false,
         prevNextButtons: false,
         pageDots: window.innerWidth <= 520,
         on: {
           ready: function ready() {
+            cards.each(function () {
+              heights.push($(this).height());
+            });
+
+            var maxHeight = Math.max.apply(null, heights);
+
+            cards.each(function () {
+              if (window.innerWidth < 520) {
+                // maxHeight += 55;
+              }
+
+              $(this).height(maxHeight);
+            });
+
+            $(sliderNode).parent().addClass('section--collapsed');
+
+            // setTimeout(() => {
+            //   let sliderHeight = $(sliderNode).height();
+            //   $(sliderNode).height(sliderHeight + 40);
+            // }, 500);
+
+            // Настройка слайдов на десктопе
             if (window.innerWidth > 520) {
               window.setupSections();
 
               setTimeout(function () {
-                $(sliderNode).find('.slide').animate({ height: '100%' }, 100);
                 window.setupSections();
               }, 500);
             }
