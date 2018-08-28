@@ -34,6 +34,16 @@ function qsAll(query) {
 }
 'use strict';
 
+(function () {
+  var ill = qs('#illustration');
+
+  ill.addEventListener('load', function (e) {
+    console.log(e);
+    setupSections();
+  });
+})();
+'use strict';
+
 (function (window) {
 
   if (window.innerWidth > 520) {
