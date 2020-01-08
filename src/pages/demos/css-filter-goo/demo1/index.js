@@ -1,19 +1,28 @@
 import React, { useState } from 'react'
-import { goo, blob, colored } from './css-goo.module.css'
+import { goo, blob, colored } from './styles.module.css'
 
 const GooDemo1 = () => {
   const [isColored, toggleColored] = useState(0)
-
   const classNames = `${goo} ${isColored && colored}`
 
+  const toggleColor = () => toggleColored(!isColored)
+  const hadleClick = () => toggleColor()
+  const hadleKeyPress = event => {
+    console.log(event)
+  }
+
   return (
-    <div className={classNames} onClick={() => toggleColored(!isColored)}>
+    <button
+      role='button'
+      className={classNames}
+      onClick={hadleClick}
+      onKeyPress={hadleKeyPress}
+    >
       <div className={blob}></div>
       <div className={blob}></div>
       <div className={blob}></div>
       <div className={blob}></div>
-      <div className={blob}></div>
-    </div>
+    </button>
   )
 }
 
