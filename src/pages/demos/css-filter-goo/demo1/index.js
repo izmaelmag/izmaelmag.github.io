@@ -13,7 +13,6 @@ const GooDemo1 = () => {
 
   return (
     <button
-      role='button'
       className={classNames}
       onClick={hadleClick}
       onKeyPress={hadleKeyPress}
