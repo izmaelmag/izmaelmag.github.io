@@ -9,10 +9,10 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  background: #fafafa;
   position: relative;
   filter: blur(10px) contrast(20);
   cursor: pointer;
+  background: #fafafa;
 }
 
 .goo::before,
@@ -24,9 +24,12 @@
   background: #222;
   flex-shrink: 0;
   border-radius: 150px 150px 0 0;
+  transform: scale(1, 0.784);
+  transform-origin: 50% 100%;
 }
 
 .goo::after {
+  transform-origin: 50% 0;
   border-radius: 0 0 150px 150px;
 }
 

@@ -1,5 +1,5 @@
 body {
-  background: #f7f7f7;
+  background: #fafafa;
 }
 
 .layout {
@@ -13,14 +13,12 @@ body {
 }
 
 .cell {
-  width: 360px;
-  height: 640px;
-  /* border: 1px solid #fff;
-  box-shadow: -5px -5px 6px #fff, 3px 3px 7px #e6e6e6; */
+  width: 480px;
+  height: 480px;
 }
 
 .navigation {
-  width: 640px;
+  width: 480px;
   display: flex;
   align-items: center;
   justify-content: space-between;
