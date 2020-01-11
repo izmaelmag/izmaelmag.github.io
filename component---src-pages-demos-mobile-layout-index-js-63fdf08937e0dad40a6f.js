@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{AxQi:function(e,n,t){"use strict";t.r(n);var i=t("q1tI"),o=t.n(i);n.default=function(){return o.a.createElement("h1",null,"Mobile device layout")}}}]);
+//# sourceMappingURL=component---src-pages-demos-mobile-layout-index-js-63fdf08937e0dad40a6f.js.map
