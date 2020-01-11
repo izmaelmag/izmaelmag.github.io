@@ -1,9 +1,8 @@
 import React from 'react'
-import PageTitle from '../../../components/PageTitle'
 
 const MobileLayoutPage = () => {
   return(
-    <PageTitle>Mobile device layout</PageTitle>
+    <h1>Mobile device layout</h1>
   )
 }
 
