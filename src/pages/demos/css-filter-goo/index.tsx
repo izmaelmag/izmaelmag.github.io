@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { layout, cell, navigation } from './styles.module.css'
 
-import GooDemo1 from './demo1'
-import GooDemo2 from './demo2'
+import GooDemo1 from '../../../components/demos/css-goo/demo1/index'
+import GooDemo2 from '../../../components/demos/css-goo/demo2/index'
 
 
 const CssGoo = () => {

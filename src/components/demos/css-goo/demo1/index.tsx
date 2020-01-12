@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { goo, blob, colored } from './styles.module.css'
 
 const GooDemo1 = () => {
-  const [isColored, toggleColored] = useState(0)
+  const [isColored, toggleColored] = useState(false)
   const classNames = `${goo} ${isColored && colored}`
 
   const toggleColor = () => toggleColored(!isColored)
