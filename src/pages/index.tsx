@@ -17,9 +17,6 @@ const IndexPage = () => (
       <li>
         <Link$ to="/demos/css-filter-goo/">Goo Animation</Link$>
       </li>
-      <li>
-        <Link$ to="/demos/mobile-layout/">Mobile Layout</Link$>
-      </li>
     </ul>
   </div>
 )
