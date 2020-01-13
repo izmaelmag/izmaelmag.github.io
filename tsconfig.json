@@ -1,11 +1,21 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "components": ["src/components"]
-    },
-    "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Node"
-  }
+    "esModuleInterop": true,
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "jsx": "react",
+    "paths": {
+      "*": ["node_modules/*"],
+      "components/*": ["src/components/*"],
+      "pages/*": ["src/pages/*"],
+      "layouts/*": ["src/layouts/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "public", ".cache"]
 }

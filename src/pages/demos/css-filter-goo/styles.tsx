@@ -1,8 +1,6 @@
-body {
-  background: #fafafa;
-}
+import styled from 'styled-components'
 
-.layout {
+export const Layout$ = styled.div`
   max-width: 1024px;
   margin: 0 auto;
   padding: 20px;
@@ -10,16 +8,16 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+`
 
-.cell {
+export const Cell$ = styled.div`
   width: 480px;
   height: 480px;
-}
+`
 
-.navigation {
+export const Navigation$ = styled.nav`
   width: 480px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+`

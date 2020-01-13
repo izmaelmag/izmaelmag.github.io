@@ -1,17 +1,17 @@
 import React from 'react'
-import { goo, blobs, blob } from './styles.module.css'
+import { Goo$, Blobs$, Blob$ } from './styles'
 
 const GooDemo2 = () => {
   return(
-    <div className={goo}>
-      <div className={blobs}>
-        <div className={blob}></div>
-        <div className={blob}></div>
-        <div className={blob}></div>
-        <div className={blob}></div>
-        <div className={blob}></div>
-      </div>
-    </div>
+    <Goo$>
+      <Blobs$>
+        <Blob$ />
+        <Blob$ />
+        <Blob$ />
+        <Blob$ />
+        <Blob$ />
+      </Blobs$>
+    </Goo$>
   )
 }
 

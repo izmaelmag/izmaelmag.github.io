@@ -5,6 +5,10 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-helmet": "^5.0.15",
+    "@types/styled-components": "^4.4.2",
     "astroturf": "^0.10.2",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.18.12",

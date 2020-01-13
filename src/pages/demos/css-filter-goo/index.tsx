@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { layout, cell, navigation } from './styles.module.css'
+import { Layout$, Cell$, Navigation$ } from './styles'
 
-import GooDemo1 from '../../../components/demos/css-goo/demo1/index'
-import GooDemo2 from '../../../components/demos/css-goo/demo2/index'
+import GooDemo1 from 'components/demos/css-goo/demo1'
+import GooDemo2 from 'components/demos/css-goo/demo2'
+
 
 
 const CssGoo = () => {
@@ -22,16 +23,16 @@ const CssGoo = () => {
   }
   
   return (
-    <div className={layout}>
-      <div className={cell}>
+    <Layout$>
+      <Cell$>
         {Demos[currentDemo]}
-      </div>
+      </Cell$>
       
-      <nav className={navigation}>
+      <Navigation$>
         <button disabled={!currentDemo} onClick={nextDemo}>Previous</button>
         <button disabled={currentDemo === Demos.length - 1} onClick={previousDemo}>Next</button>
-      </nav>
-    </div>
+      </Navigation$>
+    </Layout$>
   )
 }
 

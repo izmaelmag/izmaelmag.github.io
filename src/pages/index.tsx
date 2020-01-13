@@ -7,7 +7,7 @@ const Link$ = styled(Link)`
   font-family: 'Montserrat', sans-serif;
 `
 
-import SEO from "../components/seo"
+import SEO from 'components/seo'
 
 const IndexPage = () => (
   <div>

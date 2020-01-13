@@ -1396,6 +1396,14 @@
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.3.tgz#856c99cdc1551d22c22b18b5402719affec9839a"
   integrity sha512-cS5owqtwzLN5kY+l+KgKdRJ/Cee8tlmQoGQuIE9tWnSmS3JMKzmxo2HIAk2wODMifGwO20d62xZQLYz+RLfXmw==
 
+"@types/hoist-non-react-statics@*":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
+  integrity sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==
+  dependencies:
+    "@types/react" "*"
+    hoist-non-react-statics "^3.3.0"
+
 "@types/json-schema@^7.0.3":
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.4.tgz#38fd73ddfd9b55abb1e1b2ed578cb55bd7b7d339"
@@ -1444,12 +1452,44 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react@*":
+"@types/react-dom@^16.9.4":
+  version "16.9.4"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.4.tgz#0b58df09a60961dcb77f62d4f1832427513420df"
+  integrity sha512-fya9xteU/n90tda0s+FtN5Ym4tbgxpq/hb/Af24dvs6uYnYn+fspaxw5USlw0R8apDNwxsqumdRoCoKitckQqw==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-helmet@^5.0.15":
+  version "5.0.15"
+  resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-5.0.15.tgz#af0370617307e9f062c6aee0f1f5588224ce646e"
+  integrity sha512-CCjqvecDJTXRrHG8aTc2YECcQCl26za/q+NaBRvy/wtm0Uh38koM2dpv2bG1xJV4ckz3t1lm2/5KU6nt2s9BWg==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-native@*":
+  version "0.60.30"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.60.30.tgz#33ab525194142a5e3b428e60f0e77e0d1dbd253d"
+  integrity sha512-Ho41o+6NBlv1K5q2Z+NREST3UsGahXn4V1to2D2U4bcn1hO5MGjzOdkruzsnN10WiP8hW33jvQE6eERClgwvJg==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^16.9.17":
   version "16.9.17"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.17.tgz#58f0cc0e9ec2425d1441dd7b623421a867aa253e"
   integrity sha512-UP27In4fp4sWF5JgyV6pwVPAQM83Fj76JOcg02X5BZcpSu5Wx+fP9RMqc2v0ssBoQIFvD5JdKY41gjJJKmw6Bg==
   dependencies:
     "@types/prop-types" "*"
+    csstype "^2.2.0"
+
+"@types/styled-components@^4.4.2":
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.4.2.tgz#709fa7afd7dc0963b8316a0159240f0fe19a026d"
+  integrity sha512-dngFx2PuGoy0MGE68eHayAmJvLSqWrnTe9w+DnQruu8PS+waWEsKmoBRhkzL2h2pK1OJhzJhVfuiz+oZa4etpA==
+  dependencies:
+    "@types/hoist-non-react-statics" "*"
+    "@types/react" "*"
+    "@types/react-native" "*"
     csstype "^2.2.0"
 
 "@types/tmp@^0.0.32":
