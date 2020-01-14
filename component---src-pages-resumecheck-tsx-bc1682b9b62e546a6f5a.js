@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{UkfB:function(e,t,n){"use strict";n.r(t);var a=n("q1tI"),r=n.n(a),i=(n("Wbzz"),n("vOnD"),n("H8eV"));t.default=function(){return r.a.createElement("div",null,r.a.createElement(i.a,{title:"Home",meta:[{name:"twitter:player",content:"http://resume.test/r/iK0JcbZgT"},{name:"twitter:player:width",content:"800"},{name:"twitter:player:height",content:"450"}]}),r.a.createElement("h1",null,"Test"))}}}]);
+//# sourceMappingURL=component---src-pages-resumecheck-tsx-bc1682b9b62e546a6f5a.js.map
