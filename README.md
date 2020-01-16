@@ -1,1 +1,1 @@
-[![Go to site](https://izmaelmag.github.io)
+https://izmaelmag.github.io
