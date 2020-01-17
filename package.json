@@ -23,6 +23,7 @@
     "gatsby-plugin-sharp": "^2.3.5",
     "gatsby-plugin-styled-components": "^3.1.17",
     "gatsby-plugin-typescript": "^2.1.26",
+    "gatsby-plugin-webfonts": "^1.1.2",
     "gatsby-source-filesystem": "^2.1.40",
     "gatsby-transformer-sharp": "^2.3.7",
     "gh-pages": "^2.2.0",
@@ -46,7 +47,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build && gh-pages -d public -b master",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop --host localhost --port 8000",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

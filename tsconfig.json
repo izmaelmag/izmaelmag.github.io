@@ -11,6 +11,7 @@
     "jsx": "react",
     "paths": {
       "*": ["node_modules/*"],
+      "constants/*": ["src/constants/*"],
       "components/*": ["src/components/*"],
       "pages/*": ["src/pages/*"],
       "layouts/*": ["src/layouts/*"]

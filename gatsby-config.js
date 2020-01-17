@@ -13,12 +13,16 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-typescript`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        fonts: [
-          'merriweather\400',
-          'oswald\500'
-        ]
+        fonts: {
+          google: [
+            {
+              family: "Oswald",
+              variants: ["300"],
+            }
+          ]
+        }
       }
     },
     {
@@ -43,6 +47,7 @@ module.exports = {
         src: path.join(__dirname, 'src'),
         pages: path.join(__dirname, 'src/pages'),
         layouts: path.join(__dirname, 'src/layouts'),
+        constants: path.join(__dirname, 'src/constants'),
         components: path.join(__dirname, 'src/components')
       }
     },
