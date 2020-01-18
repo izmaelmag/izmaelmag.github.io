@@ -13,9 +13,9 @@ export interface PageThemeI {
 
 export const PageThemes = {
   [ThemeNames.dark]: {
-    background: '#222',
-    text: '#f1f1f1',
-    gray: 'rgba(255, 255, 255, 0.3)'
+    background: '#101010',
+    text: '#fafafa',
+    gray: 'rgba(255, 255, 255, 0.1)'
   },
 
   [ThemeNames.light]: {

@@ -11,10 +11,12 @@
     "jsx": "react",
     "paths": {
       "*": ["node_modules/*"],
+      "demos/*": ["src/demos/*"],
+      "pages/*": ["src/pages/*"],
+      "utils/*": ["src/utils/*"],
+      "layouts/*": ["src/layouts/*"],
       "constants/*": ["src/constants/*"],
       "components/*": ["src/components/*"],
-      "pages/*": ["src/pages/*"],
-      "layouts/*": ["src/layouts/*"]
     }
   },
   "include": ["src/**/*"],

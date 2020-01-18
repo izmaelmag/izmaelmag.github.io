@@ -15,7 +15,10 @@ const IndexPage = () => (
 
     <ul>
       <li>
-        <Link$ to="/demos/css-filter-goo/">Goo Animation</Link$>
+        <Link$ to="/css-goo/">Goo Animation</Link$>
+      </li>
+      <li>
+        <Link$ to="/sine-series/">Sine Series</Link$>
       </li>
     </ul>
   </div>

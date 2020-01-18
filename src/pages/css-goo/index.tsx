@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import GooDemo1 from 'components/demos/css-goo/demo1'
-import GooDemo2 from 'components/demos/css-goo/demo2'
+import GooDemo1 from 'demos/css-goo/demo1'
+import GooDemo2 from 'demos/css-goo/demo2'
 
 const Demos = [<GooDemo1 />, <GooDemo2 />]
 const CssGoo = () => {
