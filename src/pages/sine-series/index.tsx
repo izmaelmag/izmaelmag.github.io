@@ -6,10 +6,7 @@ import { SquareGrid, Cell } from 'components/SquareGrid'
 
 const SineSeries = () => {
   return(
-    <PageLayout
-      layoutTheme={ThemeNames.dark}
-      title='Sine series'
-    >
+    <PageLayout layoutTheme={ThemeNames.dark} title='Sine series'>
       <SquareGrid gap={32}>
         <Cell linkTo='sine-series/sine-1'>1</Cell>
         <Cell linkTo=''>2</Cell>
