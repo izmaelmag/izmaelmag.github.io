@@ -14,12 +14,13 @@
       "demos/*": ["src/demos/*"],
       "pages/*": ["src/pages/*"],
       "utils/*": ["src/utils/*"],
+      "images/*": ["src/images/*"],
       "layouts/*": ["src/layouts/*"],
       "sketches/*": ["src/sketches/*"],
       "constants/*": ["src/constants/*"],
       "components/*": ["src/components/*"],
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "./custom.d.ts"],
   "exclude": ["node_modules", "public", ".cache"]
 }

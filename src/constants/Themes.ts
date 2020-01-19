@@ -12,18 +12,28 @@ export interface PageThemeI {
   }
 }
 
+const DarkTheme = {
+  background: '#101010',
+  text: '#fafafa',
+  textSecondary: 'rgba(255, 255, 255, 0.75)',
+  gray: 'rgba(255, 255, 255, 0.1)',
+}
+
+const LightTheme = {
+  background: '#fafafa',
+  text: '#222',
+  textSecondary: 'rgba(0, 0, 0, 0.5)',
+  gray: 'rgba(0, 0, 0, 0.1)',
+}
+
 export const PageThemes = {
   [ThemeNames.dark]: {
-    background: '#101010',
-    text: '#fafafa',
-    textSecondary: 'rgba(255, 255, 255, 0.75)',
-    gray: 'rgba(255, 255, 255, 0.1)'
+    ...DarkTheme,
+    inverted: LightTheme
   },
 
   [ThemeNames.light]: {
-    background: '#fafafa',
-    text: '#222',
-    textSecondary: 'rgba(0, 0, 0, 0.1)',
-    gray: 'rgba(0, 0, 0, 0.3)'
+    ...LightTheme,
+    inverted: DarkTheme
   },
 }

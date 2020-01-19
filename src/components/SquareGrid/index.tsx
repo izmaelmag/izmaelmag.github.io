@@ -49,7 +49,7 @@ const SquareGrid$: FunctionComponent<GridProps> = styled.div`
   grid-row-gap: ${({ gap }: GridProps) => gap}px;
 
   ${Media.Phone`
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   `}
 `
 
