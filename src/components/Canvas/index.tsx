@@ -1,52 +1,73 @@
 import React from 'react'
-import styled, { css, StyledComponent } from 'styled-components'
+import styled, { css } from 'styled-components'
 import fullscreenIcon from 'images/fullscreen.svg'
 import frameIcon from 'images/frame.svg'
+import SketchClass from 'sketches/index'
 
-export interface SketchParamsI {
-  ctx: CanvasRenderingContext2D,
-  canvas: HTMLCanvasElement
+type Controls = {
+  fullscreen?: boolean
 }
 
 interface CanvasPropsI {
   stretch?: boolean
   w?: number | string
   h?: number | string
-  fullscreen?: boolean
+  controls?: Controls
   bgColor?: string
-  sketch?: (params: SketchParamsI) => void
+  sketch?: SketchClass
   canvasProps?: React.HTMLProps<HTMLCanvasElement>
 }
 
-class Canvas extends React.Component<CanvasPropsI> {
+interface CanvasStateI {
+  isFullscreen?: boolean
+}
+
+interface CanvasInterface extends CanvasPropsI, CanvasStateI {}
+
+class Canvas extends React.Component<CanvasInterface> {
   canvasRef: React.RefObject<HTMLCanvasElement> = React.createRef()
 
-  state = {
+  state: CanvasStateI = {
     isFullscreen: false
   }
 
-  toggleFullScreen = () => this.setState({ isFullscreen: !this.state.isFullscreen })
+  runSketch = () => {
+    const { sketch } = this.props 
+
+    if (sketch) {
+      sketch.setCanvas(this.canvasRef.current)
+      sketch.run()
+    } else {
+      console.warn('Sketch is not provided')
+    }
+  }
+
+  toggleFullScreen = () => {
+    this.runSketch()
+    this.setState({
+      isFullscreen: !this.state.isFullscreen
+    })
+  }
+
+  componentDidUpdate = () => {
+    this.runSketch()
+  }
 
   componentDidMount() {
-    const canvas = this.canvasRef.current
-    const ctx = this.canvasRef.current.getContext('2d')
-
-    if (this.props.sketch) {
-      this.props.sketch({ ctx, canvas })
-    }
+    this.runSketch()
   }
 
   render() {
     const { isFullscreen } = this.state
-    const { canvasProps, fullscreen } = this.props
+    const { canvasProps, controls } = this.props
 
     return (
-      <CanvasContainer$ {...this.props} fullscreen={isFullscreen}>
+      <CanvasContainer$ {...this.props} isFullscreen={isFullscreen}>
         <canvas {...canvasProps} ref={this.canvasRef} />
 
-        {fullscreen && (
+        {controls.fullscreen && (
           <FullSreenButton$
-            fullscreen={isFullscreen}
+            isFullscreen={isFullscreen}
             onClick={this.toggleFullScreen}
           />
         )}
@@ -61,7 +82,7 @@ export default Canvas
 const CanvasContainer$ = styled.div`
   position: relative;
 
-  ${({ fullscreen, bgColor, w, h }: CanvasPropsI) => fullscreen ? css`
+  ${({ isFullscreen, bgColor, w, h }: CanvasInterface) => isFullscreen ? css`
     position: fixed;
     top: 0;
     left: 0;
@@ -96,10 +117,8 @@ const FullSreenButton$ = styled.button`
   cursor: pointer;
   opacity: 0.75;
   
-  ${({ fullscreen }: CanvasPropsI) => css`
-    background: url(${
-      fullscreen ? frameIcon : fullscreenIcon 
-    }) no-repeat center;
+  ${({ isFullscreen }: CanvasInterface) => css`
+    background: url(${isFullscreen ? frameIcon : fullscreenIcon}) no-repeat center;
     background-size: 32px;
   `}
 

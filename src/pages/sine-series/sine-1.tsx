@@ -2,29 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 import { ThemeNames } from 'constants/Themes'
 import { PageLayout } from 'layouts/PageLayout'
-import Canvas, { SketchParamsI } from 'components/Canvas'
-
-const sketch = ({ ctx, canvas }: SketchParamsI) => {
-  function start() {
-    draw()
-  }
-
-  function draw() {
-    window.requestAnimationFrame(draw);
-  }
-
-  start();
-}
+import Canvas from 'components/Canvas'
+import Sketch from 'sketches/sine/sine1'
 
 const SineSeries1: React.StatelessComponent = () => {
   return (
     <PageLayout
-      titleLink='sine-series/'
+      titleLink='/sine-series'
       layoutTheme={ThemeNames.dark}
       title='Sine series'
     >
       <SketchFrame$>
-        <Canvas fullscreen sketch={sketch} />
+        <Canvas controls={{ fullscreen: true }} sketch={Sketch} />
       </SketchFrame$>
     </PageLayout>
   )

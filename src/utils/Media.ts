@@ -7,13 +7,11 @@ const BreakPoints = {
 }
 
 const Media = {
-  Phone: (args: TemplateStringsArray) => {
-    console.log(args)
-    return css`
+  Phone: (args: TemplateStringsArray) => css`
     @media (max-width: ${BreakPoints.Phone}px) {
       ${args[0]}
     }
-  `},
+  `,
 
   Tablet: (args: TemplateStringsArray) => css`
     @media (max-width: ${BreakPoints.Tablet}) {
