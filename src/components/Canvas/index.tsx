@@ -44,6 +44,7 @@ class Canvas extends React.Component<CanvasInterface> {
 
   toggleFullScreen = () => {
     this.runSketch()
+    this.props.sketch.sizeSetup()
     this.setState({
       isFullscreen: !this.state.isFullscreen
     })

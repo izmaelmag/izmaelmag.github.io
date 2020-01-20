@@ -28,12 +28,12 @@ export default class SketchClass {
     this.ctx.canvas.height = this.CH = h
   }
 
-  init = () => {
+  init() {
     alert('You must specify init() and draw() methods')
   }
 
-  draw = () => {}
-  
+  draw() {}
+
   onResize = () => {
     this.sizeSetup()
   }

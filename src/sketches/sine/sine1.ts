@@ -1,25 +1,81 @@
 import SketchClass from 'sketches/index'
+import Polygon from 'sketches/Polygon'
 
 class Sketch extends SketchClass {
-  angle: number
+  shapes: Polygon[] = []
+  angle: number = 0
   
   init = () => {
     this.draw()
-    this.angle = 0
+    this.shapes.push(new Polygon({
+      center: {
+        x: this.CW / 2,
+        y: this.CH / 2
+      },
+      angle: Math.PI,
+      vertices: 10,
+      radius: 200,
+      ctx: this.ctx
+    }))
+
+    this.shapes.push(new Polygon({
+      center: {
+        x: this.CW / 2,
+        y: this.CH / 2
+      },
+      angle: Math.PI / 2,
+      vertices: 10,
+      radius: 150,
+      ctx: this.ctx
+    }))
+
+    this.shapes.push(new Polygon({
+      center: {
+        x: this.CW / 2,
+        y: this.CH / 2
+      },
+      angle: Math.PI,
+      vertices: 10,
+      radius: 100,
+      ctx: this.ctx
+    }))
+
+    this.shapes.push(new Polygon({
+      center: {
+        x: this.CW / 2,
+        y: this.CH / 2
+      },
+      angle: Math.PI / 2,
+      vertices: 10,
+      radius: 50,
+      ctx: this.ctx
+    }))
   }
 
   draw = (dt?: number) => {
-    const { ctx, angle, CW, CH } = this
-
+    const { ctx, CW, CH, shapes } = this
     ctx.clearRect(0, 0, CW, CH)
+    
+    this.angle += Math.PI / 360
+    
+    let n = 1
 
-    let x = CW / 2+ Math.sin(angle) * 50
-    let y = CH / 2+ Math.cos(angle) * 50
+    shapes.forEach((shape, i) => {
 
-    ctx.fillStyle = '#fff'
-    ctx.fillRect(x, y, 10, 10)
+      if (i % 2 === 0) {
+        n = -1
+        ctx.fillStyle = 'red'
+      } else {
+        n = 1
+        ctx.fillStyle = 'white'
+      }
 
-    this.angle += Math.PI / 180 * 2
+      const { radius } = shape.props
+
+      shape.update({
+        radius: radius + Math.sin((this.angle + 10*i) * 10) * 20
+      })
+    })
 
     window.requestAnimationFrame(this.draw)
   }
