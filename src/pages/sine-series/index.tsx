@@ -9,7 +9,7 @@ const SineSeries = () => {
     <PageLayout layoutTheme={ThemeNames.dark} title='Sine series'>
       <SquareGrid gap={32}>
         <Cell linkTo='sine-series/sine-1'>1</Cell>
-        <Cell linkTo=''>2</Cell>
+        <Cell linkTo='sine-series/sine-2'>2</Cell>
         <Cell linkTo=''>3</Cell>
         <Cell linkTo=''>4</Cell>
       </SquareGrid>
@@ -18,7 +18,3 @@ const SineSeries = () => {
 }
 
 export default SineSeries
-
-const CellContent$ = styled.button`
-
-`

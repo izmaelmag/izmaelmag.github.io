@@ -10,11 +10,15 @@ export default class SketchClass {
   CH: number = 0
   isRun: boolean = false
   resizeListener: void
+  dt: number = 0
+  tau: number = Math.PI*2
 
   setCanvas = (canvas: HTMLCanvasElement) => {
     this.canvas = canvas
     this.ctx = canvas.getContext('2d')
   }
+
+  tick = (speed: number = 1) => this.dt += speed
 
   start = () => {
     this.isRun = true

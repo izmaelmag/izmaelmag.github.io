@@ -6,20 +6,21 @@ import Media from 'utils/Media'
 import { Link } from 'gatsby'
 
 interface LayoutProps {
+  withBorder?: boolean
   title?: string
   subtitle?: string
   titleLink?: string
   layoutTheme?: ThemeNames
 }
 
-export const PageLayout: React.StatelessComponent<LayoutProps> = ({ children, title, layoutTheme, titleLink, subtitle }) => {
+export const PageLayout: React.StatelessComponent<LayoutProps> = ({ children, title, layoutTheme, titleLink, subtitle, withBorder = true }) => {
   return(
     <ThemeProvider theme={PageThemes[layoutTheme]}>
       <Page$>      
         <GlobalStyles/>
         
         <Content$>
-          <Header$>
+          <Header$ withBorder={withBorder}>
             {title && (
               <Title>
                 { titleLink ? <Link to={titleLink}>{title}</Link> : title }
@@ -65,8 +66,10 @@ const Content$ = styled.div`
 
 const Header$ = styled.header`
   padding: 32px 0;
-  border-bottom: 1px solid ${({ theme }: PageThemeI) => theme.gray};
-  margin-bottom: 32px;
+  border-bottom: ${({ theme, withBorder }: PageThemeI & LayoutProps) => {
+    return withBorder && `1px solid ${theme.gray}`
+  }};
+  margin-bottom: ${({ withBorder }) => withBorder ? '32px' : 0};
 
   ${Media.Phone`
     padding: 20px 0;

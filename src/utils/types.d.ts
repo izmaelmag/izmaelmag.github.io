@@ -20,3 +20,5 @@ interface PolygonI extends Shape {
   radius?: number
   angle?: number
 }
+
+type VectorT = number[]
