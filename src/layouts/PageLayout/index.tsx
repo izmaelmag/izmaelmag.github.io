@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import styled, { createGlobalStyle, ThemeProvider, StyledComponent } from 'styled-components'
 import Title from 'components/Title'
 import { PageThemes, ThemeNames, PageThemeI } from 'constants/Themes'
 import Media from 'utils/Media'
@@ -69,7 +69,7 @@ const Header$ = styled.header`
   border-bottom: ${({ theme, withBorder }: PageThemeI & LayoutProps) => {
     return withBorder && `1px solid ${theme.gray}`
   }};
-  margin-bottom: ${({ withBorder }) => withBorder ? '32px' : 0};
+  margin-bottom: ${({ withBorder }: PageThemeI & LayoutProps) => withBorder ? '32px' : 0};
 
   ${Media.Phone`
     padding: 20px 0;

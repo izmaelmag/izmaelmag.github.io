@@ -14,7 +14,7 @@ const getSine = ({
   fromZero = false,
   phase = 0
 }: oscillateParams): number => {
-  return amp * Math.sin(dt * (freq/60) + phase) + (fromZero ? amp/2 : 0)
+  return amp * Math.sin(dt * (freq/60) + phase) + (fromZero ? amp : 0)
 }
 
 const oscillate = (params: oscillateParams): number => {

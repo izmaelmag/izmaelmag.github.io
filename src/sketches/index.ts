@@ -30,6 +30,8 @@ export default class SketchClass {
 
     this.ctx.canvas.width = this.CW = w
     this.ctx.canvas.height = this.CH = h
+
+    this.ctx.clearRect(0, 0, w, h)
   }
 
   init() {

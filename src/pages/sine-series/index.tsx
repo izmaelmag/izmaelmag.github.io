@@ -10,8 +10,7 @@ const SineSeries = () => {
       <SquareGrid gap={32}>
         <Cell linkTo='sine-series/sine-1'>1</Cell>
         <Cell linkTo='sine-series/sine-2'>2</Cell>
-        <Cell linkTo=''>3</Cell>
-        <Cell linkTo=''>4</Cell>
+        <Cell linkTo='sine-series/sine-3'>3</Cell>
       </SquareGrid>
     </PageLayout>
   )
