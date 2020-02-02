@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { ThemeNames } from 'constants/Themes'
 import { PageLayout } from 'layouts/PageLayout'
 import Sketch from 'sketches/sine/sine3'
-import P5Wrapper from 'react-p5-wrapper'
+// import P5Wrapper from 'react-p5-wrapper'
+import P5Sketch from 'components/P5Sketch'
 
 const SineSeries1: React.StatelessComponent = () => {
   return (
@@ -14,7 +15,7 @@ const SineSeries1: React.StatelessComponent = () => {
       title='Sine series: Polygons'
     >
       <SketchFrame$>
-        <P5Wrapper sketch={Sketch} />
+        <P5Sketch sketch={Sketch} />
       </SketchFrame$>
     </PageLayout>
   )

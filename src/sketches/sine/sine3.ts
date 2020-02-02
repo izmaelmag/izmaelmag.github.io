@@ -3,6 +3,10 @@ import { ColorSchemeT, Ren, Rey } from 'constants/ColorSchemes'
 import polypoints from 'utils/geometry/polypoints'
 import oscillate from "utils/geometry/oscillate"
 
+import { facePoints } from 'constants/face'
+
+console.log(facePoints)
+
 const sketch = (p: p5) => {
   const Th = {
     main: p.color(Rey.main),
