@@ -29,14 +29,7 @@ export const shades = [
   "288.476 0, 264.492 29.3115, 293.806 17.9866, 417.058 0, 288.476 0",
 ]
 
-export const facePoints: number[][][] = face.map(figure => figure.split(', ').map(p => {
-  const [x, y] = p.split(' ')
+const getFiguresPoints = (figure: string[]): number[][][] => figure.map(f => f.split(', ').map(p => p.split(' ').map(parseInt)))
 
-  return [parseInt(x), parseInt(y)]
-}))
-
-export const shadePoints: number[][][] = shades.map(figure => figure.split(', ').map(p => {
-  const [x, y] = p.split(' ')
-
-  return [parseInt(x), parseInt(y)]
-}))
+export const facePoints: number[][][] = getFiguresPoints(face)
+export const shadePoints: number[][][] = getFiguresPoints(shades)
