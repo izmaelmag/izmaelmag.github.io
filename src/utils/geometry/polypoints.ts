@@ -1,8 +1,8 @@
 interface PolypointsProps {
-  v: number,
-  c: Point,
-  r: number,
-  a: number
+  v: number, // vertices
+  c: Point, // center
+  r: number, // radius
+  a: number // start angle
 }
 
 const polypoints = ({v, c, r, a}: PolypointsProps): Point[] => {

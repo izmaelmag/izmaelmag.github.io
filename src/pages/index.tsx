@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { ThemeNames } from 'constants/Themes'
 import { PageLayout } from 'layouts/PageLayout'
-import Sketch from 'sketches/face'
 import P5Sketch from 'components/P5Sketch'
 import Media from 'utils/Media'
 
@@ -13,9 +12,6 @@ const IndexPage: React.StatelessComponent = () => {
       titleLink='/sine-series'
       layoutTheme={ThemeNames.light}
     >
-      <SketchFrame$>
-        <P5Sketch sketch={Sketch} />
-      </SketchFrame$>
     </PageLayout>
   )
 }
