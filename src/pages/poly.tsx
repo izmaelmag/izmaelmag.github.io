@@ -12,8 +12,16 @@ const SineSeries1: FunctionComponent = () => {
     polygonsNumber: 25,
     gap: 20,
     amplitude: 10,
-    size: window.innerWidth < 512 ? window.innerWidth : 512
   })
+
+  try {
+    setSettings({
+      ...settings,
+      size: window.innerWidth < 512 ? window.innerWidth : 512
+    })
+  } catch(e) {
+    console.log(e)
+  }
 
   const [sketchIndex, setSketchIndex] = useState(0)
   const isLastSketch = sketchIndex === sketches.length - 1
