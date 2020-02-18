@@ -12,6 +12,7 @@ const SineSeries1: FunctionComponent = () => {
     polygonsNumber: 25,
     gap: 20,
     amplitude: 10,
+    size: 512
   })
 
   try {

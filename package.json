@@ -12,6 +12,7 @@
     "@types/styled-components": "^4.4.2",
     "astroturf": "^0.10.2",
     "babel-plugin-styled-components": "^1.10.6",
+    "babel-preset-gatsby": "^0.2.29",
     "gatsby": "^2.18.12",
     "gatsby-image": "^2.2.34",
     "gatsby-plugin-astroturf": "^0.2.1",
@@ -41,6 +42,12 @@
     "typescript": "^3.7.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@storybook/addon-actions": "^5.3.13",
+    "@storybook/addon-links": "^5.3.13",
+    "@storybook/addons": "^5.3.13",
+    "@storybook/react": "^5.3.13",
+    "babel-loader": "^8.0.6",
     "gatsby-plugin-root-import": "^2.0.5",
     "prettier": "^1.19.1"
   },
@@ -55,7 +62,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
