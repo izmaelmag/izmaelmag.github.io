@@ -13,7 +13,7 @@ const Range: React.StatelessComponent<RangePropsI & React.HTMLAttributes<HTMLInp
   return (
     <div>
       {title && <span>{title}</span>}
-      <input {...rest} />
+      <input type='range' {...rest} />
     </div>
   )
 }
