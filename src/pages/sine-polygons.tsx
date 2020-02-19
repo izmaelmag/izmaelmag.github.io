@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { ThemeNames } from 'constants/Themes'
 import { PageLayout } from 'layouts/PageLayout'
 import Sketch from 'sketches/sine-rectangles'
-// import P5Wrapper from 'react-p5-wrapper'
 import P5Sketch from 'components/P5Sketch'
 
 const SineSeries1: React.StatelessComponent = () => {
