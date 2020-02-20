@@ -1,20 +1,42 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react'
+import { InputElement$, RangeWrapper$, Label$ } from './styles'
 
 interface RangePropsI {
-  min: number
-  max: number
-  step: number
-
-  title?: string
+  values: [number, number, number]
+  initialValue?: number
+  onChange: (value: number) => void
+  label?: string
+  showValue?: boolean
 }
 
-const Range: React.StatelessComponent<RangePropsI & React.HTMLAttributes<HTMLInputElement>> = ({ title, ...rest }) => {
+const Range: React.FunctionComponent<RangePropsI & React.HTMLAttributes<HTMLInputElement>> = ({
+  label, onChange, showValue, initialValue, values
+}) => {
+  const [value, setValue] = useState(initialValue || values[0])
+
+  const handleChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
+    const value = Number(e.currentTarget.value)
+    setValue(value)
+    onChange(value)
+  }
+
   return (
-    <div>
-      {title && <span>{title}</span>}
-      <input type='range' {...rest} />
-    </div>
+    <RangeWrapper$>
+      {label && (
+        <Label$>
+          {label}
+          {showValue && `: ${value}`}
+        </Label$>
+      )}
+      <InputElement$
+        value={value}
+        onChange={handleChange}
+        type='range'
+        min={values[0]}
+        max={values[1]}
+        step={values[2]}
+      />
+    </RangeWrapper$>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions';
+import { action, decorate } from '@storybook/addon-actions';
 import Range from '.'
 
 export default {
@@ -9,9 +9,17 @@ export default {
 
 export const Simple = () => (
   <Range
-    min={1}
-    max={5}
-    step={1}
-    onChange={action('Set value')}
+    label='Test range input'
+    values={[1, 20, 1]}
+    onChange={action(`New value: `)}
+  />
+)
+
+export const WithValue = () => (
+  <Range
+    label='Value'
+    showValue
+    values={[0, 20, 2]}
+    onChange={action(`New value: `)}
   />
 )
