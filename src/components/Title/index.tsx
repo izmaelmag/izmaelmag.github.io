@@ -1,6 +1,4 @@
-import React from 'react'
 import styled from 'styled-components'
-import { PageThemeI } from 'constants/Themes'
 import Media from 'utils/Media'
 
 const Title = styled.h1`

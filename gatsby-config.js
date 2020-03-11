@@ -20,6 +20,10 @@ module.exports = {
             {
               family: "Oswald",
               variants: ["300"],
+            },
+            {
+              family: "Lato",
+              variants: ["400", "600", "700"],
             }
           ]
         }

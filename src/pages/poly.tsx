@@ -1,8 +1,9 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { FunctionComponent, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { ThemeNames } from 'constants/Themes'
 import { SketchGallery } from 'layouts/SketchGallery'
 import P5Sketch from 'components/P5Sketch'
+import Range from 'components/Range'
 import sketches from 'sketches/poly'
 import Media from 'utils/Media'
 
@@ -15,117 +16,78 @@ const SineSeries1: FunctionComponent = () => {
     size: 512
   })
 
-  try {
-    setSettings({
-      ...settings,
-      size: window.innerWidth < 512 ? window.innerWidth : 512
-    })
-  } catch(e) {
-    console.log(e)
-  }
+  useEffect(() => {
+    try {
+      setSettings({
+        ...settings,
+        size: window.innerWidth < 512 ? window.innerWidth : 512
+      })
+    } catch(e) {
+      console.log(e)
+    }
+  }, [])
 
   const [sketchIndex, setSketchIndex] = useState(0)
-  const isLastSketch = sketchIndex === sketches.length - 1
 
-  const setVerticesCount = (e: React.SyntheticEvent<HTMLInputElement>) => {
-    const vertices = Number(e.currentTarget.value)
-
+  const updateSettingsValue = (fieldName: string) => (value: number) => {
     setSettings({
       ...settings,
-      vertices
+      [fieldName]: value
     })
-  } 
-
-  const setGapSize = (e: React.SyntheticEvent<HTMLInputElement>) => {
-    const gap = Number(e.currentTarget.value)
-
-    setSettings({
-      ...settings,
-      gap
-    })
-  } 
-
-  const setPolygonsNumber = (e: React.SyntheticEvent<HTMLInputElement>) => {
-    const polygonsNumber = Number(e.currentTarget.value)
-
-    setSettings({
-      ...settings,
-      polygonsNumber
-    })
-  } 
-
-  const setAmplitude = (e: React.SyntheticEvent<HTMLInputElement>) => {
-    const amplitude = Number(e.currentTarget.value)
-
-    setSettings({
-      ...settings,
-      amplitude
-    })
-  } 
+  }
 
   return (
     <SketchGallery title='Polygons' layoutTheme={ThemeNames.light}>
       <div>
-        <Button$ disabled={!sketchIndex} onClick={() => setSketchIndex(sketchIndex - 1)}>
-          Previous
-        </Button$>
-
-        <Button$ disabled={isLastSketch} onClick={() => setSketchIndex(sketchIndex + 1)}>
-          Next
-        </Button$>
+        {sketches.map((sketch, i) => (
+          <Button$ disabled={sketchIndex === i} onClick={() => setSketchIndex(i)}>
+            {i+1}
+          </Button$>
+        ))}
       </div>
 
       <SketchFrame$>
         <P5Sketch sketch={sketches[sketchIndex](settings)} />
       </SketchFrame$>
 
-
       <Controls$>
         <ControlGroup$>
-          <ControlLabel$>Vertices: {settings.vertices}</ControlLabel$>
-          <input
-            value={settings.vertices}
-            type='range'
-            min={3}
-            max={8}
-            step={1}
-            onChange={setVerticesCount}
+          <Range
+            handleChange={updateSettingsValue('vertices')}
+            values={[2, 10, 1]}
+            initialValue={settings.vertices}
+            label='Vertices'
+            showValue
+          />
+        </ControlGroup$>
+        
+        <ControlGroup$>
+          <Range
+            handleChange={updateSettingsValue('polygonsNumber')}
+            values={[1, 50, 1]}
+            initialValue={settings.polygonsNumber}
+            label='Shapes count'
+            showValue
           />
         </ControlGroup$>
 
         <ControlGroup$>
-          <ControlLabel$>Zoom: {settings.gap}</ControlLabel$>
-          <input
-            value={settings.gap}
-            type='range'
-            min={5}
-            max={50}
-            step={1}
-            onChange={setGapSize}
+          <Range
+            handleChange={updateSettingsValue('amplitude')}
+            values={[0, 50, 1]}
+            initialValue={settings.amplitude}
+            label='Amplitude'
+            showValue
           />
         </ControlGroup$>
 
         <ControlGroup$>
-          <ControlLabel$>Count: {settings.polygonsNumber}</ControlLabel$>
-          <input
-            value={settings.polygonsNumber}
-            type='range'
-            min={1}
-            max={50}
-            step={1}
-            onChange={setPolygonsNumber}
-          />
-        </ControlGroup$>
-
-        <ControlGroup$>
-          <ControlLabel$>Amplitude: {settings.amplitude}</ControlLabel$>
-          <input
-            value={settings.amplitude}
-            type='range'
-            min={1}
-            max={50}
-            step={1}
-            onChange={setAmplitude}
+          <Range
+            handleChange={updateSettingsValue('gap')}
+            values={[5, 50, 1]}
+            initialValue={settings.gap}
+            label='Size'
+            showValue
           />
         </ControlGroup$>
       </Controls$>
@@ -134,12 +96,14 @@ const SineSeries1: FunctionComponent = () => {
   )
 }
 
-export default SineSeries1
+export default React.memo(SineSeries1)
 
 //#region Styled
 const SketchFrame$ = styled.div`
   position: relative;
   line-height: 0;
+  border-radius: 6px;
+  overflow: hidden;
 `
 
 const Controls$ = styled.div`
@@ -163,7 +127,7 @@ const Button$ = styled.button`
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  width: 140px;
+  padding: 0 16px;
   z-index: 10;
   cursor: pointer;
   margin-bottom: 16px;
@@ -174,22 +138,18 @@ const Button$ = styled.button`
 
   &:first-child {
     border-radius: 50px 0 0 50px;
-    border-right: 1px solid #000;
+    border-right: 1px solid #333;
   }
 
   &:last-child {
     border-radius: 0 50px 50px 0;
   }
 
-  &:disabled {
-    opacity: 0.2;
-    cursor: default;
-  }
-
+  &:disabled,
   &:disabled:hover {
-    opacity: 0.2;
     cursor: default;
-    background: #333;
+    background: #999;
+    color: #000 !important;
   }
 `
 
@@ -207,15 +167,5 @@ const ControlGroup$ = styled.div`
   ${Media.Phone`
     width: 100%;
   `}
-`
-
-const ControlLabel$ = styled.span`
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-family: sans-serif;
-  margin-right: 10px;
-  flex-shrink: 0;
 `
 //#endregion

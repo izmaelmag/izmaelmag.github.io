@@ -4,20 +4,20 @@ import { InputElement$, RangeWrapper$, Label$ } from './styles'
 interface RangePropsI {
   values: [number, number, number]
   initialValue?: number
-  onChange: (value: number) => void
+  handleChange: (value: number) => void
   label?: string
   showValue?: boolean
 }
 
 const Range: React.FunctionComponent<RangePropsI & React.HTMLAttributes<HTMLInputElement>> = ({
-  label, onChange, showValue, initialValue, values
+  label, handleChange, showValue, initialValue, values
 }) => {
   const [value, setValue] = useState(initialValue || values[0])
 
-  const handleChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
+  const _handleChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
     const value = Number(e.currentTarget.value)
     setValue(value)
-    onChange(value)
+    handleChange(value)
   }
 
   return (
@@ -30,7 +30,7 @@ const Range: React.FunctionComponent<RangePropsI & React.HTMLAttributes<HTMLInpu
       )}
       <InputElement$
         value={value}
-        onChange={handleChange}
+        onChange={_handleChange}
         type='range'
         min={values[0]}
         max={values[1]}
