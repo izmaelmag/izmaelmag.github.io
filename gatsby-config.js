@@ -22,8 +22,8 @@ module.exports = {
               variants: ["300"],
             },
             {
-              family: "Lato",
-              variants: ["400", "600", "700"],
+              family: "Montserrat",
+              variants: ["400", "600", "900"],
             }
           ]
         }

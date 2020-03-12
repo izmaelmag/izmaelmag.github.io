@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import Media from 'utils/Media'
 
 const Title = styled.h1`
-  font-family: 'oswald';
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   text-transform: uppercase;
   font-size: 48px;
   letter-spacing: 2px;

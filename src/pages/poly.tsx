@@ -4,6 +4,7 @@ import { ThemeNames } from 'constants/Themes'
 import { SketchGallery } from 'layouts/SketchGallery'
 import P5Sketch from 'components/P5Sketch'
 import Range from 'components/Range'
+import Pagination from 'components/Pagination'
 import sketches from 'sketches/poly'
 import Media from 'utils/Media'
 
@@ -15,6 +16,11 @@ const SineSeries1: FunctionComponent = () => {
     amplitude: 10,
     size: 512
   })
+  const [sketchIndex, setSketchIndex] = useState(0)
+
+  const sketchItems = sketches.map((sketch, i) => ({
+    onClick: () => setSketchIndex(i)
+  }))
 
   useEffect(() => {
     try {
@@ -27,7 +33,6 @@ const SineSeries1: FunctionComponent = () => {
     }
   }, [])
 
-  const [sketchIndex, setSketchIndex] = useState(0)
 
   const updateSettingsValue = (fieldName: string) => (value: number) => {
     setSettings({
@@ -38,13 +43,7 @@ const SineSeries1: FunctionComponent = () => {
 
   return (
     <SketchGallery title='Polygons' layoutTheme={ThemeNames.light}>
-      <div>
-        {sketches.map((sketch, i) => (
-          <Button$ disabled={sketchIndex === i} onClick={() => setSketchIndex(i)}>
-            {i+1}
-          </Button$>
-        ))}
-      </div>
+      <Pagination items={sketchItems} activeIndex={sketchIndex} />
 
       <SketchFrame$>
         <P5Sketch sketch={sketches[sketchIndex](settings)} />
@@ -117,40 +116,6 @@ const Controls$ = styled.div`
     width: 100%;
     flex-direction: column;
   `}
-`
-
-const Button$ = styled.button`
-  border: none;
-  background: #333;
-  height: 32px;
-  line-height: 32px;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  padding: 0 16px;
-  z-index: 10;
-  cursor: pointer;
-  margin-bottom: 16px;
-
-  &:hover {
-    background: #000;
-  }
-
-  &:first-child {
-    border-radius: 50px 0 0 50px;
-    border-right: 1px solid #333;
-  }
-
-  &:last-child {
-    border-radius: 0 50px 50px 0;
-  }
-
-  &:disabled,
-  &:disabled:hover {
-    cursor: default;
-    background: #999;
-    color: #000 !important;
-  }
 `
 
 const ControlGroup$ = styled.div`
