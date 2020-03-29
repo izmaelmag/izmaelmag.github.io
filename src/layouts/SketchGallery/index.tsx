@@ -18,6 +18,8 @@ export const SketchGallery: React.StatelessComponent<LayoutProps> = ({ children,
         
         <Content$>
           <Header$>
+            <HomeLink$ to='/'>Main page</HomeLink$>
+
             {title && <Title>{title}</Title>}
           </Header$>
 
@@ -60,10 +62,22 @@ const Content$ = styled.div`
 const Header$ = styled.header`
   padding: 32px 0;
   font-size: 32px;
+  text-align: center;
 
   ${Media.Phone`
     padding: 20px 0;
     font-size: 24px;
   `}
+`
+
+const HomeLink$ = styled(Link)`
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: ${({ theme }: PageThemeI ) => theme.accent};
+  font-family: 'Motserrat', sans-serif;
+  font-weight: 900;
+  text-decoration: none;
+  margin-bottom: 15px;
 `
 //endregion

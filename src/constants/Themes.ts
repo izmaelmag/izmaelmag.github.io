@@ -8,7 +8,8 @@ export interface PageThemeI {
     background: string,
     text: string,
     textSecondary: string,
-    gray: string
+    gray: string,
+    accent: string
   }
 }
 
@@ -17,6 +18,7 @@ const DarkTheme = {
   text: '#fafafa',
   textSecondary: 'rgba(255, 255, 255, 0.75)',
   gray: 'rgba(255, 255, 255, 0.1)',
+  accent: '#ffb700'
 }
 
 const LightTheme = {
@@ -24,6 +26,7 @@ const LightTheme = {
   text: '#222',
   textSecondary: 'rgba(0, 0, 0, 0.5)',
   gray: 'rgba(0, 0, 0, 0.1)',
+  accent: '#ffb700'
 }
 
 export const PageThemes = {

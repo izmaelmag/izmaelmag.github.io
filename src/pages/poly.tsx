@@ -6,7 +6,7 @@ import P5Sketch from 'components/P5Sketch'
 import Range from 'components/Range'
 import Pagination from 'components/Pagination'
 import sketches from 'sketches/poly'
-import Media from 'utils/Media'
+import { Controls$, ControlGroup$ } from 'components/Controls'
 
 const SineSeries1: FunctionComponent = () => {
   const [settings, setSettings] = useState({
@@ -103,34 +103,5 @@ const SketchFrame$ = styled.div`
   line-height: 0;
   border-radius: 6px;
   overflow: hidden;
-`
-
-const Controls$ = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 512px;
-
-  ${Media.Phone`
-    width: 100%;
-    flex-direction: column;
-  `}
-`
-
-const ControlGroup$ = styled.div`
-  width: 240px;
-  margin: 10px 0 0;
-  display: flex;
-  align-items: center;
-
-  input {
-    display: block;
-    flex: 1 0;
-  }
-
-  ${Media.Phone`
-    width: 100%;
-  `}
 `
 //#endregion
