@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Colors, SansSerif, UnderlineText } from 'constants/Styles';
+import Media from 'utils/Media'
 
 const CommonLayout: React.FunctionComponent = (props) => {
   return (
@@ -48,6 +49,10 @@ const GlobalStyles$ = createGlobalStyle`
     &:last-child {
       margin-bottom: 0;
     }
+
+    ${Media.Phone`
+      font-size: 14px;
+    `}
   }
 
   a {

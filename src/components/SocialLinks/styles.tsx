@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 import { Colors, UnderlineText } from 'constants/Styles'
+import Media from 'utils/Media'
 
 export const SocialLinks$ = styled.nav`
   display: flex;
   flex-direction: row;
   position: relative;
+  margin-top: 24px;
 
   &::before {
     content: '';
@@ -36,9 +38,17 @@ export const SocialLink$ = styled.a`
     right: -18px;
     color: ${Colors.Blue(25)};
     pointer-events: none;
+
+    ${Media.Phone`
+      right: -10px;
+    `}
   }
 
   &:last-child::after {
     display: none;
   }
+
+  ${Media.Phone`
+    margin-right: 16px;
+  `}
 `

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { SansSerif, Colors } from 'constants/Styles'
+import Media from 'utils/Media'
 
 export const Personal$ = styled.div`
   ${SansSerif}
@@ -22,11 +23,21 @@ export const Photo$ = styled.div`
     display: block;
     height: 100%;
   }
+
+  ${Media.Phone`
+    width: 48px;
+    height: 48px;
+  `}
 `
 
 export const Info$ = styled.div`
   margin-left: 16px;
   margin-top: 32px;
+
+  ${Media.Phone`
+    margin-left: 8px;
+    margin-top: 20px;
+  `}
 `
 
 export const Name$ = styled.h1`
@@ -34,6 +45,10 @@ export const Name$ = styled.h1`
   font-size: 32px;
   font-weight: 800;
   margin-bottom: 4px;
+
+  ${Media.Phone`
+    font-size: 24px;
+  `}
 `
 
 export const Position$ = styled.h2`
