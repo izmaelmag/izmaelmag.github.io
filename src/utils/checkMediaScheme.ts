@@ -4,7 +4,6 @@ export default () => {
   try {
     isDark = window.matchMedia("(prefers-color-scheme: dark)").matches
   } catch (error) {
-    console.error(error)
   }
 
   return isDark

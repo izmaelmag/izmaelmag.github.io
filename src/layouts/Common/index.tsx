@@ -5,8 +5,10 @@ import Media from 'utils/Media'
 import checkMediaScheme from 'utils/checkMediaScheme'
 
 const CommonLayout: React.FunctionComponent = (props) => {
+  const isDark = checkMediaScheme()
+
   return (
-    <ThemeProvider theme={{ isDark: checkMediaScheme() }}>
+    <ThemeProvider theme={{ isDark }}>
       <Body$>
         <GlobalStyles$ />
         {props.children}
