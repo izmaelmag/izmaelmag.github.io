@@ -2,6 +2,7 @@ import React from 'react'
 import * as photo1x from 'images/photo@1x.png'
 import * as photo2x from 'images/photo@2x.png'
 import getSrcSet from 'utils/getSrcSet'
+import Toggle from 'components/Toggle'
 import {
   Personal$,
   Photo$,

@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { SansSerif, Colors } from 'constants/Styles'
+import { SansSerif, Colors, CSSColorsNames } from 'constants/Styles'
 import Media from 'utils/Media'
 
 export const Personal$ = styled.div`
   ${SansSerif}
   display: flex;
   flex-direction: row;
-  color: ${Colors.Black(80)};
+  color: var(${CSSColorsNames.text});
 `
 
 export const Photo$ = styled.div`

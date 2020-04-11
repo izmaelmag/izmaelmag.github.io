@@ -27,8 +27,8 @@ const Links = [
 const SocialLinks = () => {
   return (
     <SocialLinks$>
-      {Links.map(({ title, url }) => (
-        <SocialLink$ target='_blank' href={url}>{title}</SocialLink$>
+      {Links.map(({ title, url }, key) => (
+        <SocialLink$ key={key} target='_blank' href={url}>{title}</SocialLink$>
       ))}
     </SocialLinks$>
   )

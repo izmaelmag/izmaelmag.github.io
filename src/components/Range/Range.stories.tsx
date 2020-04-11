@@ -11,7 +11,7 @@ export const Simple = () => (
   <Range
     label='Test range input'
     values={[1, 20, 1]}
-    onChange={action(`New value: `)}
+    handleChange={action(`New value: `)}
   />
 )
 
@@ -20,6 +20,6 @@ export const WithValue = () => (
     label='Value'
     showValue
     values={[0, 20, 2]}
-    onChange={action(`New value: `)}
+    handleChange={action(`New value: `)}
   />
 )
