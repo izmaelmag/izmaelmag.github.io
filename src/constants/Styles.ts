@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import Media from 'utils/Media'
 
 type UnderlineTextOptsT = {
   color?: string,
@@ -29,22 +30,40 @@ export const CSSColorsNames = {
   }
 }
 
-export const DarkCSSColors = css`
-  --colors-background: ${Colors.Black(90)};
-  --colors-text: ${Colors.White(90)};
-  --colors-link: ${Colors.Blue()};
-  --colors-link-hover: ${Colors.Blue()};
-  --colors-link-underline: ${Colors.Blue(15)};
-  --colors-link-hover-underline: ${Colors.Blue(70)};
-`
+export const CSSColors = css`
+  @media (prefers-color-scheme: dark) {
+    ${CSSColorsNames.background}:
+     ${Colors.Black(90)};
 
-export const LightCSSColors = css`
-  --colors-background: ${Colors.Gray100};
-  --colors-text: ${Colors.Black(85)};
-  --colors-link: ${Colors.Blue()};
-  --colors-link-hover: ${Colors.Blue()};
-  --colors-link-underline: ${Colors.Blue(15)};
-  --colors-link-hover-underline: ${Colors.Blue(70)};
+    ${CSSColorsNames.text}:
+      ${Colors.White(90)};
+    
+    ${CSSColorsNames.link.text}:
+      ${Colors.Blue()};
+    ${CSSColorsNames.link.hover.text}:
+      ${Colors.Blue()};
+
+    ${CSSColorsNames.link.underline}:
+      ${Colors.Blue(15)};
+    ${CSSColorsNames.link.hover.underline}:
+      ${Colors.Blue(70)};
+  }
+
+  ${CSSColorsNames.background}:
+    ${Colors.Gray100};
+  ${CSSColorsNames.text}:
+    ${Colors.Black(85)};
+  
+  ${CSSColorsNames.link.text}:
+    ${Colors.Blue()};
+  ${CSSColorsNames.link.hover.text}:
+    ${Colors.Blue()};
+  
+  ${CSSColorsNames.link.underline}:
+    ${Colors.Blue(15)};
+  ${CSSColorsNames.link.hover.underline}:
+    ${Colors.Blue(70)};
+
 `
 
 export const UnderlineText = ({

@@ -1,35 +1,30 @@
 import React from 'react';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { SansSerif, UnderlineText, DarkCSSColors, LightCSSColors } from 'constants/Styles';
+import styled, { createGlobalStyle } from 'styled-components';
+import { SansSerif, UnderlineText, CSSColors, CSSColorsNames } from 'constants/Styles';
 import Media from 'utils/Media'
-import checkMediaScheme from 'utils/checkMediaScheme'
 
 const CommonLayout: React.FunctionComponent = (props) => {
-  const isDark = checkMediaScheme()
-
   return (
-    <ThemeProvider theme={{ isDark }}>
-      <Body$>
-        <GlobalStyles$ />
-        {props.children}
-      </Body$>
-    </ThemeProvider>
-  );
+    <Body$>
+      <GlobalStyles$ />
+      {props.children}
+    </Body$>
+  )
 };
 
 export default CommonLayout
 
 const Body$ = styled.div`
-  ${({ theme }) => theme.isDark ? DarkCSSColors : LightCSSColors}
-
   width: 100%;
   min-height: 100%;
-  background: var(--colors-background);
+  background: var(${CSSColorsNames.background});
 `;
+
 
 const GlobalStyles$ = createGlobalStyle`
   body, html {
     ${SansSerif}
+    ${CSSColors}
     margin: 0;
     width: 100vw;
     min-height: 100vh;
@@ -46,7 +41,7 @@ const GlobalStyles$ = createGlobalStyle`
   p {
     font-size: 16px;
     line-height: 1.5;
-    color: var(--colors-text);
+    color: var(${CSSColorsNames.text});
     margin: 10px 0;
 
     &:first-child {
@@ -63,13 +58,13 @@ const GlobalStyles$ = createGlobalStyle`
   }
 
   a {
-    color: var(--colors-link);
+    color: var(${CSSColorsNames.link.text});
     text-decoration: none;
     font-weight: 500;
-    ${UnderlineText({ color: `var(--colors-link-underline)`, position: 1.2 })}
+    ${UnderlineText({ color: `var(${CSSColorsNames.link.underline})`, position: 1.2 })}
     
     &:hover {
-      ${UnderlineText({ color: `var(--colors-link-hover-underline)`, position: 1.2 })}
+      ${UnderlineText({ color: `var(${CSSColorsNames.link.hover.underline})`, position: 1.2 })}
     }
   }
 `;

@@ -29,7 +29,7 @@ const Media = {
     @media (min-width: ${BreakPoints.Laptop+1}px) {
       ${args};
     }
-  `,
+  `
 }
 
 export default Media

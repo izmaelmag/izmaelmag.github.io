@@ -18,10 +18,6 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: "Oswald",
-              variants: ["300"],
-            },
-            {
               family: "Montserrat",
               variants: ["400", "600", "800", "900"],
             }
@@ -39,7 +35,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        ssr: true,
+        ssr: false,
         displayName: false, 
         minify: true,
         pure: true
