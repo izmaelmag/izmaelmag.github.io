@@ -1,10 +1,4 @@
 import { css } from 'styled-components'
-import Media from 'utils/Media'
-
-type UnderlineTextOptsT = {
-  color?: string,
-  position?: number
-}
 
 export const SansSerif = css`
   font-family: 'Montserrat', sans-serif;
@@ -17,7 +11,7 @@ export const Colors = {
   Gray100: '#FAFAFA'
 }
 
-export const CSSColorsNames = {
+export const CSSColorNames = {
   background: '--colors-background',
   text: '--colors-text',
   link: {
@@ -30,41 +24,59 @@ export const CSSColorsNames = {
   }
 }
 
-export const CSSColors = css`
+export const CSSProps = {
+  background: `var(${CSSColorNames.background})`,
+  text: `var(${CSSColorNames.text})`,
+  link: {
+    text: `var(${CSSColorNames.link.text})`,
+    underline: `var(${CSSColorNames.link.underline})`,
+    hover: {
+      text: `var(${CSSColorNames.link.hover.text})`,
+      underline: `var(${CSSColorNames.link.hover.underline})`
+    },
+  }
+}
+
+
+export const CSSColorSchemes = css`
   @media (prefers-color-scheme: dark) {
-    ${CSSColorsNames.background}:
+    ${CSSColorNames.background}:
      ${Colors.Black(90)};
 
-    ${CSSColorsNames.text}:
+    ${CSSColorNames.text}:
       ${Colors.White(90)};
     
-    ${CSSColorsNames.link.text}:
+    ${CSSColorNames.link.text}:
       ${Colors.Blue()};
-    ${CSSColorsNames.link.hover.text}:
+    ${CSSColorNames.link.hover.text}:
       ${Colors.Blue()};
 
-    ${CSSColorsNames.link.underline}:
+    ${CSSColorNames.link.underline}:
       ${Colors.Blue(15)};
-    ${CSSColorsNames.link.hover.underline}:
+    ${CSSColorNames.link.hover.underline}:
       ${Colors.Blue(70)};
   }
 
-  ${CSSColorsNames.background}:
+  ${CSSColorNames.background}:
     ${Colors.Gray100};
-  ${CSSColorsNames.text}:
+  ${CSSColorNames.text}:
     ${Colors.Black(85)};
   
-  ${CSSColorsNames.link.text}:
+  ${CSSColorNames.link.text}:
     ${Colors.Blue()};
-  ${CSSColorsNames.link.hover.text}:
+  ${CSSColorNames.link.hover.text}:
     ${Colors.Blue()};
   
-  ${CSSColorsNames.link.underline}:
+  ${CSSColorNames.link.underline}:
     ${Colors.Blue(15)};
-  ${CSSColorsNames.link.hover.underline}:
+  ${CSSColorNames.link.hover.underline}:
     ${Colors.Blue(70)};
-
 `
+
+type UnderlineTextOptsT = {
+  color?: string,
+  position?: number
+}
 
 export const UnderlineText = ({
   color = 'currentColor',

@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { SansSerif, Colors, CSSColorsNames } from 'constants/Styles'
+import { SansSerif, Colors, CSSProps } from 'constants/Styles'
 import Media from 'utils/Media'
 
 export const Personal$ = styled.div`
   ${SansSerif}
   display: flex;
   flex-direction: row;
-  color: var(${CSSColorsNames.text});
+  color: ${CSSProps.text};
 `
 
 export const Photo$ = styled.div`
@@ -17,7 +17,7 @@ export const Photo$ = styled.div`
   object-fit: cover;
   border-radius: 6px;
   overflow: hidden;
-  background: ${Colors.Black(10)};
+  background: ${CSSProps.background};
 
   img {
     display: block;
