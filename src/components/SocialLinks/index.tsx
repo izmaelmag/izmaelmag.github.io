@@ -3,16 +3,16 @@ import { SocialLinks$, SocialLink$ } from './styles'
 
 const Links = [
   {
+    title: 'github',
+    url: 'https://github.com/izmaelmag'
+  },
+  {
     title: 'twitter',
     url: 'https://twitter.com/tiredpieceofman'
   },
   {
     title: 'instagram',
     url: 'https://www.instagram.com/izmaelmag/'
-  },
-  {
-    title: 'codepen',
-    url: 'https://codepen.io/dead_seagull'
   },
   {
     title: 'cv',

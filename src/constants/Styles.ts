@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import Media from 'utils/Media'
 
 export const SansSerif = css`
   font-family: 'Montserrat', sans-serif;
@@ -37,9 +38,10 @@ export const CSSProps = {
   }
 }
 
+export const darkMedia = 'prefers-color-scheme: dark'
 
 export const CSSColorSchemes = css`
-  @media (prefers-color-scheme: dark) {
+  @media (${darkMedia}) {
     ${CSSColorNames.background}:
      ${Colors.Black(90)};
 
@@ -85,5 +87,5 @@ export const UnderlineText = ({
   background-image: linear-gradient(to right, ${color} 100%, ${color} 0%);
   background-position: 0 ${position}em;
   background-repeat: repeat-x;
-  background-size: 1px 1px;
+  background-size: 1px 0.5px;
 `

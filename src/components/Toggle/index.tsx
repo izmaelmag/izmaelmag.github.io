@@ -1,26 +1,35 @@
 import React, { useState } from 'react'
-import { $Toggle } from './styles'
+import { ToggleWrapper$, Toggle$, Pin$, Label$ } from './styles'
+import { ThemeProvider } from 'styled-components'
 
 interface TogglePropsI {
-  initialState?: boolean
+  label?: string
+  state?: boolean
   onChange: (state: boolean) => void
 }
 
 const Toggle = ({
   onChange,
-  initialState = false
+  state = false, 
+  label
 }: TogglePropsI) => {
-  const [state, setState] = useState(initialState)
+  const [isActive, setState] = useState(state)
 
   const handleClick = () => {
-    setState(!state)
-    onChange(!state)
+    setState(!isActive)
+    onChange(!isActive)
   }
 
   return (
-    <$Toggle onClick={handleClick}>
-      <input type="checkbox" defaultChecked={state} />
-    </$Toggle>
+    <ThemeProvider theme={{ isActive }}>
+      <ToggleWrapper$>
+        { label && <Label$>{label}</Label$>}
+
+        <Toggle$ onClick={handleClick}>
+          <Pin$ />
+        </Toggle$>
+      </ToggleWrapper$>
+    </ThemeProvider>
   )
 }
 

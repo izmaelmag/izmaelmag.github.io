@@ -13,6 +13,8 @@ const IndexPage = () => {
           <Personal />
         </MainHeader$>
 
+        <SocialLinks />
+
         <Info$>
           <p>Currently working on UI and resume templates at <a target='_blank' href='https://resume.io'>Resume.io</a></p>
           <p>My hobbies are generative arts and animations</p>
@@ -22,7 +24,6 @@ const IndexPage = () => {
           <p>Started web developers community <a target='_black' href='https://www.instagram.com/dev_seagulls/'>Dev Seagulls</a> at my hometown Makhachkala. Organized meetups and hackatons, gave talks and lessons about good UI and web design.</p>
         </Info$>
         
-        <SocialLinks />
       </Page$>
     </CommonLayout>
   )
@@ -44,16 +45,15 @@ const Page$ = styled.div`
 `
 
 const MainHeader$ = styled.div`
-  margin-bottom: 28px;
+  margin-bottom: 12px;
   transform: translateX(-80px);
 
   ${Media.Phone`
     transform: translateX(0px);
-    margin-bottom: 20px;
   `}
 `
 
 const Info$ = styled.main`
   max-width: 540px;
-  margin-bottom: auto;
+  margin-top: 24px;
 `

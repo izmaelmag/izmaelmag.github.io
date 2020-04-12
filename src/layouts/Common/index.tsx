@@ -20,7 +20,6 @@ const Body$ = styled.div`
   background: ${CSSProps.background};
 `;
 
-
 const GlobalStyles$ = createGlobalStyle`
   body, html {
     ${SansSerif}

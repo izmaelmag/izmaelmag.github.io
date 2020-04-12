@@ -19,14 +19,20 @@ const Media = {
     }
   `,
 
-  Laptop: (args: TemplateStringsArray)=> css`
+  Laptop: (args: TemplateStringsArray) => css`
     @media (max-width: ${BreakPoints.Laptop}px) {
       ${args};
     }
   `,
 
-  Desktop: (args: TemplateStringsArray)=> css`
+  Desktop: (args: TemplateStringsArray) => css`
     @media (min-width: ${BreakPoints.Laptop+1}px) {
+      ${args};
+    }
+  `,
+  
+  DarkMode: (args: TemplateStringsArray) => `
+    @media (prefers-color-scheme: dark) {
       ${args};
     }
   `
