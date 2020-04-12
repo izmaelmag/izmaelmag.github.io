@@ -1,18 +1,22 @@
 import React, { useState } from 'react'
-import { ToggleWrapper$, Toggle$, Pin$, Label$ } from './styles'
+import { ToggleWrapper$, Toggle$, Pin$, Icon$, Label$ } from './styles'
 import { ThemeProvider } from 'styled-components'
 
 interface TogglePropsI {
   label?: string
   state?: boolean
+  icon?: Element
+  withText?: boolean
   onChange: (state: boolean) => void
 }
 
-const Toggle = ({
+const Toggle: React.FunctionComponent<TogglePropsI> = ({
   onChange,
-  state = false, 
-  label
-}: TogglePropsI) => {
+  withText,
+  state,
+  label,
+  children
+}) => {
   const [isActive, setState] = useState(state)
 
   const handleClick = () => {
@@ -21,12 +25,18 @@ const Toggle = ({
   }
 
   return (
-    <ThemeProvider theme={{ isActive }}>
+    <ThemeProvider theme={{ isActive, withText }}>
       <ToggleWrapper$>
         { label && <Label$>{label}</Label$>}
 
         <Toggle$ onClick={handleClick}>
-          <Pin$ />
+          <Pin$>
+            {withText && (
+              <span>{isActive ? 'On' : 'Off'}</span>
+            )}
+
+            <Icon$>{children}</Icon$>
+          </Pin$>
         </Toggle$>
       </ToggleWrapper$>
     </ThemeProvider>

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Colors, darkMedia, CSSProps } from 'constants/Styles'
+import { Colors } from 'constants/Styles'
 
 export const ToggleWrapper$ = styled.div`
   display: flex;
@@ -8,39 +8,47 @@ export const ToggleWrapper$ = styled.div`
 
 export const Toggle$ = styled.button`
   position: relative;
-  width: 48px;
+  width: ${({ theme }) => theme.withText ? 62 : 48}px;
   height: 24px;
   padding: 4px;
   border: none;
   border-radius: 14px;
-  background: ${Colors.Black(20)};
+  background: ${Colors.CSS.gray20};
   cursor: pointer;
-
-  @media (${darkMedia}) {
-    background: ${Colors.White(20)};
-  }
 `
 
 export const Pin$ = styled.div`
   position: absolute;
   top: 3px;
   left: 3px;
-  width: 18px;
+  width: ${({ theme }) => theme.withText ? 32 : 18}px;
   height: 18px;
   border-radius: 9px;
   transform: translateX(${({ theme }) => theme.isActive ? 24 : 0}px);
-  background: ${({ theme }) => theme.isActive ? Colors.Blue() : Colors.Black(60)};
-  transition: all .3s cubic-bezier(.8, 0, .2, 1);
-
-  @media (${darkMedia}) {
-    background: ${({ theme }) => theme.isActive ? Colors.Blue() : Colors.White(60)};
-  }
+  background: ${({ theme }) => theme.isActive ? Colors.CSS.blue : Colors.CSS.gray60};
+  transition: all .15s cubic-bezier(.8, 0, .2, 1);
+  text-transform: uppercase;
+  line-height: 18px;
+  font-size: 10px;
+  font-weight: 600;
+  color: ${Colors.CSS.bg};
 `
 
 export const Label$ = styled.span`
   font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: ${CSSProps.text};
+  color: ${Colors.CSS.text};
   margin-right: 8px;
+`
+
+export const Icon$ = styled.div`
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 2px;
+  left: 3px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 `

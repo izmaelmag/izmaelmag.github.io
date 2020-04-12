@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { SansSerif, UnderlineText, CSSColorSchemes, CSSProps } from 'constants/Styles';
+import { SansSerif, UnderlineText, CSSColorSchemes, Colors } from 'constants/Styles';
 import Media from 'utils/Media'
 
 const CommonLayout: React.FunctionComponent = (props) => {
@@ -17,7 +17,7 @@ export default CommonLayout
 const Body$ = styled.div`
   width: 100%;
   min-height: 100%;
-  background: ${CSSProps.background};
+  background: ${Colors.CSS.bg};
 `;
 
 const GlobalStyles$ = createGlobalStyle`
@@ -40,7 +40,7 @@ const GlobalStyles$ = createGlobalStyle`
   p {
     font-size: 16px;
     line-height: 1.5;
-    color: ${CSSProps.text};
+    color: ${Colors.CSS.text};
     margin: 10px 0;
 
     &:first-child {
@@ -57,13 +57,13 @@ const GlobalStyles$ = createGlobalStyle`
   }
 
   a {
-    color: ${CSSProps.link.text};
+    color: ${Colors.CSS.link};
     text-decoration: none;
     font-weight: 500;
-    ${UnderlineText({ color: CSSProps.link.underline, position: 1.2 })}
+    ${UnderlineText({ color: Colors.CSS.blue20, position: 1.2 })}
     
     &:hover {
-      ${UnderlineText({ color: CSSProps.link.hover.underline, position: 1.2 })}
+      ${UnderlineText({ color: Colors.CSS.blue60, position: 1.2 })}
     }
   }
 `;

@@ -1,5 +1,4 @@
 import { css } from 'styled-components'
-import Media from 'utils/Media'
 
 export const SansSerif = css`
   font-family: 'Montserrat', sans-serif;
@@ -8,82 +7,67 @@ export const SansSerif = css`
 export const Colors = {
   Black: (opaque: number = 100) => `rgba(0, 0, 0, ${opaque * 0.01})`,
   White: (opaque: number = 100) => `rgba(255, 255, 255, ${opaque * 0.01})`,
-  Blue: (opaque: number = 100) => `rgba(0, 166, 200, ${opaque * 0.01})`,
-  Gray100: '#FAFAFA'
-}
+  Blue:  (opaque: number = 100) => `rgba(0, 166, 200, ${opaque * 0.01})`,
+  
+  Gray100: '#FAFAFA',
 
-export const CSSColorNames = {
-  background: '--colors-background',
-  text: '--colors-text',
-  link: {
-    text: '--colors-link',
-    underline: '--colors-link-underline',
-    hover: {
-      text: '--colors-link-hover',
-      underline: '--colors-link-hover-underline'
-    },
-  }
-}
+  CSS: {
+    gray10: 'var(--colors-gray10)',
+    gray20: 'var(--colors-gray20)',
+    gray40: 'var(--colors-gray40)',
+    gray60: 'var(--colors-gray60)',
+    gray80: 'var(--colors-gray80)',
 
-export const CSSProps = {
-  background: `var(${CSSColorNames.background})`,
-  text: `var(${CSSColorNames.text})`,
-  link: {
-    text: `var(${CSSColorNames.link.text})`,
-    underline: `var(${CSSColorNames.link.underline})`,
-    hover: {
-      text: `var(${CSSColorNames.link.hover.text})`,
-      underline: `var(${CSSColorNames.link.hover.underline})`
-    },
+    blue:   'var(--colors-blue)',
+    blue20: 'var(--colors-blue20)',
+    blue40: 'var(--colors-blue40)',
+    blue60: 'var(--colors-blue60)',
+    blue80: 'var(--colors-blue80)',
+
+    bg:     'var(--colors-bg)',
+    text:   'var(--colors-text)',
+    link:   'var(--colors-link)'
   }
 }
 
 export const darkMedia = 'prefers-color-scheme: dark'
 
 export const CSSColorSchemes = css`
+  --colors-bg:   ${Colors.Gray100};
+  --colors-text: ${Colors.Black(90)};
+  --colors-link: ${Colors.Blue()};
+
+  --colors-blue: ${Colors.Blue()};
+  --colors-blue20: ${Colors.Blue(20)};
+  --colors-blue40: ${Colors.Blue(40)};
+  --colors-blue60: ${Colors.Blue(60)};
+  --colors-blue80: ${Colors.Blue(80)};
+
+  --colors-gray10: ${Colors.Black(10)};
+  --colors-gray20: ${Colors.Black(20)};
+  --colors-gray40: ${Colors.Black(40)};
+  --colors-gray60: ${Colors.Black(60)};
+  --colors-gray80: ${Colors.Black(80)};
+
   @media (${darkMedia}) {
-    ${CSSColorNames.background}:
-     ${Colors.Black(90)};
+    --colors-bg:   ${Colors.Black(90)};
+    --colors-text: ${Colors.White(90)};
 
-    ${CSSColorNames.text}:
-      ${Colors.White(90)};
-    
-    ${CSSColorNames.link.text}:
-      ${Colors.Blue()};
-    ${CSSColorNames.link.hover.text}:
-      ${Colors.Blue()};
-
-    ${CSSColorNames.link.underline}:
-      ${Colors.Blue(15)};
-    ${CSSColorNames.link.hover.underline}:
-      ${Colors.Blue(70)};
+    --colors-gray10: ${Colors.White(10)};
+    --colors-gray20: ${Colors.White(20)};
+    --colors-gray40: ${Colors.White(40)};
+    --colors-gray60: ${Colors.White(60)};
+    --colors-gray80: ${Colors.White(80)};
   }
-
-  ${CSSColorNames.background}:
-    ${Colors.Gray100};
-  ${CSSColorNames.text}:
-    ${Colors.Black(85)};
-  
-  ${CSSColorNames.link.text}:
-    ${Colors.Blue()};
-  ${CSSColorNames.link.hover.text}:
-    ${Colors.Blue()};
-  
-  ${CSSColorNames.link.underline}:
-    ${Colors.Blue(15)};
-  ${CSSColorNames.link.hover.underline}:
-    ${Colors.Blue(70)};
 `
-
-type UnderlineTextOptsT = {
-  color?: string,
-  position?: number
-}
 
 export const UnderlineText = ({
   color = 'currentColor',
-  position = 1.04
-}: UnderlineTextOptsT) => css`
+  position = 1.05
+} : {
+  color: string,
+  position: number
+}) => css`
   background-image: linear-gradient(to right, ${color} 100%, ${color} 0%);
   background-position: 0 ${position}em;
   background-repeat: repeat-x;

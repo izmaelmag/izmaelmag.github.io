@@ -12,6 +12,16 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-typescript`,
+
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /images\/svg/
+        }
+      }
+    },
+
     {
       resolve: `gatsby-plugin-webfonts`,
       options: {
@@ -25,6 +35,7 @@ module.exports = {
         }
       }
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -32,6 +43,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       }
     },
+
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
@@ -41,6 +53,7 @@ module.exports = {
         pure: true
       }
     },
+
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
@@ -55,6 +68,7 @@ module.exports = {
         components: path.join(__dirname, 'src/components')
       }
     },
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

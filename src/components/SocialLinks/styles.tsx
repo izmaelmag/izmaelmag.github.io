@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { UnderlineText, CSSProps } from 'constants/Styles'
+import { UnderlineText, Colors } from 'constants/Styles'
 
 export const SocialLinks$ = styled.nav`
   display: flex;
@@ -14,10 +14,10 @@ export const SocialLink$ = styled.a`
   font-weight: 500;
   margin-right: 16px;
   position: relative;
-  ${UnderlineText({ color: CSSProps.link.underline, position: 1.3 })}
+  ${UnderlineText({ color: Colors.CSS.blue20, position: 1.3 })}
 
   &:hover {
-    ${UnderlineText({ color: CSSProps.link.hover.underline, position: 1.3 })}
+    ${UnderlineText({ color: Colors.CSS.blue60, position: 1.3 })}
   }
 
   &::after {
@@ -25,7 +25,7 @@ export const SocialLink$ = styled.a`
     position: absolute;
     display: inline;
     right: -10px;
-    color: ${CSSProps.link.hover.underline};
+    color: ${Colors.CSS.blue60};
     pointer-events: none;
   }
 
