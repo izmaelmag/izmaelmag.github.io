@@ -1,1 +1,1 @@
-https://izmaelmag.github.io
+https://izmaelmag.me

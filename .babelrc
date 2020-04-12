@@ -1,4 +1,4 @@
 {
   "plugins": ["@babel/plugin-proposal-class-properties"],
-  "presets": ["babel-preset-gatsby"] // only if you're using Gatsby
+  "presets": ["babel-preset-gatsby"]
 }

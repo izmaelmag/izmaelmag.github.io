@@ -29,12 +29,6 @@ const Media = {
     @media (min-width: ${BreakPoints.Laptop+1}px) {
       ${args};
     }
-  `,
-  
-  DarkMode: (args: TemplateStringsArray) => `
-    @media (prefers-color-scheme: dark) {
-      ${args};
-    }
   `
 }
 
