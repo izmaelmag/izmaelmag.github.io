@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import CommonLayout from 'layouts/Common'
 import ToggleKit from 'components/Toggle/kit'
@@ -9,7 +9,7 @@ const UiKit = () => {
     <CommonLayout>
       <Page$>
         <ToggleKit />
-      </Page$>
+      </Page$> 
     </CommonLayout>
   )
 }
