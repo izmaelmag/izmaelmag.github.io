@@ -1,6 +1,6 @@
 {
   "endOfLine": "lf",
-  "semi": true,
+  "semi": false,
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "es5",
@@ -9,5 +9,6 @@
   "jsxSingleQuote": true,
   "jsxBracketSameLine": false,
   "quoteProps": "as-needed",
-  "printWidth": 80
+  "printWidth": 80,
+  "parser": "typescript"
 }

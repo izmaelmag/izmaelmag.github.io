@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { SansSerif, Colors } from 'constants/Styles'
 import Media from 'utils/Media'
 
-export const Personal$ = styled.div`
+export const PageTitle$ = styled.div`
   ${SansSerif}
   display: flex;
   flex-direction: row;
@@ -40,7 +40,7 @@ export const Info$ = styled.div`
   `}
 `
 
-export const Name$ = styled.h1`
+export const Title$ = styled.h1`
   line-height: 1;
   font-size: 32px;
   font-weight: 800;
@@ -51,7 +51,7 @@ export const Name$ = styled.h1`
   `}
 `
 
-export const Position$ = styled.h2`
+export const Subtitle$ = styled.h2`
   font-size: 10px;
   line-height: 1;
   text-transform: uppercase;

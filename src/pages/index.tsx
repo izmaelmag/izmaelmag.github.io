@@ -1,29 +1,70 @@
 import React from 'react'
 import styled from 'styled-components'
 import CommonLayout from 'layouts/Common'
-import Personal from 'components/Personal'
+import PageTitle from 'components/PageTitle'
 import SocialLinks from 'components/SocialLinks'
 import Media from 'utils/Media'
+import { useStaticQuery, graphql } from "gatsby"
+import MarkedText from "components/MarkedText"
+import keysToArray from "utils/keysToArray"
 
 const IndexPage = () => {
+  const { contentfulPerson: {
+    name,
+    position,
+    shortBio,
+    image,
+    github,
+    email,
+    cv,
+    twitter,
+    instagram
+  } }: ContentfulPersonT = useStaticQuery(
+    graphql`
+      query AnotherOne {
+        contentfulPerson(node_locale: {eq: "ru"}) {
+          name
+          position
+          shortBio {
+            shortBio
+          }
+          image {
+            resolutions(width: 64, toFormat: WEBP) {
+              srcSet
+              src
+            }
+          }
+          github
+          email
+          cv
+          twitter
+          instagram
+        }
+      }
+    `
+  )
+
   return (
     <CommonLayout>
       <Page$>
         <MainHeader$>
-          <Personal />
+          <PageTitle
+            imageSrc={image.resolutions.src}
+            imageSrcSet={image.resolutions.srcSet}
+            title={name}
+            subtitle={position}
+          />
         </MainHeader$>
 
-        <SocialLinks />
+        <SocialLinks links={keysToArray({
+          object: { github, email, cv, twitter, instagram },
+          keyName: 'title',
+          valueName: 'url'
+        })}/>
 
         <Info$>
-          <p>Currently working on UI and resume templates at <a target='_blank' href='https://resume.io'>Resume.io</a></p>
-          <p>My hobbies are generative arts and animations</p>
-          <p>Participated frontend development team at <a target='_blank' href='https://pure.sex'>Pure.sex</a></p>
-          <p>Worked on <a target='_blank' href='https://journal.tinkoff.ru/'>Tinkoff Journal</a>, <a target='_blank' href='https://etika.nplus1.ru'>New ethics</a> and a lot of different e-commerce sites and online magazines with guys from <a target='_blank' href='https://codecode.ru'>CodeCode</a></p>
-          <p>Developed a lot of UI libraries at <a target='_blank' href='https://greatsimple.io/'>Great Simple Studio</a>. Made HTML email templates Kit integrated with Mailchimp and Shopify customization tools</p>
-          <p>Started web developers community <a target='_black' href='https://www.instagram.com/dev_seagulls/'>Dev Seagulls</a> at my hometown Makhachkala. Organized meetups and hackatons, gave talks and lessons about good UI and web design.</p>
+          <MarkedText markdownContent={shortBio.shortBio} />
         </Info$>
-        
       </Page$>
     </CommonLayout>
   )
@@ -31,6 +72,7 @@ const IndexPage = () => {
 
 export default IndexPage
 
+// Styled wrappers
 const Page$ = styled.div`
   width: 100%;
   min-height: 100vh;

@@ -23,6 +23,15 @@ module.exports = {
     },
 
     {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `54jjpmdqxiqf`,
+        accessToken: 'ePszhyP6anAhxmpZHkk_Rx8ury4IAzHsC3UBNmzxJzg',
+        downloadLocal: true
+      },
+    },
+
+    {
       resolve: `gatsby-plugin-webfonts`,
       options: {
         fonts: {
