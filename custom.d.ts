@@ -8,7 +8,7 @@ declare module "*.png" {
   export = value;
 }
 
-declare type ContentfulPersonT = {
+declare interface ContentfulPersonT {
   contentfulPerson: {
     position?: string,
     name?: string,

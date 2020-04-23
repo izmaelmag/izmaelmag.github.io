@@ -12,6 +12,7 @@
     "paths": {
       "*": ["node_modules/*"],
       "demos/*": ["src/demos/*"],
+      "hooks/*": ["src/hooks/*"],
       "pages/*": ["src/pages/*"],
       "utils/*": ["src/utils/*"],
       "images/*": ["src/images/*"],
