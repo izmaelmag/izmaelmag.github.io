@@ -14,6 +14,7 @@ export const Image$ = styled.div`
   overflow: hidden;
   object-fit: cover;
   margin-right: 10px;
+  flex-shrink: 0;
   background-color: ${Colors.CSS.gray80};
 `
 
@@ -28,7 +29,7 @@ export const Tags$ = styled.div`
 
 export const Title$ = styled.h2`
   font-size: 18px;
-  line-height: 1;
+  line-height: 1.2;
   font-weight: 800;
   color: ${Colors.CSS.blue};
   padding-bottom: 4px;

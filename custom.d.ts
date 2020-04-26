@@ -1,3 +1,5 @@
+declare module 'ptz-i18n';
+
 declare module "*.svg" {
   const content: string;
   export default content;
@@ -9,7 +11,7 @@ declare module "*.png" {
 }
 
 declare interface ContentfulPersonT {
-  contentfulPerson: {
+  person: {
     position?: string,
     name?: string,
     image?: {

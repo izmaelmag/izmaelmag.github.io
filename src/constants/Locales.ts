@@ -1,6 +1,4 @@
-enum Locales {
-  ru = `ru`,
-  en = `en-US`
+export default {
+  ru: `ru`,
+  en: `en-US`
 }
-
-export default Locales

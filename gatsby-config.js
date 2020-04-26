@@ -1,10 +1,15 @@
 const path = require('path')
+const languages = {
+  defaultLanguage: 'en',
+  availableLanguages: ['en', 'ru']
+}
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Ismail Magomedov`,
+    description: `Ismail Magomedov — Frontend developer`,
+    author: '@izmaelmag',
+    languages
   },
 
   plugins: [
@@ -29,6 +34,14 @@ module.exports = {
         accessToken: 'ePszhyP6anAhxmpZHkk_Rx8ury4IAzHsC3UBNmzxJzg',
         downloadLocal: true
       },
+    },
+
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {        
+        langKeyDefault: languages.defaultLanguage,
+        useLangKeyLayout: false
+      }
     },
 
     {

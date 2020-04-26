@@ -14,6 +14,8 @@ describe('Testing getSrcSet', () => {
       'image@1x.png 1x, image@2x.png 2x, ',
       'image@1x.png 1x, image@2x.png 2x,',
       'image@1x.png 1x  image@2x.png 2x',
-    ].map(checkValue)
+    ]
+
+    uexpectedValues.map(checkValue)    
   })
 })
