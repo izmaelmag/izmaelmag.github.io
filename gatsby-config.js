@@ -87,6 +87,7 @@ module.exports = {
         images: path.join(__dirname, 'src/images'),
         layouts: path.join(__dirname, 'src/layouts'),
         sketches: path.join(__dirname, 'src/sketches'),
+        templates: path.join(__dirname, 'src/templates'),
         constants: path.join(__dirname, 'src/constants'),
         components: path.join(__dirname, 'src/components')
       }
@@ -95,8 +96,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Ismail Magomedov`,
+        short_name: `izmaelmag`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,

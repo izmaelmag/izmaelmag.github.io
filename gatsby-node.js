@@ -2,6 +2,11 @@ const _ = require('lodash')
 const path = require(`path`)
 const slash = require(`slash`)
 
+const LocaleAbbreviations = {
+  ru: 'ru',
+  'en-US': 'en' 
+}
+
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === 'build-html') {
     actions.setWebpackConfig({
@@ -26,29 +31,22 @@ exports.createPages = ({ graphql, actions }) => {
         edges {
           node {
             slug
-            contentful_id
             node_locale
           }
         }
       }
-    }`).then(({ errors, data }) => {
-      if (errors) {
-        reject(errors)
-      }
+    }`).then(({ err, data }) => {
+      if (err) { reject(err) }
 
       const animationsTemplate = path.resolve(`./src/templates/animation.tsx`)
 
-      _.each(data.allContentfulAnimationPage.edges, ({ node: {
-        slug,
-        contentful_id,
-        node_locale
-      } }) => {
+      _.each(data.allContentfulAnimationPage.edges, ({node: {slug, node_locale}}) => {
         createPage({
-          path: `/${node_locale}/animation/${slug}`,
+          path: `/${LocaleAbbreviations[node_locale]}/animation/${slug}`,
           component: slash(animationsTemplate),
           context: {
             slug,
-            contentful_id
+            node_locale
           }
         })
       })

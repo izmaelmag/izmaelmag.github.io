@@ -14,10 +14,12 @@ export const Photo$ = styled.div`
   position: relative;
   width: 64px;
   height: 64px;
-  object-fit: cover;
   border-radius: 6px;
   overflow: hidden;
   background: ${Colors.CSS.bg};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   img {
     display: block;
@@ -32,11 +34,10 @@ export const Photo$ = styled.div`
 
 export const Info$ = styled.div`
   margin-left: 16px;
-  margin-top: 32px;
+  margin-top: 0;
 
   ${Media.Phone`
     margin-left: 8px;
-    margin-top: 20px;
   `}
 `
 
@@ -44,9 +45,11 @@ export const Title$ = styled.h1`
   line-height: 1;
   font-size: 32px;
   font-weight: 800;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  margin-top: 12px;
 
   ${Media.Phone`
+    margin-top: 6px;
     font-size: 24px;
   `}
 `

@@ -10,7 +10,7 @@ declare module "*.png" {
   export = value;
 }
 
-declare interface ContentfulPersonT {
+declare interface ContentfulPersonI {
   person: {
     position?: string,
     name?: string,
@@ -28,5 +28,24 @@ declare interface ContentfulPersonT {
     cv?: string,
     twitter?: string,
     instagram?: string
+  }
+}
+
+declare interface ContentfulAnimationPageI {
+  page: {
+    description: {
+      content: [
+        { content: [{ value: string }] }
+      ]
+    },
+    slug: string,
+    tags: string,
+    title: string,
+    updatedAt: string,
+    preview: {
+      resolutions: {
+        src: string
+      }
+    }
   }
 }

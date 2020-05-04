@@ -1,21 +1,18 @@
 import React from 'react'
-import {
-  PageTitle$,
-  Photo$,
-  Info$,
-  Title$, 
-  Subtitle$
-} from './styles'
+import { LocalesT } from 'constants/Locales'
+import LocaleSwitcher from 'components/LocaleSwitcher'
+import { PageTitle$, Photo$, Info$, Title$,  Subtitle$ } from './styles'
 
 interface PageTitlePropI {
   imageSrc?: string,
   imageSrcSet?: string,
   title: string,
-  subtitle: string
+  subtitle: string,
+  locale: LocalesT
 }
 
 const PageTitle: React.FunctionComponent<PageTitlePropI> = ({
-  imageSrc, imageSrcSet, title, subtitle
+  imageSrc, imageSrcSet, title, subtitle, locale
 }) => {
   const hasPhoto = imageSrc || imageSrcSet
   return (
@@ -27,6 +24,7 @@ const PageTitle: React.FunctionComponent<PageTitlePropI> = ({
       )}
   
       <Info$>
+        <LocaleSwitcher locale={locale} />
         <Title$>{ title }</Title$>
         <Subtitle$>{ subtitle }</Subtitle$>
       </Info$>
