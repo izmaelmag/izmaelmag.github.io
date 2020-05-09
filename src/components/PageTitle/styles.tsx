@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { SansSerif, Colors } from 'constants/Styles'
 import Media from 'utils/Media'
+import { LocaleSwitcher$ } from 'components/LocaleSwitcher/styles'
 
 export const PageTitle$ = styled.div`
   ${SansSerif}
@@ -20,6 +21,7 @@ export const Photo$ = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 16px;
 
   img {
     display: block;
@@ -29,16 +31,14 @@ export const Photo$ = styled.div`
   ${Media.Phone`
     width: 48px;
     height: 48px;
+    margin-right: 8px;
   `}
 `
 
 export const Info$ = styled.div`
-  margin-left: 16px;
-  margin-top: 0;
-
-  ${Media.Phone`
-    margin-left: 8px;
-  `}
+  ${LocaleSwitcher$} {
+    margin-bottom: 12px;
+  }
 `
 
 export const Title$ = styled.h1`
@@ -46,7 +46,6 @@ export const Title$ = styled.h1`
   font-size: 32px;
   font-weight: 800;
   margin-bottom: 8px;
-  margin-top: 12px;
 
   ${Media.Phone`
     margin-top: 6px;

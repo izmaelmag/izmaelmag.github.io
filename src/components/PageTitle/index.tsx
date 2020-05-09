@@ -8,7 +8,7 @@ interface PageTitlePropI {
   imageSrcSet?: string,
   title: string,
   subtitle: string,
-  locale: LocalesT
+  locale?: LocalesT
 }
 
 const PageTitle: React.FunctionComponent<PageTitlePropI> = ({
@@ -24,7 +24,7 @@ const PageTitle: React.FunctionComponent<PageTitlePropI> = ({
       )}
   
       <Info$>
-        <LocaleSwitcher locale={locale} />
+        { locale && <LocaleSwitcher locale={locale} /> }
         <Title$>{ title }</Title$>
         <Subtitle$>{ subtitle }</Subtitle$>
       </Info$>

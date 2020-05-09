@@ -6,4 +6,4 @@ export default {
 export enum LocalesT {
   ru = 'ru',
   en = 'en-US'
-} 
+}

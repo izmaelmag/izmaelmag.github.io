@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import CommonLayout from 'layouts/Common'
 import PageTitle from 'components/PageTitle'
@@ -8,18 +9,26 @@ interface AnimationTemplatePropsI {
 }
 
 const AnimationTemplate: React.FunctionComponent<AnimationTemplatePropsI> = (props) => {
-  const { title, tags, preview } = props.data.page
-
-  console.log(props)
+  const { title, tags } = props.data.page
 
   return (
     <CommonLayout>
-      <PageTitle imageSrc={preview.resolutions.src} title={title} subtitle={tags} />
+      <PageTitle title={title} subtitle={tags} />
+
+      <SketchFrame$>
+        {/* <P5Sketch sketch={sketches[sketchIndex](settings)} /> */}
+      </SketchFrame$>
     </CommonLayout>
   )
 }
 
 export default AnimationTemplate
+
+const SketchFrame$ = styled.div`
+  margin-top: 32px;
+  width: 512px;
+  height: 512px;
+`
 
 export const PageData = graphql`
   query AnimationPage($slug: String!, $node_locale: String!) {
@@ -35,11 +44,6 @@ export const PageData = graphql`
       tags
       title
       updatedAt(fromNow: true, locale: $node_locale)
-      preview {
-        resolutions {
-          src
-        }
-      }
     }
   }  
 `
