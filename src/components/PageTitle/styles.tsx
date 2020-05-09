@@ -20,6 +20,7 @@ export const Photo$ = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 16px;
 
   img {
     display: block;
@@ -33,7 +34,6 @@ export const Photo$ = styled.div`
 `
 
 export const Info$ = styled.div`
-  margin-left: 16px;
   margin-top: 0;
 
   ${Media.Phone`
@@ -46,7 +46,7 @@ export const Title$ = styled.h1`
   font-size: 32px;
   font-weight: 800;
   margin-bottom: 8px;
-  margin-top: 12px;
+  margin-top: ${({ theme }) => theme.hasPhoto ? 30 : 0}px;
 
   ${Media.Phone`
     margin-top: 6px;

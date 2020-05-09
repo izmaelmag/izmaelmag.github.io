@@ -1,34 +1,33 @@
 import React from 'react'
-import { LocalesT } from 'constants/Locales'
-import LocaleSwitcher from 'components/LocaleSwitcher'
 import { PageTitle$, Photo$, Info$, Title$,  Subtitle$ } from './styles'
+import { ThemeProvider } from 'styled-components'
 
 interface PageTitlePropI {
   imageSrc?: string,
   imageSrcSet?: string,
   title: string,
-  subtitle: string,
-  locale: LocalesT
+  subtitle?: string,
 }
 
 const PageTitle: React.FunctionComponent<PageTitlePropI> = ({
-  imageSrc, imageSrcSet, title, subtitle, locale
+  imageSrc, imageSrcSet, title, subtitle
 }) => {
   const hasPhoto = imageSrc || imageSrcSet
   return (
-    <PageTitle$>
-      {hasPhoto && (
-        <Photo$>
-          <img srcSet={imageSrcSet} src={imageSrc} alt={title} />
-        </Photo$>
-      )}
-  
-      <Info$>
-        <LocaleSwitcher locale={locale} />
-        <Title$>{ title }</Title$>
-        <Subtitle$>{ subtitle }</Subtitle$>
-      </Info$>
-    </PageTitle$>
+    <ThemeProvider theme={{ hasPhoto }}>
+      <PageTitle$>
+        {hasPhoto && (
+          <Photo$>
+            <img srcSet={imageSrcSet} src={imageSrc} alt={title} />
+          </Photo$>
+        )}
+    
+        <Info$>
+          <Title$>{ title }</Title$>
+          {subtitle && <Subtitle$>{ subtitle }</Subtitle$>}
+        </Info$>
+      </PageTitle$>
+    </ThemeProvider>
   )
 }
 

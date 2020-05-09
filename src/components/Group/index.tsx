@@ -18,7 +18,7 @@ const Group: React.FunctionComponent<GroupPropsI> = ({ children, title }) => {
 export default Group
 
 const Group$ = styled.div`
-  margin: 16px 0;
+  margin: 32px 0;
   padding: 16px;
   border: 1px solid ${Colors.CSS.gray20};
   border-radius: 6px;
@@ -38,7 +38,7 @@ const GroupTitle$ = styled.div`
   top: -8px;
   left: 12px;
   background: ${Colors.CSS.bg};
-  color: ${Colors.CSS.text};
+  color: ${Colors.CSS.gray60};
   padding: 0 4px;
   font-size: 10px;
   font-weight: 600;
@@ -51,4 +51,15 @@ export const GroupDivider$ = styled.hr`
   border: none;
   height: 1px;
   background: ${Colors.CSS.gray10};
+`
+
+
+export const GroupGrid$ = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 32px;
+
+  ${Group$} {
+    margin: 0;
+  }
 `
