@@ -32,6 +32,7 @@ const GlobalStyles$ = createGlobalStyle`
     margin: 0;
     width: 100vw;
     min-height: 100vh;
+    background-color: ${Colors.CSS.bg};
   }
 
   * {

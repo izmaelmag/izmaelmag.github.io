@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Colors } from 'constants/Styles'
+import Media from 'utils/Media'
 
 interface GroupPropsI {
   title?: string
@@ -62,4 +63,8 @@ export const GroupGrid$ = styled.div`
   ${Group$} {
     margin: 0;
   }
+
+  ${Media.Phone`
+    grid-template-columns: 1fr;
+  `}
 `

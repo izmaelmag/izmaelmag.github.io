@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import Media from 'utils/Media'
 import { Colors } from 'constants/Styles'
-import { LocaleSwitcher$ } from 'components/LocaleSwitcher/styles'
 
 //#region Styled wrappers
 export const Page$ = styled.div`
@@ -38,12 +37,6 @@ export const Navigation$ = styled.div`
     flex-direction: column;
     align-items: flex-start;
   `}
-
-  ${LocaleSwitcher$} {
-    ${Media.Phone`
-      margin-top: 20px;
-    `}
-  }
 `
 
 export const Info$ = styled.main`

@@ -1,5 +1,5 @@
 interface KeysToArrayParametersI {
-  object: {[name: string]: string}
+  object: {[name: string]: string | number | [] | object | boolean}
   keyName: string
   valueName: string
 }
