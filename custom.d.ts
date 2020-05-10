@@ -1,5 +1,3 @@
-declare module 'ptz-i18n';
-
 declare module "*.svg" {
   const content: string;
   export default content;
@@ -9,6 +7,19 @@ declare module "*.png" {
   const value: any;
   export = value;
 }
+
+declare enum SettingsTypes {
+  toggle = 'toggle',
+  range = 'range',
+}
+
+declare interface SettingsItem {
+  keyName: string,
+  type: SettingsTypes,
+  defaultValue: boolean | number,
+  props: object
+}
+
 
 declare interface ContentfulPersonI {
   person: {
@@ -47,5 +58,22 @@ declare interface ContentfulAnimationPageI {
         src: string
       }
     }
+  }
+}
+
+declare interface ContentfulAnimationPagesListI {
+  pagesList: {
+    pages: {
+      node: {
+        slug: string,
+        tags: string,
+        title: string,
+        preview: {
+          resolutions: {
+            src: string
+          }
+        }
+      }
+    }[]
   }
 }

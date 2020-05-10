@@ -15,7 +15,8 @@ export const Image$ = styled.div`
   object-fit: cover;
   margin-right: 10px;
   flex-shrink: 0;
-  background-color: ${Colors.CSS.gray80};
+  background-color: ${Colors.CSS.bg};
+  box-shadow: -4px -2px 10px ${Colors.White()}, 4px 2px 10px ${Colors.Black(10)};
 `
 
 export const Tags$ = styled.div`

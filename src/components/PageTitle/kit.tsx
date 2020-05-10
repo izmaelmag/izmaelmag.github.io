@@ -1,7 +1,7 @@
 import React from 'react'
 import PageTitle from '.'
 import Group, { GroupDivider$ } from 'components/Group'
-import usePersonDataEn from 'hooks/usePersonDataEn'
+import usePersonDataEn from 'hooks/usePersonData'
 
 const ToggleKit = () => {
   const userData = usePersonDataEn()

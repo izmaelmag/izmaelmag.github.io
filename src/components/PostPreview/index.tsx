@@ -4,19 +4,18 @@ import { PostPreview$, Image$, Tags$, Title$ } from './styles'
 interface PostPreviewPropsI {
   tags?: string[],
   imageSrc?: string,
-  imageSrcSet?: string,
   title: string,
   url: string
 }
 
 const PostPreview: React.FunctionComponent<PostPreviewPropsI> = ({
-  tags, imageSrc, imageSrcSet, title, url
+  tags, imageSrc, title, url
 }) => {
   return (
     <PostPreview$>
-      {(imageSrc || imageSrcSet) && (
+      {(imageSrc) && (
         <Image$>
-          <img srcSet={imageSrcSet} src={imageSrc} alt={title} />  
+          {/* <img src={imageSrc} alt={title} />   */}
         </Image$>
       )}
 

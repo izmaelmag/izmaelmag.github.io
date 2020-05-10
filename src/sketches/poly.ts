@@ -35,12 +35,12 @@ export const sketch1 = (customSettings?: object) => (p: p5) => {
     for (let i = settings.polygonsNumber; i > 0; i--) {
       p.fill(i % 2 ? Th.accent : Th.secondary)
       p.beginShape()
-      polypoints({
-        v: settings.vertices,
-        c: Center,
-        r: (i+1) * settings.gap + 10 * Math.sin(dt/50 + i * 0.2),
-        a: p.radians((20 - i) * Math.sin(dt/25 + i * 0.2))
-      }).map(({ x, y }) => {
+      polypoints(
+        settings.vertices,
+        Center,
+        (i+1) * settings.gap + 10 * Math.sin(dt/50 + i * 0.2),
+        p.radians((20 - i) * Math.sin(dt/25 + i * 0.2))
+      ).map(({ x, y }) => {
         p.vertex(x, y)
       })
       p.endShape(p.CLOSE)
@@ -84,12 +84,12 @@ export const sketch2 = (customSettings?: object) => (p: p5) => {
     for (let i = settings.polygonsNumber; i > 0; i--) {
       p.stroke(Th.accent)
       p.beginShape()
-      polypoints({
-        v: settings.vertices,
-        c: Center,
-        r: (i+1) * settings.gap + 20 * Math.sin(dt/50 + i * 0.2),
-        a: p.radians((settings.amplitude + i) * Math.sin(dt/25 + i * 0.2))
-      }).map(({ x, y }) => {
+      polypoints(
+        settings.vertices,
+        Center,
+        (i+1) * settings.gap + 20 * Math.sin(dt/50 + i * 0.2),
+        p.radians((settings.amplitude + i) * Math.sin(dt/25 + i * 0.2))
+      ).map(({ x, y }) => {
         p.vertex(x, y)
       })
       p.endShape(p.CLOSE)
@@ -136,15 +136,15 @@ export const sketch3 = (customSettings?: object) => (p: p5) => {
       p.beginShape()
       p.rotateX(p.radians(Math.sin(dt/20)))
       p.rotateY(p.radians(Math.cos(dt/20)))
-      polypoints({
-        v: settings.vertices,
-        c: {
+      polypoints(
+        settings.vertices,
+        {
           x: settings.amplitude * Math.sin(dt/20 + i * 0.1),
           y: settings.amplitude * Math.cos(dt/20 + i * 0.1)
         },
-        r: (i+1) * settings.gap,
-        a: p.radians((settings.amplitude - i) * Math.sin(dt/25 + i * 0.2))
-      }).map(({ x, y }) => {
+        (i+1) * settings.gap,
+        p.radians((settings.amplitude - i) * Math.sin(dt/25 + i * 0.2))
+      ).map(({ x, y }) => {
         p.vertex(x, y, i*-10)
       })
       p.endShape(p.CLOSE)
@@ -187,21 +187,21 @@ export const sketch4 = (customSettings?: object) => (p: p5) => {
     p.background(Th.main)
     for (let i = settings.polygonsNumber; i > 0; i--) {
       p.fill(Th.accent)
-      polypoints({
-        v: settings.vertices,
-        c: Center,
-        r: (i+1) * settings.gap + 20 * Math.sin(dt/50 + i * 0.2),
-        a: p.radians((settings.amplitude + i) * Math.sin(dt/25 + i * 0.2))
-      }).map(({ x, y }) => {
+      polypoints(
+        settings.vertices,
+        Center,
+        (i+1) * settings.gap + 20 * Math.sin(dt/50 + i * 0.2),
+        p.radians((settings.amplitude + i) * Math.sin(dt/25 + i * 0.2))
+      ).map(({ x, y }) => {
         p.circle(x, y, 5 - i/4)
       })
       p.fill(Th.secondary)
-      polypoints({
-        v: settings.vertices,
-        c: Center,
-        r: 10 + (i+1) * settings.gap + 20 * Math.sin(dt/50 + i * 0.2),
-        a: p.PI / settings.vertices + p.radians((settings.amplitude + i) * Math.sin(dt/25 + i * 0.2))
-      }).map(({ x, y }) => {
+      polypoints(
+        settings.vertices,
+        Center,
+        10 + (i+1) * settings.gap + 20 * Math.sin(dt/50 + i * 0.2),
+        p.PI / settings.vertices + p.radians((settings.amplitude + i) * Math.sin(dt/25 + i * 0.2))
+      ).map(({ x, y }) => {
         p.circle(x, y, 5 - i/4)
       })
     }

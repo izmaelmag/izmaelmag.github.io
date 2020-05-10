@@ -1,7 +1,7 @@
 import React from 'react'
 import SocialLinks from '.'
 import Group from 'components/Group'
-import usePersonDataEn from 'hooks/usePersonDataEn'
+import usePersonDataEn from 'hooks/usePersonData'
 import keysToArray from 'utils/keysToArray'
 
 const ToggleKit = () => {

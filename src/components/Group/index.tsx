@@ -57,12 +57,16 @@ export const GroupDivider$ = styled.hr`
 
 export const GroupGrid$ = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 32px;
 
   ${Group$} {
     margin: 0;
   }
+
+  ${Media.Tablet`
+    grid-template-columns: 1fr 1fr;
+  `}
 
   ${Media.Phone`
     grid-template-columns: 1fr;

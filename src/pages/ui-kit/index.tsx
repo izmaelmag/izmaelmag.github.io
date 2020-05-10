@@ -6,6 +6,7 @@ import { GroupGrid$ } from 'components/Group'
 import PageTitle from 'components/PageTitle'
 
 import ToggleKit from 'components/Toggle/kit'
+import RangeInputKit from 'components/RangeInput/kit'
 import PageTitleKit from 'components/PageTitle/kit'
 import SocialLinksKit from 'components/SocialLinks/kit'
 
@@ -13,10 +14,11 @@ const UiKit = () => {
   return (
     <CommonLayout>
       <Page$>
-        <PageTitle title='UI KIT' />
+        <PageTitle title='UI' />
 
         <GroupGridWithMargin$>
           <ToggleKit />
+          <RangeInputKit />
           <PageTitleKit />
           <SocialLinksKit />
         </GroupGridWithMargin$>

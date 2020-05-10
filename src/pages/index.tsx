@@ -1,45 +1,16 @@
 import React from 'react'
-import { graphql, navigate, withPrefix } from 'gatsby'
-import { getUserLangKey } from 'ptz-i18n'
+import IndexLayout from 'layouts/Index'
+import usePersonData from 'hooks/usePersonData'
+import useAnimationsList from 'hooks/useAnimationsList'
 
-interface IndexPropsI {
-  data: {
-    site: {
-      siteMetadata: {
-        languages: {
-          availableLanguages: string[],
-          defaultLanguage: string
-        }
-      }
-    }
-  }
-}
-
-const RedirectIndex: React.FunctionComponent<IndexPropsI> = ({ data }) => {
-  if (typeof window !== 'undefined') {
-    const { availableLanguages, defaultLanguage } = data.site.siteMetadata.languages;
-    const langKey = getUserLangKey(availableLanguages, defaultLanguage);
-    const homeUrl = withPrefix(`/${langKey}/`);
-
-    navigate(homeUrl);
-  }
+const IndexPage = () => {
 
   return (
-    <h1>Index page</h1>
+    <IndexLayout
+      animations={useAnimationsList().pagesList.pages}
+      person={usePersonData().person}
+    />
   )
 }
 
-export default RedirectIndex
-
-export const pageQuery = graphql`
-  query IndexQuery {
-    site {
-      siteMetadata{
-        languages {
-          defaultLanguage
-          availableLanguages
-        }
-      }
-    }
-  }
-`;
+export default IndexPage

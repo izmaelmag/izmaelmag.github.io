@@ -1,15 +1,10 @@
 const path = require('path')
-const languages = {
-  defaultLanguage: 'en',
-  availableLanguages: ['en', 'ru']
-}
 
 module.exports = {
   siteMetadata: {
     title: `Ismail Magomedov`,
     description: `Ismail Magomedov — Frontend developer`,
-    author: '@izmaelmag',
-    languages
+    author: '@izmaelmag'
   },
 
   plugins: [
@@ -37,21 +32,13 @@ module.exports = {
     },
 
     {
-      resolve: 'gatsby-plugin-i18n',
-      options: {        
-        langKeyDefault: languages.defaultLanguage,
-        useLangKeyLayout: false
-      }
-    },
-
-    {
       resolve: `gatsby-plugin-webfonts`,
       options: {
         fonts: {
           google: [
             {
               family: "Montserrat",
-              variants: ["400", "600", "800", "900"],
+              variants: ["400", "500", "600", "800", "900"],
             }
           ]
         }

@@ -4,12 +4,67 @@ export const SansSerif = css`
   font-family: 'Montserrat', sans-serif;
 `
 
+export const Typography = {
+  h1: css`
+    font-size: 42px;
+    line-height: 48px; 
+  `,
+
+  h2: css`
+    font-size: 32px;
+    line-height: 42px;
+  `,
+
+  h3: css`
+    font-size: 28px;
+    line-height: 32px;
+  `,
+
+  h4: css`
+    font-size: 24px;
+    line-height: 28px;
+  `,
+
+  h5: css`
+    font-size: 18px;
+    line-height: 24px;
+  `,
+
+  h6: css`
+    font-size: 16px;
+    line-height: 18px;
+  `,
+
+  content: css`
+    font-size: 16px;
+    line-height: 24px;
+  `,
+
+  smaller: css`
+    font-size: 14px;
+    line-height: 18px;
+  `,
+
+  caption: css`
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  `
+}
+
+export const Easings = {
+  quadratic: 'cubic-bezier(.8, 0, .2, 1)'
+}
+
 export const Colors = {
   Black: (opaque: number = 100) => `rgba(0, 0, 0, ${opaque * 0.01})`,
   White: (opaque: number = 100) => `rgba(255, 255, 255, ${opaque * 0.01})`,
   Blue:  (opaque: number = 100) => `rgba(0, 166, 200, ${opaque * 0.01})`,
   
   Gray100: '#FAFAFA',
+  GrayBG: '#1A1A1A',
 
   CSS: {
     gray10: 'var(--colors-gray10)',
@@ -50,7 +105,7 @@ export const CSSColorSchemes = css`
   --colors-gray80: ${Colors.Black(80)};
 
   @media (${darkMedia}) {
-    --colors-bg:   ${Colors.Black(90)};
+    --colors-bg:   ${Colors.GrayBG};
     --colors-text: ${Colors.White(90)};
 
     --colors-gray10: ${Colors.White(10)};

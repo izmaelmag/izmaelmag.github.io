@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Media from 'utils/Media'
-import { Colors } from 'constants/Styles'
+import { Colors, Typography } from 'constants/Styles'
 
 //#region Styled wrappers
 export const Page$ = styled.div`
@@ -16,7 +16,14 @@ export const Page$ = styled.div`
 `
 
 export const Content$ = styled.main`
-  max-width: 640px;
+  display: flex;
+  flex-direction: row;
+  gap: 64px;
+  margin-top: 24px;
+
+  ${Media.Phone`
+    flex-direction: column;
+  `}
 `
 
 export const MainHeader$ = styled.div`
@@ -40,8 +47,25 @@ export const Navigation$ = styled.div`
 `
 
 export const Info$ = styled.main`
-  max-width: 640px;
-  margin-top: 24px;
+  max-width: 560px;
+`
+
+
+export const Pages$ = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  a {
+    align-self: flex-start;
+    font-size: 18px;
+    line-height: 1.25;
+  }
+
+`
+export const Heading$ = styled.h4`
+  ${Typography.h4};
+  margin-bottom: 16px;
+  color: ${Colors.CSS.text};
 `
 
 export const Articles$ = styled.div`
