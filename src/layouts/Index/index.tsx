@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import CommonLayout from 'layouts/Common'
 import SocialLinks from 'components/SocialLinks'
 import keysToArray from 'utils/keysToArray'
@@ -23,8 +22,6 @@ interface IndexPropsI {
 
 const IndexLayout = (props: IndexPropsI) => {
   const { name, position, shortBio, image, github, email, cv, twitter, instagram } = props.person
-
-  console.log(props)
 
   return (
     <CommonLayout>
