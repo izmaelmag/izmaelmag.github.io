@@ -49,7 +49,7 @@ const IndexLayout = (props: IndexPropsI) => {
             <MarkedText markdownContent={shortBio.shortBio} />
           </Info$>
 
-          {props.animations && (
+          {/* {props.animations && (
             <Pages$>
               <Heading$>Animations</Heading$>
               { props.animations.map(({ node }) => (
@@ -61,7 +61,7 @@ const IndexLayout = (props: IndexPropsI) => {
                 />
               ))}
             </Pages$>  
-          )}
+          )} */}
         </Content$>
       </Page$>
     </CommonLayout>
