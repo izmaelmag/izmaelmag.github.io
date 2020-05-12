@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { useState, FunctionComponent } from 'react'
 import styled from 'styled-components'
 import P5Sketch from 'components/P5Sketch'
 import FullscreenDemo from 'layouts/FullscreenDemo'
@@ -9,6 +9,8 @@ import { useStaticQuery, graphql } from 'gatsby'
 import SettingsPanel from 'components/SettingsPanel'
 
 const SineSeries1: FunctionComponent = () => {
+  const [settings, setSettings] = useState({})
+
   const { page } = useStaticQuery(graphql`
     query AnimationPage {
       page: contentfulAnimationPage(slug: {eq: "sine-polygons"}, node_locale: {eq: "ru"}) {
@@ -23,15 +25,15 @@ const SineSeries1: FunctionComponent = () => {
       <Interface$>
         <Corner$ top left>
           <PageTitle title={page.title} />
+          <SettingsPanel onChange={setSettings} settings={sketchSettings} />
         </Corner$>
 
         <Corner$ top right> 
-          <SettingsPanel onChange={console.log} settings={sketchSettings} />
         </Corner$>
       </Interface$>
 
       <SketchFrame$>
-        <P5Sketch sketch={sketches[3]({})} />
+        <P5Sketch sketch={sketches[3](settings)} />
       </SketchFrame$>
     </FullscreenDemo>
   )

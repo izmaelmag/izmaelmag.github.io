@@ -206,8 +206,8 @@ export const sketch4 = (customSettings?: object) => (p: p5) => {
   let dt = 0
 
   const Center = {
-    x: settings.size / 2,
-    y: settings.size / 2
+    x: p.windowWidth / 2,
+    y: p.windowHeight / 2
   }
 
   p.setup = () => {
