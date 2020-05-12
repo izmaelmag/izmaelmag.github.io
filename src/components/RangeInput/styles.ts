@@ -9,7 +9,8 @@ interface RangeThemePropsI {
     showValue: boolean,
     isWide: boolean,
     thumbOffset: number,
-    showLimits: boolean
+    showLimits: boolean,
+    withLabel: boolean
   }
 }
 
@@ -33,7 +34,7 @@ export const RangeWrapper$ = styled.div`
 
   &:hover {
     span {
-      transform: translateX(${gapSize + thumbSize/2}px) translateY(-${thumbSize - 4}px);
+      transform: translateX(${gapSize + thumbSize/2}px) ${({ theme }: RangeThemePropsI) => !theme.withLabel && `translateY(-${thumbSize - 2}px)` };
     }
   }
 `
@@ -49,7 +50,7 @@ export const Label$ = styled.div`
 export const InputElement$ = styled.input`
   width: calc(100% - ${gapSize*2}px);
   height: ${thumbSize}px;
-  background: ${Colors.CSS.bg};
+  background: transparent;
   margin-left: ${gapSize}px;
 
   &:focus {

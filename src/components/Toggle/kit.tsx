@@ -5,7 +5,7 @@ import MoonIcon from 'images/svg/moon.svg'
 
 const ToggleKit = () => (
   <Group title='Toggle'>
-    <Toggle onChange={console.log} />
+    <Toggle defaultValue={true} onChange={console.log} />
     <GroupDivider$ />
     <Toggle label='With label' onChange={console.log} />
     <GroupDivider$ />

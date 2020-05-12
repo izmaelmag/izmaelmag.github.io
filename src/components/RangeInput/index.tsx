@@ -29,6 +29,7 @@ const RangeInput: React.FunctionComponent<RangePropsI & React.HTMLAttributes<HTM
   const theme = {
     showLimits,
     showValue,
+    withLabel: !!label,
     thumbOffset: thumbOffset.toFixed(2),
     isWide: value >= 1000,
   }

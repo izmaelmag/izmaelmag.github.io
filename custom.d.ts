@@ -8,19 +8,6 @@ declare module "*.png" {
   export = value;
 }
 
-declare enum SettingsTypes {
-  toggle = 'toggle',
-  range = 'range',
-}
-
-declare interface SettingsItem {
-  keyName: string,
-  type: SettingsTypes,
-  defaultValue: boolean | number,
-  props: object
-}
-
-
 declare interface ContentfulPersonI {
   person: {
     position?: string,

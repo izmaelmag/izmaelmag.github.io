@@ -4,14 +4,12 @@ import SocialLinks from 'components/SocialLinks'
 import keysToArray from 'utils/keysToArray'
 import PageTitle from 'components/PageTitle'
 import MarkedText from 'components/MarkedText'
-import PostPreview from 'components/PostPreview'
 import {
   Page$,
   Content$,
   MainHeader$,
   Navigation$,
   Info$,
-  Pages$,
   Heading$
 } from './styles'
 
@@ -48,20 +46,6 @@ const IndexLayout = (props: IndexPropsI) => {
             <Heading$>About me</Heading$>
             <MarkedText markdownContent={shortBio.shortBio} />
           </Info$>
-
-          {/* {props.animations && (
-            <Pages$>
-              <Heading$>Animations</Heading$>
-              { props.animations.map(({ node }) => (
-                <PostPreview
-                  imageSrc={node.preview.resolutions.src}
-                  title={node.title}
-                  url={`sketches/${node.slug}`}
-                  tags={node.tags.split(' ')}
-                />
-              ))}
-            </Pages$>  
-          )} */}
         </Content$>
       </Page$>
     </CommonLayout>

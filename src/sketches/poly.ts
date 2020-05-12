@@ -1,6 +1,39 @@
 import p5 from "p5"
 import { Ren, Rey } from 'constants/ColorSchemes'
 import polypoints from 'utils/geometry/polypoints'
+import { SettingsItemI, SettingsTypes } from 'constants/Settings'
+
+export const sketchSettings: SettingsItemI[] = [
+  {
+    type: SettingsTypes.range,
+    keyName: 'polygonsNumber',
+    defaultValue: 5,
+    props: {
+      min: 1,
+      max: 20,
+      step: 1
+    },
+    title: 'Polygons count'
+  },
+  {
+    type: SettingsTypes.range,
+    keyName: 'vertices',
+    defaultValue: 5,
+    props: {
+      min: 3, 
+      max: 8,
+      step: 1
+    },
+    title: 'Vertices'
+  },
+  {
+    type: SettingsTypes.toggle,
+    keyName: 'outline',
+    defaultValue: false,
+    props: {},
+    title: 'Outline'
+  },
+]
 
 export const sketch1 = (customSettings?: object) => (p: p5) => {
   const Th = {
@@ -20,12 +53,12 @@ export const sketch1 = (customSettings?: object) => (p: p5) => {
   let dt = 0
 
   const Center = {
-    x: settings.size / 2,
-    y: settings.size / 2
+    x: p.windowWidth / 2,
+    y: p.windowHeight / 2
   }
 
   p.setup = () => {
-    p.createCanvas(settings.size, settings.size)
+    p.createCanvas(p.windowWidth, p.windowHeight)
     p.noStroke()
   }
   
@@ -74,7 +107,7 @@ export const sketch2 = (customSettings?: object) => (p: p5) => {
   }
 
   p.setup = () => {
-    p.createCanvas(settings.size, settings.size)
+    p.createCanvas(p.windowWidth, p.windowHeight)
     p.noFill()
   }
   
@@ -123,7 +156,7 @@ export const sketch3 = (customSettings?: object) => (p: p5) => {
   }
 
   p.setup = () => {
-    p.createCanvas(settings.size, settings.size, p.WEBGL)
+    p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL)
     p.noStroke()
   }
   
@@ -178,7 +211,7 @@ export const sketch4 = (customSettings?: object) => (p: p5) => {
   }
 
   p.setup = () => {
-    p.createCanvas(settings.size, settings.size)
+    p.createCanvas(p.windowWidth, p.windowHeight)
     p.noStroke()
   }
   

@@ -1,10 +1,12 @@
-import React, { FunctionComponent, useState, useEffect } from 'react'
+import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
 import P5Sketch from 'components/P5Sketch'
-import CommonLayout from 'layouts/Common'
+import FullscreenDemo from 'layouts/FullscreenDemo'
+import { Interface$, Corner$ } from 'layouts/FullscreenDemo/styles'
 import PageTitle from 'components/PageTitle'
-import sketches from 'sketches/poly'
+import sketches, { sketchSettings } from 'sketches/poly'
 import { useStaticQuery, graphql } from 'gatsby'
+import SettingsPanel from 'components/SettingsPanel'
 
 const SineSeries1: FunctionComponent = () => {
   const { page } = useStaticQuery(graphql`
@@ -17,13 +19,21 @@ const SineSeries1: FunctionComponent = () => {
   `)
 
   return (
-    <CommonLayout>
-      <PageTitle title={page.title} />
+    <FullscreenDemo>
+      <Interface$>
+        <Corner$ top left>
+          <PageTitle title={page.title} />
+        </Corner$>
+
+        <Corner$ top right> 
+          <SettingsPanel onChange={console.log} settings={sketchSettings} />
+        </Corner$>
+      </Interface$>
 
       <SketchFrame$>
-        <P5Sketch sketch={sketches[0]({})} />
+        <P5Sketch sketch={sketches[3]({})} />
       </SketchFrame$>
-    </CommonLayout>
+    </FullscreenDemo>
   )
 }
 
@@ -32,8 +42,12 @@ export default React.memo(SineSeries1)
 //#region Styled
 const SketchFrame$ = styled.div`
   position: relative;
+  width: 100%;
+  height: 100%;
   line-height: 0;
-  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 `
 //#endregion

@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 
 interface TogglePropsI {
   label?: string
-  state?: boolean
+  defaultValue?: boolean
   icon?: Element
   withText?: boolean
   onChange: (state: boolean) => void
@@ -13,11 +13,11 @@ interface TogglePropsI {
 const Toggle: React.FunctionComponent<TogglePropsI> = ({
   onChange,
   withText,
-  state,
+  defaultValue,
   label,
   children
 }) => {
-  const [isActive, setState] = useState(state)
+  const [isActive, setState] = useState(defaultValue)
 
   const handleClick = () => {
     setState(!isActive)

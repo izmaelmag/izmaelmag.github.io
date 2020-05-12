@@ -30,15 +30,12 @@ export const Photo$ = styled.div`
   ${Media.Phone`
     width: 48px;
     height: 48px;
+    margin-right: 8px;
   `}
 `
 
 export const Info$ = styled.div`
   margin-top: 0;
-
-  ${Media.Phone`
-    margin-left: 8px;
-  `}
 `
 
 export const Title$ = styled.h1`

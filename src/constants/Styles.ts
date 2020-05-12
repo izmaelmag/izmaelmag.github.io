@@ -1,4 +1,5 @@
-import { css } from 'styled-components'
+import { css, createGlobalStyle } from 'styled-components'
+import Media from 'utils/Media'
 
 export const SansSerif = css`
   font-family: 'Montserrat', sans-serif;
@@ -128,3 +129,53 @@ export const UnderlineText = ({
   background-repeat: repeat-x;
   background-size: 1px 0.5px;
 `
+
+export const GlobalStyles$ = createGlobalStyle`
+  body, html {
+    ${SansSerif}
+    ${CSSColorSchemes}
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: ${Colors.CSS.bg};
+    color: ${Colors.CSS.text};
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: ${Colors.CSS.text};
+    margin: 10px 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    ${Media.Phone`
+      font-size: 14px;
+    `}
+  }
+
+  a {
+    color: ${Colors.CSS.link};
+    text-decoration: none;
+    font-weight: 500;
+    ${UnderlineText({ color: Colors.CSS.blue20, position: 1.2 })}
+    
+    &:hover {
+      ${UnderlineText({ color: Colors.CSS.blue60, position: 1.2 })}
+    }
+  }
+`;
