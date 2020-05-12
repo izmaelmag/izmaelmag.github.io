@@ -43,7 +43,6 @@ const IndexLayout = (props: IndexPropsI) => {
 
         <Content$>
           <Info$>
-            <Heading$>About me</Heading$>
             <MarkedText markdownContent={shortBio.shortBio} />
           </Info$>
         </Content$>
