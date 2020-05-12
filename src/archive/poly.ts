@@ -2,6 +2,7 @@ import p5 from "p5"
 import { Ren, Rey } from 'constants/ColorSchemes'
 import polypoints from 'utils/geometry/polypoints'
 import { SettingsItemI, SettingsTypes } from 'constants/Settings'
+import { Colors } from "constants/Styles"
 
 export const sketchSettings: SettingsItemI[] = [
   {
@@ -10,7 +11,7 @@ export const sketchSettings: SettingsItemI[] = [
     defaultValue: 5,
     props: {
       min: 1,
-      max: 20,
+      max: 40,
       step: 1
     },
     title: 'Polygons count'
@@ -20,8 +21,8 @@ export const sketchSettings: SettingsItemI[] = [
     keyName: 'vertices',
     defaultValue: 5,
     props: {
-      min: 3, 
-      max: 8,
+      min: 1, 
+      max: 12,
       step: 1
     },
     title: 'Vertices'
@@ -37,7 +38,7 @@ export const sketchSettings: SettingsItemI[] = [
 
 export const sketch1 = (customSettings?: object) => (p: p5) => {
   const Th = {
-    main: p.color(Rey.main),
+    main: p.color(Colors.Black(90)),
     accent: p.color(Rey.accent),
     secondary: p.color(Rey.secondary),
   }
@@ -189,7 +190,7 @@ export const sketch3 = (customSettings?: object) => (p: p5) => {
 
 export const sketch4 = (customSettings?: object) => (p: p5) => {
   const Th = {
-    main: p.color(Ren.main),
+    main: p.color(Colors.Black(90)),
     accent: p.color(Ren.accent),
     secondary: p.color(Ren.secondary),
   }

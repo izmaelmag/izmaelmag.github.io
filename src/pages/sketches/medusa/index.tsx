@@ -1,39 +1,30 @@
 import React, { useState, FunctionComponent } from 'react'
 import styled from 'styled-components'
-import P5Sketch from 'components/P5Sketch'
 import FullscreenDemo from 'layouts/FullscreenDemo'
 import { Interface$, Corner$ } from 'layouts/FullscreenDemo/styles'
+import sketch, { sketchSettings, defaultSettings } from 'sketches/medusa'
+import { Colors } from 'constants/Styles'
+import P5Sketch from 'components/P5Sketch'
 import PageTitle from 'components/PageTitle'
-import sketches, { sketchSettings } from 'sketches/poly'
-import { useStaticQuery, graphql } from 'gatsby'
 import SettingsPanel from 'components/SettingsPanel'
 
 const SineSeries1: FunctionComponent = () => {
-  const [settings, setSettings] = useState({})
-
-  const { page } = useStaticQuery(graphql`
-    query AnimationPage {
-      page: contentfulAnimationPage(slug: {eq: "sine-polygons"}, node_locale: {eq: "ru"}) {
-        slug
-        title
-      }
-    }
-  `)
+  const [settings, setSettings] = useState(defaultSettings)
 
   return (
     <FullscreenDemo>
       <Interface$>
         <Corner$ top left>
-          <PageTitle title={page.title} />
-          <SettingsPanel onChange={setSettings} settings={sketchSettings} />
+          <PageTitle title='Medusa' />
         </Corner$>
 
         <Corner$ top right> 
+          <SettingsPanel onChange={setSettings} settings={sketchSettings} />
         </Corner$>
       </Interface$>
 
       <SketchFrame$>
-        <P5Sketch sketch={sketches[3](settings)} />
+        <P5Sketch sketch={sketch(settings)} />
       </SketchFrame$>
     </FullscreenDemo>
   )
@@ -51,5 +42,6 @@ const SketchFrame$ = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-color: ${Colors.Black()}
 `
 //#endregion

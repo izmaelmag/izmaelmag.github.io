@@ -10,29 +10,31 @@ interface SettingsPanelPropsI {
 }
 
 class SettingsPanel extends React.Component<SettingsPanelPropsI> {
-  state = {
-
-  }
+  state = {}
 
   componentDidMount() {
+    const state = {}
 
+    this.props.settings.map(({ keyName, defaultValue }) => {
+      state[keyName] = defaultValue
+    })
+
+    this.setState(state, () => this.props.onChange(this.state))
   }
 
   updateSettingsKey = (key: string) => (value: number | boolean) => {
     this.setState({
       [key]: value
-    }, () => {
-      this.props.onChange(this.state)
-    })
+    }, () => this.props.onChange(this.state))
   }
 
   createRange = (item: SettingsItemI): React.ReactNode => {
     const { min, max, step } = item.props
 
     return (
-      <SettingsItem$>
+      <SettingsItem$ key={item.keyName}>
         <RangeInput
-          defaultValue={Number(item.defaultValue)}
+          initialValue={Number(item.defaultValue)}
           label={item.title}
           values={[min, max, step]}
           handleChange={this.updateSettingsKey(item.keyName)}
@@ -44,7 +46,7 @@ class SettingsPanel extends React.Component<SettingsPanelPropsI> {
 
   createToggle = (item: SettingsItemI): React.ReactNode => {
     return (
-      <SettingsItem$>
+      <SettingsItem$ key={item.keyName}>
         <Toggle
           onChange={this.updateSettingsKey(item.keyName)}
           label={item.title}
