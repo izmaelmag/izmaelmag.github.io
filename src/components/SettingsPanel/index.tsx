@@ -1,22 +1,30 @@
 import React from 'react'
-import { SettingsItemI, SettingsTypes } from 'constants/Settings'
-import { Layout$, SettingsItem$ } from './styles'
+import { ISettingsItem, TControls } from 'constants/Types'
 import RangeInput from 'components/RangeInput'
 import Toggle from 'components/Toggle'
+import {
+  Layout$,
+  SettingsItem$,
+  SettingsControls$,
+  SettingsHeader$
+} from './styles'
+import { ThemeProvider } from 'styled-components'
 
 interface SettingsPanelPropsI {
-  settings: SettingsItemI[],
+  settings: ISettingsItem[],
   onChange: (state: object) => void
 }
 
 class SettingsPanel extends React.Component<SettingsPanelPropsI> {
-  state = {}
+  state = {
+    showControls: true
+  }
 
   componentDidMount() {
     const state = {}
 
-    this.props.settings.map(({ keyName, defaultValue }) => {
-      state[keyName] = defaultValue
+    this.props.settings.map(({ keyName, value }) => {
+      state[keyName] = value
     })
 
     this.setState(state, () => this.props.onChange(this.state))
@@ -28,13 +36,13 @@ class SettingsPanel extends React.Component<SettingsPanelPropsI> {
     }, () => this.props.onChange(this.state))
   }
 
-  createRange = (item: SettingsItemI): React.ReactNode => {
+  createRange = (item: ISettingsItem): React.ReactNode => {
     const { min, max, step } = item.props
 
     return (
       <SettingsItem$ key={item.keyName}>
         <RangeInput
-          initialValue={Number(item.defaultValue)}
+          initialValue={Number(item.value)}
           label={item.title}
           values={[min, max, step]}
           handleChange={this.updateSettingsKey(item.keyName)}
@@ -44,13 +52,13 @@ class SettingsPanel extends React.Component<SettingsPanelPropsI> {
     )
   }
 
-  createToggle = (item: SettingsItemI): React.ReactNode => {
+  createToggle = (item: ISettingsItem): React.ReactNode => {
     return (
       <SettingsItem$ key={item.keyName}>
         <Toggle
           onChange={this.updateSettingsKey(item.keyName)}
           label={item.title}
-          defaultValue={!!item.defaultValue}
+          defaultValue={!!item.value}
         />
       </SettingsItem$>
     )
@@ -61,11 +69,11 @@ class SettingsPanel extends React.Component<SettingsPanelPropsI> {
 
     this.props.settings.map(settingsItem => {
       switch(settingsItem.type) {
-        case SettingsTypes.range:
+        case TControls.range:
           settingsComponents.push(this.createRange(settingsItem))
           break
           
-        case SettingsTypes.toggle:
+        case TControls.toggle:
           settingsComponents.push(this.createToggle(settingsItem))
           break
       }
@@ -74,13 +82,29 @@ class SettingsPanel extends React.Component<SettingsPanelPropsI> {
     return settingsComponents
   }
 
+  toggleControls = () => {
+    this.setState({
+      showControls: !this.state.showControls
+    })
+  }
+
   render() {
     const settingsComponents = this.getSettingsComponents()
+    const { showControls } = this.state
 
     return(
-      <Layout$>
-        {settingsComponents}    
-      </Layout$>
+      <ThemeProvider theme={{ showControls }}>
+        <Layout$>
+          <SettingsHeader$ onClick={this.toggleControls}>
+            <span>Settings</span>
+            <span>{showControls ? '–' : '+'}</span>
+          </SettingsHeader$>
+
+          <SettingsControls$>
+            {settingsComponents}    
+          </SettingsControls$>
+        </Layout$>
+      </ThemeProvider>
     )
   }
 }

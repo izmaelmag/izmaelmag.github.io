@@ -4,10 +4,23 @@ import LineClass from 'utils/geometry/LineClass'
 /**
  * Polygon class
  * 
- * @param v – number of vertices
- * @param c — polygon center point
- * @param r — polygon radius
- * @param a — start angle in radians
+ * Creates new regular polygon with given parameters, calculates arrays of Points and Lines
+ * 
+ * @param v number of vertices
+ * @param r polygon radius
+ * @param c polygon center point
+ * @param a start angle in radians
+ * 
+ * @example
+ * const Pentagon = new Polygon(5, 100, new PointClass(300, 200), Math.PI)
+ * 
+ * Pentagon.points.map(point => {...})
+ * Pentagon.sides.map(sideLine => {...})
+ * 
+ * Pentagon
+ *   .setRaius(500)
+ *   .setAngle(Math.PI/2)
+ *   .points.map(point => {...})
  */
 export default class Polygon {
   public vertices: number
@@ -24,11 +37,38 @@ export default class Polygon {
     this.center = c
     this.angle = a
 
-    this.init()
+    this._recalculate()
   }
 
-  private init = () => {
-    this.createPoints()
+  //#region Public setters
+  public setRadius = (value: number, recalculate: boolean = true) => {
+    this.radius = value || this.radius
+    recalculate && this._recalculate()
+    return this
+  }
+
+  public setVertices = (value: number, recalculate: boolean = true) => {
+    this.vertices = value || this.vertices
+    recalculate && this._recalculate()
+    return this
+  }
+
+  public setCenter = (value: PointClass, recalculate: boolean = true) => {
+    this.center = value || this.center
+    recalculate && this._recalculate()
+    return this
+  }
+
+  public setAngle = (value: number, recalculate: boolean = true) => {
+    this.angle = value || this.angle
+    recalculate && this._recalculate()
+    return this
+  }
+  //#endregion
+
+  //#region Private methods
+  private _recalculate = () => {
+    this.updatePoints()
     this.createSides()
   }
 
@@ -40,7 +80,7 @@ export default class Polygon {
     }, [])
   }
 
-  private createPoints = () => {
+  private updatePoints = () => {
     for (let i = 0; i < this.vertices; i++) {
       const {
         angle,
@@ -58,4 +98,5 @@ export default class Polygon {
       ))
     }
   }
+  //#endregion
 }

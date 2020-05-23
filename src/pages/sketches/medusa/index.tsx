@@ -2,11 +2,12 @@ import React, { useState, FunctionComponent } from 'react'
 import styled from 'styled-components'
 import FullscreenDemo from 'layouts/FullscreenDemo'
 import { Interface$, Corner$ } from 'layouts/FullscreenDemo/styles'
-import sketch, { sketchSettings, defaultSettings } from 'sketches/medusa'
 import { Colors } from 'constants/Styles'
 import P5Sketch from 'components/P5Sketch'
 import PageTitle from 'components/PageTitle'
 import SettingsPanel from 'components/SettingsPanel'
+import sketch, { defaultSettings } from 'sketches/medusa'
+import sketchSettings from 'sketches/medusa/sketchSettings'
 
 const SineSeries1: FunctionComponent = () => {
   const [settings, setSettings] = useState(defaultSettings)
