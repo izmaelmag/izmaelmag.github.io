@@ -2,26 +2,25 @@ import p5 from "p5"
 import { Ren } from 'constants/ColorSchemes'
 import polypoints from 'utils/geometry/polypoints'
 import { Colors } from "constants/Styles"
-import { TSettingsObject } from "constants/Types"
 import settingsTransformer from 'utils/settingsTransformer'
 import sketchSettings from './sketchSettings'
 
-export const defaultSettings = settingsTransformer.toObject(sketchSettings)
-
-interface IMedusaSettings {
-  vertices: number,
-  thickness: number,
-  polygonsNumber: number, 
-  gap: number,
-  phaseOffset: number,
-  speed: number,
-  amplitude: number,
-  frequency: number,
-  showLines: boolean,
-  showPolygons: boolean
+export interface ISketchSettings {
+  vertices?: number,
+  thickness?: number,
+  polygonsNumber?: number, 
+  gap?: number,
+  phaseOffset?: number,
+  speed?: number,
+  amplitude?: number,
+  frequency?: number,
+  showLines?: boolean,
+  showPolygons?: boolean
 }
 
-const sketch = (settings: IMedusaSettings) => (p: p5) => {
+export const defaultSettings = settingsTransformer.toObject<ISketchSettings>(sketchSettings)
+
+const sketch = (settings: ISketchSettings) => (p: p5) => {
   const Th = {
     main: p.color(Colors.Black(90)),
     accent: p.color(Ren.accent),

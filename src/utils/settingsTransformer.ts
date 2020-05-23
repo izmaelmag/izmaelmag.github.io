@@ -1,9 +1,9 @@
-import { ISettingsItem, TSettingsObject } from "constants/types";
-
-function toObject(settingsDeclaration: ISettingsItem[]): TSettingsObject {
-  return settingsDeclaration.reduce((result, item) => {
-    result[item.keyName] = item.value
-    return result
+function toObject<Type>(settingsList: ISettingsList): Type | {} {
+  return Object.keys(settingsList).reduce((accSettings, key) => {
+    return {
+      ...accSettings,
+      [key]: settingsList[key].value
+    }
   }, {})
 }
 

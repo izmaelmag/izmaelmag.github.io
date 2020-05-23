@@ -1,112 +1,53 @@
-import React from 'react'
-import { ISettingsItem, TControls } from 'constants/Types'
-import RangeInput from 'components/RangeInput'
-import Toggle from 'components/Toggle'
+import React, { useState, useEffect } from 'react'
+import { ThemeProvider } from 'styled-components'
+import settingsTransformer from 'utils/settingsTransformer'
+import Controls from './controls'
 import {
   Layout$,
-  SettingsItem$,
   SettingsControls$,
   SettingsHeader$
 } from './styles'
-import { ThemeProvider } from 'styled-components'
 
 interface SettingsPanelPropsI {
-  settings: ISettingsItem[],
+  settings: ISettingsList,
   onChange: (state: object) => void
 }
 
-class SettingsPanel extends React.Component<SettingsPanelPropsI> {
-  state = {
-    showControls: true
+const SettingsPanel: React.FunctionComponent<SettingsPanelPropsI> = (props) => {
+  const [showControls, setShowControls] = useState(true)
+  const [settings, setSettings] = useState(props.settings)
+
+  const updateSettingsItemValue = (key: string, value: TSettingsValues) => {
+    const updatedItem = {
+      ...settings[key],
+      value
+    }
+
+    setSettings({ ...settings, [key]: updatedItem })
   }
 
-  componentDidMount() {
-    const state = {}
+  useEffect(() => {
+    props.onChange(settingsTransformer.toObject(settings))
+  }, [settings])
 
-    this.props.settings.map(({ keyName, value }) => {
-      state[keyName] = value
-    })
+  return (
+    <ThemeProvider theme={{ showControls }}>
+      <Layout$>
+        <SettingsHeader$ onClick={() => setShowControls(!showControls)}>
+          <span>Settings</span>
+          <span>{showControls ? '–' : '+'}</span>
+        </SettingsHeader$>
 
-    this.setState(state, () => this.props.onChange(this.state))
-  }
+        <SettingsControls$>
+          {Object.keys(settings).map(key => {
+            const item = settings[key]
 
-  updateSettingsKey = (key: string) => (value: number | boolean) => {
-    this.setState({
-      [key]: value
-    }, () => this.props.onChange(this.state))
-  }
-
-  createRange = (item: ISettingsItem): React.ReactNode => {
-    const { min, max, step } = item.props
-
-    return (
-      <SettingsItem$ key={item.keyName}>
-        <RangeInput
-          initialValue={Number(item.value)}
-          label={item.title}
-          values={[min, max, step]}
-          handleChange={this.updateSettingsKey(item.keyName)}
-          showValue
-        />
-      </SettingsItem$>
-    )
-  }
-
-  createToggle = (item: ISettingsItem): React.ReactNode => {
-    return (
-      <SettingsItem$ key={item.keyName}>
-        <Toggle
-          onChange={this.updateSettingsKey(item.keyName)}
-          label={item.title}
-          defaultValue={!!item.value}
-        />
-      </SettingsItem$>
-    )
-  }
-
-  getSettingsComponents = () => {
-    const settingsComponents: React.ReactNode[] = []
-
-    this.props.settings.map(settingsItem => {
-      switch(settingsItem.type) {
-        case TControls.range:
-          settingsComponents.push(this.createRange(settingsItem))
-          break
-          
-        case TControls.toggle:
-          settingsComponents.push(this.createToggle(settingsItem))
-          break
-      }
-    })
-
-    return settingsComponents
-  }
-
-  toggleControls = () => {
-    this.setState({
-      showControls: !this.state.showControls
-    })
-  }
-
-  render() {
-    const settingsComponents = this.getSettingsComponents()
-    const { showControls } = this.state
-
-    return(
-      <ThemeProvider theme={{ showControls }}>
-        <Layout$>
-          <SettingsHeader$ onClick={this.toggleControls}>
-            <span>Settings</span>
-            <span>{showControls ? '–' : '+'}</span>
-          </SettingsHeader$>
-
-          <SettingsControls$>
-            {settingsComponents}    
-          </SettingsControls$>
-        </Layout$>
-      </ThemeProvider>
-    )
-  }
+            return Controls[item.type](key, item, updateSettingsItemValue) || null
+          })}    
+        </SettingsControls$>
+      </Layout$>
+    </ThemeProvider>
+  )
 }
 
 export default SettingsPanel

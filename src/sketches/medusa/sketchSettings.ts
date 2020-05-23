@@ -1,9 +1,6 @@
-import { ISettingsItem, TControls } from 'constants/types'
-
-const sketchSettings: ISettingsItem[] = [
-  {
-    type: TControls.range,
-    keyName: 'polygonsNumber',
+const sketchSettings: ISettingsList = {
+  polygonsNumber: {
+    type: 'range',
     value: 50,
     props: {
       min: 1,
@@ -12,9 +9,9 @@ const sketchSettings: ISettingsItem[] = [
     },
     title: 'Length'
   },
-  {
-    type: TControls.range,
-    keyName: 'thickness',
+
+  thickness: {
+    type: 'range',
     value: 2,
     props: {
       min: 1,
@@ -23,9 +20,9 @@ const sketchSettings: ISettingsItem[] = [
     },
     title: 'Thickness'
   },
-  {
-    type: TControls.range,
-    keyName: 'phaseOffset',
+
+  phaseOffset: {
+    type: 'range',
     value: 3,
     props: {
       min: 0,
@@ -34,9 +31,9 @@ const sketchSettings: ISettingsItem[] = [
     },
     title: 'Phase offset'
   },
-  {
-    type: TControls.range,
-    keyName: 'amplitude',
+
+  amplitude: {
+    type: 'range',
     value: 21,
     props: {
       min: 0,
@@ -45,9 +42,9 @@ const sketchSettings: ISettingsItem[] = [
     },
     title: 'Amplitude'
   },
-  {
-    type: TControls.range,
-    keyName: 'gap',
+
+  gap: {
+    type: 'range',
     value: 5,
     props: {
       min: 5,
@@ -56,9 +53,9 @@ const sketchSettings: ISettingsItem[] = [
     },
     title: 'Gap'
   },
-  {
-    type: TControls.range,
-    keyName: 'vertices',
+
+  vertices: {
+    type: 'range',
     value: 8,
     props: {
       min: 1, 
@@ -67,9 +64,9 @@ const sketchSettings: ISettingsItem[] = [
     },
     title: 'Vertices'
   },
-  {
-    type: TControls.range,
-    keyName: 'frequency',
+
+  frequency: {
+    type: 'range',
     value: 1,
     props: {
       min: 0, 
@@ -78,9 +75,9 @@ const sketchSettings: ISettingsItem[] = [
     },
     title: 'Frequency'
   },
-  {
-    type: TControls.range,
-    keyName: 'speed',
+
+  speed: {
+    type: 'range',
     value: 1,
     props: {
       min: 0.05, 
@@ -89,20 +86,20 @@ const sketchSettings: ISettingsItem[] = [
     },
     title: 'Speed'
   },
-  {
-    type: TControls.toggle,
-    keyName: 'showLines',
+
+  showLines: {
+    type: 'toggle',
     value: false,
     props: {},
     title: 'Show lines'
   },
-  {
-    type: TControls.toggle,
-    keyName: 'showPolygons',
+
+  showPolygons: {
+    type: 'toggle',
     value: false,
     props: {},
     title: 'Show polygons'
   }
-]
+}
 
 export default sketchSettings
