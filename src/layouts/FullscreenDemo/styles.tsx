@@ -16,6 +16,10 @@ export const Layout$ = styled.main`
   height: 100vh;
   position: relative;
   background: ${Colors.CSS.bg};
+
+  ${Media.Phone`
+    height: 100%;
+  `}
 `
 
 export const Interface$ = styled.div`

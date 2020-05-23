@@ -9,7 +9,7 @@ const usePersonDataEn = (): ContentfulPersonI => useStaticQuery(graphql`
         shortBio
       }
       image {
-        resolutions(width: 64, toFormat: WEBP) {
+        resolutions(width: 128, toFormat: PNG) {
           srcSet
           src
         }

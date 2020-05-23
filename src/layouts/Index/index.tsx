@@ -5,6 +5,7 @@ import SocialLinks from 'components/SocialLinks'
 import keysToArray from 'utils/keysToArray'
 import PageTitle from 'components/PageTitle'
 import MarkedText from 'components/MarkedText'
+import SEO from 'components/seo'
 import {
   Page$,
   Content$,
@@ -25,6 +26,8 @@ const IndexLayout = (props: IndexPropsI) => {
 
   return (
     <CommonLayout>
+      <SEO title='Home' />
+
       <Page$>
         <MainHeader$>
           <PageTitle

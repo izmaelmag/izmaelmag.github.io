@@ -139,6 +139,10 @@ export const GlobalStyles$ = createGlobalStyle`
     min-height: 100vh;
     background-color: ${Colors.CSS.bg};
     color: ${Colors.CSS.text};
+
+    ${Media.Phone`
+      height: 100%;
+    `}
   }
 
   .dark-theme {

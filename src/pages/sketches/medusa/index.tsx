@@ -9,12 +9,15 @@ import PageTitle from 'components/PageTitle'
 import SettingsPanel from 'components/SettingsPanel'
 import sketch, { defaultSettings } from 'sketches/medusa'
 import sketchSettings from 'sketches/medusa/sketchSettings'
+import SEO from 'components/seo'
 
 const SineSeries1: FunctionComponent = () => {
   const [settings, setSettings] = useState(defaultSettings)
 
   return (
     <div className="dark-theme">
+      <SEO title="«Medusa» animation" />
+
       <FullscreenDemo>
         <Interface$>
           <Corner$ top left>

@@ -9,12 +9,13 @@ import {
 } from './styles'
 
 interface SettingsPanelPropsI {
-  settings: ISettingsList,
+  settings: ISettingsList
+  showControls?: boolean
   onChange: (state: object) => void
 }
 
 const SettingsPanel: React.FunctionComponent<SettingsPanelPropsI> = (props) => {
-  const [showControls, setShowControls] = useState(true)
+  const [showControls, setShowControls] = useState(props.showControls)
   const [settings, setSettings] = useState(props.settings)
 
   const updateSettingsItemValue = (key: string, value: TSettingsValues) => {

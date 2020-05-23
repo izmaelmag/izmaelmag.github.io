@@ -18,11 +18,9 @@ export const Page$ = styled.div`
 export const Content$ = styled.main`
   display: flex;
   flex-direction: row;
-  gap: 64px;
   margin-top: 24px;
 
   ${Media.Phone`
-    gap: 32px;
     flex-direction: column-reverse;
   `}
 `
@@ -55,6 +53,7 @@ export const Info$ = styled.main`
 export const Pages$ = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 64px;
 
   a {
     align-self: flex-start;
@@ -62,6 +61,10 @@ export const Pages$ = styled.div`
     line-height: 1.25;
   }
 
+  ${Media.Phone`
+    margin-bottom: 32px;
+    margin-left: 0px;
+  `}
 `
 export const Heading$ = styled.h4`
   ${Typography.h4};
