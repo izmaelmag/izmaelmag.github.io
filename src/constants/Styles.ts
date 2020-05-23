@@ -141,6 +141,28 @@ export const GlobalStyles$ = createGlobalStyle`
     color: ${Colors.CSS.text};
   }
 
+  .dark-theme {
+    --colors-bg:   ${Colors.GrayBG};
+    --colors-text: ${Colors.White(90)};
+
+    --colors-gray10: ${Colors.White(10)};
+    --colors-gray20: ${Colors.White(20)};
+    --colors-gray40: ${Colors.White(40)};
+    --colors-gray60: ${Colors.White(60)};
+    --colors-gray80: ${Colors.White(80)};
+  }
+
+  .light-theme {
+    --colors-bg:   ${Colors.Gray100};
+    --colors-text: ${Colors.Black(90)};
+
+    --colors-gray10: ${Colors.Black(10)};
+    --colors-gray20: ${Colors.Black(20)};
+    --colors-gray40: ${Colors.Black(40)};
+    --colors-gray60: ${Colors.Black(60)};
+    --colors-gray80: ${Colors.Black(80)};
+  }
+
   * {
     box-sizing: border-box;
   }

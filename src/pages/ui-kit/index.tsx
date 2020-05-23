@@ -9,6 +9,7 @@ import ToggleKit from 'components/Toggle/kit'
 import RangeInputKit from 'components/RangeInput/kit'
 import PageTitleKit from 'components/PageTitle/kit'
 import SocialLinksKit from 'components/SocialLinks/kit'
+import SettingsPanel from 'components/SettingsPanel/kit'
 
 const UiKit = () => {
   return (
@@ -21,6 +22,7 @@ const UiKit = () => {
           <RangeInputKit />
           <PageTitleKit />
           <SocialLinksKit />
+          <SettingsPanel />
         </GroupGridWithMargin$>
       </Page$> 
     </CommonLayout>

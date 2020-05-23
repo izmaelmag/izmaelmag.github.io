@@ -14,22 +14,24 @@ const SineSeries1: FunctionComponent = () => {
   const [settings, setSettings] = useState(defaultSettings)
 
   return (
-    <FullscreenDemo>
-      <Interface$>
-        <Corner$ top left>
-          <PageTitle title='Medusa' />
-          <Link to="/">Home</Link>
-        </Corner$>
+    <div className="dark-theme">
+      <FullscreenDemo>
+        <Interface$>
+          <Corner$ top left>
+            <PageTitle title='Medusa' />
+            <Link to="/">Home</Link>
+          </Corner$>
 
-        <Corner$ top right> 
-          <SettingsPanel onChange={setSettings} settings={sketchSettings} />
-        </Corner$>
-      </Interface$>
+          <Corner$ top right> 
+            <SettingsPanel onChange={setSettings} settings={sketchSettings} />
+          </Corner$>
+        </Interface$>
 
-      <SketchFrame$>
-        <P5Sketch sketch={sketch(settings)} />
-      </SketchFrame$>
-    </FullscreenDemo>
+        <SketchFrame$>
+          <P5Sketch sketch={sketch(settings)} />
+        </SketchFrame$>
+      </FullscreenDemo>
+    </div>
   )
 }
 

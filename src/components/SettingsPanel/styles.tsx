@@ -4,7 +4,7 @@ import Media from 'utils/Media'
 
 export const Layout$ = styled.div`
   width: 280px;
-  background: ${Colors.Black(70)};
+  background: ${Colors.CSS.bg};
   border: 1px solid ${Colors.CSS.gray20};
 
   ${Media.Phone`
