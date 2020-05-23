@@ -1,6 +1,6 @@
 import p5 from "p5"
 import { Ren, Rey } from 'constants/ColorSchemes'
-import polypoints from 'utils/geometry/polypoints'
+import polypoints from 'geometry/polypoints'
 import { SettingsItemI, SettingsTypes } from 'constants/Settings'
 import { Colors } from "constants/Styles"
 

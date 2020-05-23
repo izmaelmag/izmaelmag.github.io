@@ -34,7 +34,7 @@ export const RangeWrapper$ = styled.div`
 
   &:hover {
     span {
-      transform: translateX(${gapSize + thumbSize/2}px) ${({ theme }: RangeThemePropsI) => !theme.withLabel && `translateY(-${thumbSize - 2}px)` };
+      transform: ${({ theme }: RangeThemePropsI) => !theme.withLabel && `translateY(-${thumbSize - 2}px)` };
     }
   }
 `
@@ -48,31 +48,54 @@ export const Label$ = styled.div`
 `
 
 export const InputElement$ = styled.input`
-  width: calc(100% - ${gapSize*2}px);
+  width: 100%;
   height: ${thumbSize}px;
   background: transparent;
-  margin-left: ${gapSize}px;
+  -webkit-appearance: none;
 
-  &:focus {
+  &[type=range]:focus {
     outline: none;
   }
 
-  &::-moz-focus-inner {
-    border: 0;
-  }
-
-  &::-moz-range-track,
-  &::-webkit-slider-runnable-track {
+  /* #region webkit styles */
+  &[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 4px;
     cursor: pointer;
     background: ${Colors.CSS.gray20};
     border-radius: 2px;
-    padding: 0 ${gapSize}px;
+  }
+  
+  &[type=range]::-webkit-slider-thumb {
+    border: none;
+    height: ${thumbSize}px;
+    width: ${({ theme: { isWide, showValue }}: RangeThemePropsI) => thumbSize * (isWide && showValue ? 2 : 1)}px;
+    border-radius: ${thumbSize}px;
+    background: ${Colors.CSS.bg};
+    box-shadow: 0 0 0 3px ${Colors.CSS.blue} inset;
+    cursor: move;
+    border: 0px solid #000000;
+    -webkit-appearance: none;
+    transition: box-shadow .2s ease, width .3s ${Easings.quadratic};
+    position: relative;
+    top: -${thumbSize/2 - 2}px;
+  }
+  
+  &[type=range]:focus::-webkit-slider-runnable-track {
+    background: ${Colors.CSS.gray40};
+  }
+  /*#endregion */
+
+  /* region Firefox styles */
+  &[type=range]::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: ${Colors.CSS.gray20};
+    border-radius: 2px;
   }
 
-  &::-moz-range-thumb,
-  &::-webkit-slider-thumb {
+  &[type=range]::-moz-range-thumb {
     border: none;
     height: ${thumbSize}px;
     width: ${({ theme: { isWide, showValue }}: RangeThemePropsI) => thumbSize * (isWide && showValue ? 2 : 1)}px;
@@ -82,11 +105,15 @@ export const InputElement$ = styled.input`
     cursor: move;
     transition: box-shadow .2s ease, width .3s ${Easings.quadratic};
   }
+  /* #endregion */
 
   &:focus,
   &:hover {
-    &::-moz-range-thumb,
-    &::-webkit-slider-thumb {
+    &[type=range]::-moz-range-thumb {
+      box-shadow: 0 0 0 ${({ theme }) => theme.showValue ? thumbSize : 9}px ${Colors.CSS.blue} inset;
+    }
+
+    &[type=range]::-webkit-slider-thumb {
       box-shadow: 0 0 0 ${({ theme }) => theme.showValue ? thumbSize : 9}px ${Colors.CSS.blue} inset;
     }
   }
@@ -94,7 +121,7 @@ export const InputElement$ = styled.input`
 
 const getValueOffset = ({ theme: { isWide, showValue, thumbOffset} }: RangeThemePropsI) => {
   return css`
-    left: calc((100% - ${2 * gapSize + thumbSize * (isWide && showValue ? 2 : 1)}px) * ${thumbOffset});
+    left: calc((100% - ${thumbSize * (isWide && showValue ? 2 : 1)}px) * ${thumbOffset} + 2px);
   `
 }
 
@@ -108,8 +135,6 @@ export const ValueNumber$ = styled.span`
   height: ${thumbSize}px;
   position: absolute;
   bottom: 2px;
-  margin-left: -${gapSize - 1}px;
-  transform: translateX(${gapSize + thumbSize/2}px);
   pointer-events: none;
   ${getValueOffset};
 `

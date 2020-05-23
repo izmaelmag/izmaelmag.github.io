@@ -1,5 +1,5 @@
-import PointClass from 'utils/geometry/PointClass'
-import LineClass from 'utils/geometry/LineClass'
+import PointClass from 'geometry/PointClass'
+import LineClass from 'geometry/LineClass'
 
 /**
  * Polygon class

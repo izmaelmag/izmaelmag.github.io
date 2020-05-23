@@ -1,4 +1,4 @@
-import PointClass from 'utils/geometry/PointClass'
+import PointClass from 'geometry/PointClass'
 
 /**
  * Polypoints returns array of points of polygon

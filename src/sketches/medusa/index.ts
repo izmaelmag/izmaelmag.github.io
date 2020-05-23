@@ -1,6 +1,5 @@
 import p5 from "p5"
-import { Ren } from 'constants/ColorSchemes'
-import polypoints from 'utils/geometry/polypoints'
+import polypoints from 'geometry/polypoints'
 import { Colors } from "constants/Styles"
 import settingsTransformer from 'utils/settingsTransformer'
 import sketchSettings from './sketchSettings'
@@ -21,12 +20,6 @@ export interface ISketchSettings {
 export const defaultSettings = settingsTransformer.toObject<ISketchSettings>(sketchSettings)
 
 const sketch = (settings: ISketchSettings) => (p: p5) => {
-  const Th = {
-    main: p.color(Colors.Black(90)),
-    accent: p.color(Ren.accent),
-    secondary: p.color(Ren.secondary),
-  }
-
   let dt = 0
   let fps: number = 0
 
@@ -48,7 +41,7 @@ const sketch = (settings: ISketchSettings) => (p: p5) => {
     } 
 
     p.clear()
-    p.background(Th.main)
+    p.background(Colors.Black(90))
 
     if (settings.showPolygons || settings.showLines) {
       p.stroke(mainColor)
@@ -89,7 +82,7 @@ const sketch = (settings: ISketchSettings) => (p: p5) => {
         currentPoints.forEach(({x, y}) => p.circle(x, y, settings.thickness))
       }
     }
-
+    
     p.textSize(14)
     p.fill('rgba(255, 255, 255, 0.5)')
     p.text(`FPS: ${fps && fps.toFixed(0)}`, 16, p.windowHeight - 16)

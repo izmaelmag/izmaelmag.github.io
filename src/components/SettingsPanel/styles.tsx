@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 import { Colors } from 'constants/Styles'
+import Media from 'utils/Media'
 
 export const Layout$ = styled.div`
   width: 280px;
   background: ${Colors.Black(70)};
   border: 1px solid ${Colors.CSS.gray20};
+
+  ${Media.Phone`
+    width: 100%;
+  `}
 `
 
 export const SettingsHeader$ = styled.button`
@@ -32,6 +37,11 @@ export const SettingsControls$ = styled.div`
   overflow: auto;
   max-height: 420px;
   padding: 12px;
+
+
+  ${Media.Phone`
+    max-height: 250px;
+  `}
 `
 
 export const SettingsItem$ = styled.div`

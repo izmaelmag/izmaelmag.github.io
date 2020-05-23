@@ -22,7 +22,8 @@ export const Content$ = styled.main`
   margin-top: 24px;
 
   ${Media.Phone`
-    flex-direction: column;
+    gap: 32px;
+    flex-direction: column-reverse;
   `}
 `
 
@@ -66,6 +67,11 @@ export const Heading$ = styled.h4`
   ${Typography.h4};
   margin-bottom: 16px;
   color: ${Colors.CSS.text};
+
+  ${Media.Phone`
+    font-size: 18px;
+    margin-bottom: 8px;
+  `}
 `
 
 export const Articles$ = styled.div`

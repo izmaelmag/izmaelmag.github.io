@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import CommonLayout from 'layouts/Common'
 import SocialLinks from 'components/SocialLinks'
 import keysToArray from 'utils/keysToArray'
@@ -10,7 +11,8 @@ import {
   MainHeader$,
   Navigation$,
   Info$,
-  Heading$
+  Heading$,
+  Pages$,
 } from './styles'
 
 interface IndexPropsI {
@@ -43,8 +45,14 @@ const IndexLayout = (props: IndexPropsI) => {
 
         <Content$>
           <Info$>
+            <Heading$>About me</Heading$>
             <MarkedText markdownContent={shortBio.shortBio} />
           </Info$>
+
+          <Pages$>
+            <Heading$>Sketches</Heading$>
+            <Link to='/sketches/medusa'>«Medusa» animation</Link>
+          </Pages$>
         </Content$>
       </Page$>
     </CommonLayout>

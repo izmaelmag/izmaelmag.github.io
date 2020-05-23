@@ -1,5 +1,6 @@
 import React, { useState, FunctionComponent } from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import FullscreenDemo from 'layouts/FullscreenDemo'
 import { Interface$, Corner$ } from 'layouts/FullscreenDemo/styles'
 import { Colors } from 'constants/Styles'
@@ -17,6 +18,7 @@ const SineSeries1: FunctionComponent = () => {
       <Interface$>
         <Corner$ top left>
           <PageTitle title='Medusa' />
+          <Link to="/">Home</Link>
         </Corner$>
 
         <Corner$ top right> 

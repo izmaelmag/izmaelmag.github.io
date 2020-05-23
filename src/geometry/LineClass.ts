@@ -1,4 +1,4 @@
-import PointClass from 'utils/geometry/PointClass'
+import PointClass from 'geometry/PointClass'
 
 export default class LineClass {
   public givenPoints: Point[]

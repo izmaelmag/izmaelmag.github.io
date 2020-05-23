@@ -73,6 +73,7 @@ module.exports = {
         utils: path.join(__dirname, 'src/utils'),
         images: path.join(__dirname, 'src/images'),
         layouts: path.join(__dirname, 'src/layouts'),
+        geometry: path.join(__dirname, 'src/geometry'),
         sketches: path.join(__dirname, 'src/sketches'),
         templates: path.join(__dirname, 'src/templates'),
         constants: path.join(__dirname, 'src/constants'),

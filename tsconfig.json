@@ -18,6 +18,7 @@
       "images/*": ["src/images/*"],
       "layouts/*": ["src/layouts/*"],
       "sketches/*": ["src/sketches/*"],
+      "geometry/*": ["src/geometry/*"],
       "templates/*": ["src/templates/*"],
       "constants/*": ["src/constants/*"],
       "components/*": ["src/components/*"],
