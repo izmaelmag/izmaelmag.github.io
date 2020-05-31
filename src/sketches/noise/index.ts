@@ -8,7 +8,14 @@ export interface ISketchSettings {
   radius: number
 }
 
-const Size = 300
+let Size = 300;
+
+if (typeof window !== undefined) {
+  const { innerWidth, innerHeight } = window
+  let isPortrait = innerHeight > innerWidth
+
+  Size = isPortrait ? innerWidth - 64 : innerHeight - 100
+}
 
 const noiseLoop = (p: p5, d: number, min: number, max: number, angle: number) => {
   let xOff = p.map(Math.cos(angle), -1, 1, 0, d)
@@ -30,9 +37,6 @@ const sketch1 = (settings: ISketchSettings) => (p: p5) => {
   }
 
   p.draw = () => {
-    // p.clear()
-    // p.noStroke()
-    
     let dt = Number(p.millis().toFixed(2))
     let dts = dt / 4000
     
@@ -40,7 +44,7 @@ const sketch1 = (settings: ISketchSettings) => (p: p5) => {
     p.noiseSeed(s1)
     p.stroke('black')
     x = Size * p.noise(0, dts)
-    y = Size * p.noise(0, dts+2)
+    y = Size * p.noise(0, dts+10)
     p.circle(x, y, 0.5)
     p.circle(Size - x, y, 0.5)
     
