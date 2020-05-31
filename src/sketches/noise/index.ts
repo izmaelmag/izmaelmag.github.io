@@ -10,7 +10,7 @@ export interface ISketchSettings {
 
 let Size = 300;
 
-if (typeof window !== null) {
+if (typeof window !== "undefined") {
   const { innerWidth, innerHeight } = window
   let isPortrait = innerHeight > innerWidth
 
