@@ -6,11 +6,11 @@ interface MandelbrotSettings {
 
 const MandelbrotSet1 = (customSettings: MandelbrotSettings) => (p: p5) => {
   const { adiv = 1 } = customSettings
-  const maxIterations = 200;
-  const limit = 2 
+  const maxIterations = 50;
+  const limit = 2
 
   p.setup = () => {
-    p.createCanvas(600, 600);
+    p.createCanvas(512, 512);
     p.pixelDensity(1);
     p.loadPixels();
     
@@ -19,18 +19,18 @@ const MandelbrotSet1 = (customSettings: MandelbrotSettings) => (p: p5) => {
       for (let y = 0; y < p.height; y++) {
         let brightness;
 
-        let a = p.map(x, 0, p.width, -0.5, 0.5);
-        let b = p.map(y, 0, p.height, -0.5, 0.5);
+        let a = p.map(x, 0, p.width, -2.5, 1.5);
+        let b = p.map(y, 0, p.height, -2, 2);
 
         let ca = a;
         let cb = b;
 
-        for (let n = 0; n < maxIterations; n = n + 10) {
+        for (let n = 0; n < maxIterations; n = n + 1) {
           let aa = a * a - b * b;
           let bb = 2 * a * b;
 
           a = (aa + ca)/adiv
-          b = (bb + cb)/(adiv * 0.2);
+          b = (bb + cb)/adiv;
 
           if (p.abs(a + b) > limit) break;
 
@@ -44,8 +44,8 @@ const MandelbrotSet1 = (customSettings: MandelbrotSettings) => (p: p5) => {
         let pix = (x + y * p.width) * 4;
 
         p.pixels[pix + 0] = brightness;
-        p.pixels[pix + 1] = 0;
-        p.pixels[pix + 2] = brightness / 2;
+        p.pixels[pix + 1] = brightness;
+        p.pixels[pix + 2] = brightness;
         p.pixels[pix + 3] = 255;
       }
     }
