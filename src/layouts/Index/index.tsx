@@ -54,7 +54,8 @@ const IndexLayout = (props: IndexPropsI) => {
 
           <Pages$>
             <Heading$>Sketches</Heading$>
-            <Link to='/sketches/medusa'>«Medusa» animation</Link>
+            <Link to='/sketches/medusa'>Medusa</Link>
+            <Link to='/sketches/spirograph'>Spirograph</Link>
           </Pages$>
         </Content$>
       </Page$>

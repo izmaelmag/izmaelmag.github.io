@@ -59,11 +59,16 @@ export const Pages$ = styled.div`
     align-self: flex-start;
     font-size: 18px;
     line-height: 1.25;
+    margin-bottom: 8px;
   }
 
   ${Media.Phone`
     margin-bottom: 32px;
     margin-left: 0px;
+
+    a {
+      font-size: 16px;
+    }
   `}
 `
 export const Heading$ = styled.h4`

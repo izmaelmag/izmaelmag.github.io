@@ -1,7 +1,7 @@
 const sketchSettings: ISettingsList = {
   polygonsNumber: {
     type: 'range',
-    value: 50,
+    value: 100,
     props: {
       min: 1,
       max: 100,
@@ -16,14 +16,14 @@ const sketchSettings: ISettingsList = {
     props: {
       min: 1,
       max: 4,
-      step: 0.5
+      step: 1
     },
     title: 'Thickness'
   },
 
   phaseOffset: {
     type: 'range',
-    value: 3,
+    value: 10,
     props: {
       min: 0,
       max: 50,
@@ -34,21 +34,21 @@ const sketchSettings: ISettingsList = {
 
   amplitude: {
     type: 'range',
-    value: 21,
+    value: 0,
     props: {
       min: 0,
-      max: 60,
-      step: 0.5
+      max: 180,
+      step: 1
     },
     title: 'Amplitude'
   },
 
   gap: {
     type: 'range',
-    value: 5,
+    value: 3,
     props: {
-      min: 5,
-      max: 30,
+      min: 1,
+      max: 10,
       step: 1
     },
     title: 'Gap'
@@ -67,22 +67,22 @@ const sketchSettings: ISettingsList = {
 
   frequency: {
     type: 'range',
-    value: 1,
+    value: 15.5,
     props: {
       min: 0, 
-      max: 10,
-      step: 0.1
+      max: 60,
+      step: 0.5
     },
     title: 'Frequency'
   },
 
   speed: {
     type: 'range',
-    value: 1,
+    value: 1.7,
     props: {
-      min: 0.05, 
+      min: 0, 
       max: 2,
-      step: 0.05
+      step: 0.1
     },
     title: 'Speed'
   },
