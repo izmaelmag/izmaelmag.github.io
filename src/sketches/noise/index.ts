@@ -5,7 +5,7 @@ import settingsTransformer from 'utils/settingsTransformer'
 import sketchSettings from './sketchSettings'
 
 export interface ISketchSettings {
-  radius: number
+  radius?: number
 }
 
 let Size = 300;
@@ -14,13 +14,7 @@ if (typeof window !== "undefined") {
   const { innerWidth, innerHeight } = window
   let isPortrait = innerHeight > innerWidth
 
-  Size = isPortrait ? innerWidth - 64 : innerHeight - 100
-}
-
-const noiseLoop = (p: p5, d: number, min: number, max: number, angle: number) => {
-  let xOff = p.map(Math.cos(angle), -1, 1, 0, d)
-  let yOff = p.map(Math.sin(angle), -1, 1, 0, d)
-  return p.map(p.noise(xOff, yOff), 0, 1, min, max)
+  Size = isPortrait ? innerWidth - 64 : 480
 }
 
 export const defaultSettings = settingsTransformer.toObject<ISketchSettings>(sketchSettings)
