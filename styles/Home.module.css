@@ -34,13 +34,23 @@
   }
 }
 
-@keyframes slide0deg {
+@keyframes slideIn0deg {
   from {
-    translate: -32px 0;
+    translate: -28px 0;
   }
 
   to {
     translate: 0 0;
+  }
+}
+
+@keyframes slideOut0deg {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: 28px 0;
   }
 }
 
@@ -75,10 +85,15 @@
 .letterContainer {
   position: relative;
   overflow: hidden;
-  animation: scaleInX 0.3s ease both;
 }
 
-.letterCharacter {
+.letteredVisible .letterCharacter {
+  animation: slideIn0deg 0.5s ease both, fadeIn, 0.5s ease both;
+  transition: translate 0.5s ease;
+}
+
+.letteredHidden .letterCharacter {
   position: relative;
-  animation: slide0deg 1s ease both, fadeIn, 1s ease both;
+  transition: translate 0.5s ease;
+  animation: slideOut0deg 0.5s ease both, fadeIn, 0.5s ease both;
 }

@@ -1,5 +1,6 @@
+import { useState } from "react";
 import Head from "next/head";
-import cn from 'classnames'
+import cn from "classnames";
 import { Cormorant_Garamond } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 
@@ -20,7 +21,12 @@ const Lettered = ({
   if (!text) return null;
 
   return (
-    <div className={cn(styles.lettered, {})}>
+    <div
+      className={cn(
+        styles.lettered,
+        visible ? styles.letteredVisible : styles.letteredHidden
+      )}
+    >
       {Array.from(text).map((letter, index) => {
         const delayStyle = { animationDelay: `${delayStep * index}s` };
 
@@ -41,6 +47,8 @@ const Lettered = ({
 };
 
 export default function Home() {
+  const [visible, setVisibility] = useState<boolean>(true);
+
   return (
     <>
       <Head>
@@ -51,8 +59,10 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1 className={fontFamily.className}>
-          <Lettered text="IzmaelMag" delayStep={0.02} visible={true} />
+          <Lettered text="IzmaelMag" delayStep={0.05} visible={visible} />
         </h1>
+
+        <button onClick={() => setVisibility(!visible)}>Toggle</button>
       </main>
     </>
   );
