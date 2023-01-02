@@ -1,9 +1,44 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
+import cn from 'classnames'
+import { Cormorant_Garamond } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const fontFamily = Cormorant_Garamond({
+  weight: ["400", "600"],
+  subsets: ["latin"],
+});
+
+const Lettered = ({
+  visible,
+  text,
+  delayStep = 0.1,
+}: {
+  visible?: boolean;
+  text?: string;
+  delayStep?: number;
+}) => {
+  if (!text) return null;
+
+  return (
+    <div className={cn(styles.lettered, {})}>
+      {Array.from(text).map((letter, index) => {
+        const delayStyle = { animationDelay: `${delayStep * index}s` };
+
+        return (
+          <div
+            style={delayStyle}
+            key={letter}
+            className={styles.letterContainer}
+          >
+            <div style={delayStyle} className={styles.letterCharacter}>
+              {letter}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 export default function Home() {
   return (
@@ -15,7 +50,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1 className={inter.className}>IzmaelMag</h1>
+        <h1 className={fontFamily.className}>
+          <Lettered text="IzmaelMag" delayStep={0.02} visible={true} />
+        </h1>
       </main>
     </>
   );

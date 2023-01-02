@@ -9,25 +9,20 @@
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
-
 }
 
 @media (prefers-reduced-motion) {
-
 }
 
 /* Mobile */
 @media (max-width: 700px) {
- 
 }
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
-
 }
 
 @media (prefers-color-scheme: dark) {
-
 }
 
 @keyframes rotate {
@@ -37,4 +32,53 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+@keyframes slide0deg {
+  from {
+    translate: -32px 0;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleInX {
+  from {
+    scale: 0 1;
+  }
+  
+  to {
+    scale: 1 1;
+  }
+}
+
+/* Lettered */
+.lettered {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.letterContainer {
+  position: relative;
+  overflow: hidden;
+  animation: scaleInX 0.3s ease both;
+}
+
+.letterCharacter {
+  position: relative;
+  animation: slide0deg 1s ease both, fadeIn, 1s ease both;
 }
