@@ -10,10 +10,12 @@ const fontFamily = Cormorant_Garamond({
 });
 
 const Lettered = ({
-  visible,
+  duration = 1,
+  visible = true,
   text,
   delayStep = 0.1,
 }: {
+  duration?: number;
   visible?: boolean;
   text?: string;
   delayStep?: number;
@@ -28,15 +30,22 @@ const Lettered = ({
       )}
     >
       {Array.from(text).map((letter, index) => {
-        const delayStyle = { animationDelay: `${delayStep * index}s` };
+        const delayStyle: React.CSSProperties = {
+          animationDelay: `${delayStep * index}s`,
+        };
+
+        const durationStyle: React.CSSProperties = {
+          animationDuration: `${duration}s`,
+        };
+
+        const animationStyle = {
+          ...durationStyle,
+          ...delayStyle,
+        };
 
         return (
-          <div
-            style={delayStyle}
-            key={letter}
-            className={styles.letterContainer}
-          >
-            <div style={delayStyle} className={styles.letterCharacter}>
+          <div key={letter} className={styles.letterContainer}>
+            <div style={animationStyle} className={styles.letterCharacter}>
               {letter}
             </div>
           </div>
@@ -58,8 +67,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1 className={fontFamily.className}>
-          <Lettered text="IzmaelMag" delayStep={0.05} visible={visible} />
+        <h1 className={cn(fontFamily.className, styles.title)}>
+          <Lettered
+            text="IzmaelMag"
+            duration={1}
+            delayStep={0.05}
+            visible={visible}
+          />
         </h1>
 
         <button onClick={() => setVisibility(!visible)}>Toggle</button>

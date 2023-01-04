@@ -7,6 +7,10 @@
   min-height: 100vh;
 }
 
+.title {
+  font-size: 96px;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
 }
@@ -34,9 +38,10 @@
   }
 }
 
+/* 0 (360) DEG IN-OUT */
 @keyframes slideIn0deg {
   from {
-    translate: -28px 0;
+    translate: -1em 0;
   }
 
   to {
@@ -50,7 +55,29 @@
   }
 
   to {
-    translate: 28px 0;
+    translate: 1em 0;
+  }
+}
+
+
+/* 180 DEG IN-OUT */
+@keyframes slideIn180deg {
+  from {
+    translate: 1em 0;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+@keyframes slideOut180deg {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: -1em 0;
   }
 }
 
@@ -64,13 +91,13 @@
   }
 }
 
-@keyframes scaleInX {
+@keyframes fadeOut {
   from {
-    scale: 0 1;
+    opacity: 1;
   }
-  
+
   to {
-    scale: 1 1;
+    opacity: 0;
   }
 }
 
@@ -88,12 +115,9 @@
 }
 
 .letteredVisible .letterCharacter {
-  animation: slideIn0deg 0.5s ease both, fadeIn, 0.5s ease both;
-  transition: translate 0.5s ease;
+  animation: slideIn0deg 0.5s ease both, fadeIn 0.5s ease both;
 }
 
 .letteredHidden .letterCharacter {
-  position: relative;
-  transition: translate 0.5s ease;
-  animation: slideOut0deg 0.5s ease both, fadeIn, 0.5s ease both;
+  animation: slideOut0deg 0.5s ease both, fadeOut 0.5s ease both;
 }
