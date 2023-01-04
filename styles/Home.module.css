@@ -1,21 +1,25 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .title {
-  --slide-offset: 10px;
+  --slide-offset: 20px;
+  --zoom-scale: 0;
 
   position: fixed;
-  top: 4px;
-  left: 8px;
+  top: 2vh;
+  left: 50%;
+  translate: -50% 0;
   letter-spacing: -0.05em;
   font-size: 5vw;
   font-weight: 900;
+  text-transform: uppercase;
+  color: #191919;
 }
 
 /* Enable hover only on non-touch devices */
