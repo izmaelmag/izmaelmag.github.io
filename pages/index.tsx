@@ -1,59 +1,13 @@
 import { useState } from "react";
 import Head from "next/head";
 import cn from "classnames";
-import { Cormorant_Garamond } from "@next/font/google";
+import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
+import { AnimatedLetters } from "../components/AnimatedLetters";
 
-const fontFamily = Cormorant_Garamond({
-  weight: ["400", "600"],
+const fontFamily = Inter({
   subsets: ["latin"],
 });
-
-const Lettered = ({
-  duration = 1,
-  visible = true,
-  text,
-  delayStep = 0.1,
-}: {
-  duration?: number;
-  visible?: boolean;
-  text?: string;
-  delayStep?: number;
-}) => {
-  if (!text) return null;
-
-  return (
-    <div
-      className={cn(
-        styles.lettered,
-        visible ? styles.letteredVisible : styles.letteredHidden
-      )}
-    >
-      {Array.from(text).map((letter, index) => {
-        const delayStyle: React.CSSProperties = {
-          animationDelay: `${delayStep * index}s`,
-        };
-
-        const durationStyle: React.CSSProperties = {
-          animationDuration: `${duration}s`,
-        };
-
-        const animationStyle = {
-          ...durationStyle,
-          ...delayStyle,
-        };
-
-        return (
-          <div key={letter} className={styles.letterContainer}>
-            <div style={animationStyle} className={styles.letterCharacter}>
-              {letter}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
 
 export default function Home() {
   const [visible, setVisibility] = useState<boolean>(true);
@@ -68,15 +22,13 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1 className={cn(fontFamily.className, styles.title)}>
-          <Lettered
+          <AnimatedLetters
             text="IzmaelMag"
             duration={1}
             delayStep={0.05}
-            visible={visible}
+            visible={true}
           />
         </h1>
-
-        <button onClick={() => setVisibility(!visible)}>Toggle</button>
       </main>
     </>
   );
