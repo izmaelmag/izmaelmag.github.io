@@ -1,0 +1,19 @@
+@import './keyframes.css';
+
+:root {
+  --fadeIn: fadeIn;
+  --fadeOut: fadeOut;
+
+  --slideIn0: slideIn0;
+  --slideIn90: slideIn90;
+  --slideIn180: slideIn180;
+  --slideIn270: slideIn270;
+
+  --slideOut0: slideOut0;
+  --slideOut90: slideOut90;
+  --slideOut180: slideOut180;
+  --slideOut270: slideOut270;
+
+  --zoomIn: zoomIn;
+  --zoomOut: zoomOut;
+}

@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.charContainer {
+  position: relative;
+  line-height: 1;
+}
+
+.visible {
+  & .char {
+    transform-origin: 50% 100%;
+    animation:
+      var(--slideIn270) 0.5s easeInOutQuint both,
+      var(--fadeIn) 0.5s easeInOutQuint both;
+  }
+}
+
+.hidden {
+  & .char {
+    transform-origin: 50% 100%;
+    animation:
+      var(--slideOut180) 0.5s easeInOutQuint both,
+      var(--fadeOut) 0.5s easeOutQuint both;
+  }
+}

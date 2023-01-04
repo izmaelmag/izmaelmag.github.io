@@ -1,0 +1,134 @@
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* 0 (360) DEG IN-OUT */
+@keyframes slideIn0 {
+  from {
+    translate: calc(var(--slide-offset, 1em) * -1) 0;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+@keyframes slideOut0 {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: var(--slide-offset, 1em) 0;
+  }
+}
+
+/* 90 (-270) DEG IN-OUT */
+@keyframes slideIn90 {
+  from {
+    translate: 0 var(--slide-offset, 1em);
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+@keyframes slideOut90 {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: 0 calc(var(--slide-offset, 1em) * -1);
+  }
+}
+
+/* 180 DEG IN-OUT */
+@keyframes slideIn180 {
+  from {
+    translate: var(--slide-offset, 1em) 0;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+@keyframes slideOut180 {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: calc(var(--slide-offset, 1em) * -1) 0;
+  }
+}
+
+/* 270 (-90) DEG IN-OUT */
+@keyframes slideIn270 {
+  from {
+    translate: 0 calc(var(--slide-offset, 1em) * -1);
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+@keyframes slideOut270 {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: 0 var(--slide-offset, 1em);
+  }
+}
+
+/* Fading IN-OUT */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* Scale Y IN-OUT */
+@keyframes zoomIn {
+  from {
+    scale: var(--zoom-scale, 0.9);
+  }
+
+  to {
+    scale: 1;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    scale: 1;
+  }
+
+  to {
+    scale: var(--zoom-scale, 0.9);
+  }
+}
