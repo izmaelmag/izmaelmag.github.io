@@ -12,10 +12,11 @@
 
 .visible {
   & .char {
-    transform-origin: 50% 100%;
+    transform-origin: 50% 50%;
     animation:
-      var(--slideIn270) 0.5s easeInOutQuint both,
-      var(--fadeIn) 0.5s easeInOutQuint both;
+      var(--zoomIn) easeInOutQuint both,
+      var(--slideIn90) easeInOutQuint both,
+      var(--fadeIn) easeInOutQuint both;
   }
 }
 
@@ -23,7 +24,8 @@
   & .char {
     transform-origin: 50% 100%;
     animation:
-      var(--slideOut180) 0.5s easeInOutQuint both,
-      var(--fadeOut) 0.5s easeOutQuint both;
+      var(--zoomOut) easeInOutQuint both,
+      var(--slideOut90) easeInOutQuint both,
+      var(--fadeOut) easeInOutQuint both;
   }
 }
