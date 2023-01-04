@@ -1,0 +1,11 @@
+import styles from "./styles.module.css";
+
+type Props = JSX.IntrinsicElements["div"] & {};
+
+export const {{pascalCase name}} = ({ ...props }: Props) => {
+  return (
+    <div className={styles.wrapper} {...props}>
+      {{pascalCase name}} component
+    </div>
+  );
+};
