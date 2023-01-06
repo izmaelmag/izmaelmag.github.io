@@ -25,6 +25,8 @@ export const HomeSketch = (p: P5) => {
   p.draw = () => {
     const easeFunc = easeInOutQuint;
 
+
+    
     p.background("#fff");
 
     for (let i = 0; i < 20; i++) {
