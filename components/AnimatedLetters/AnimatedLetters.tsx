@@ -8,6 +8,7 @@ type Props = JSX.IntrinsicElements["div"] & {
   reversed?: boolean;
   text?: string;
   delayStep?: number;
+  letterClassName?: string;
 };
 
 export const AnimatedLetters = ({
@@ -16,8 +17,9 @@ export const AnimatedLetters = ({
   reversed = false,
   delayStep = 0.05,
   duration = 0.5,
+  letterClassName,
 }: Props) => {
-  const formattedText = useMemo(() => text.replace(" ", " "), [text]);
+  const formattedText = useMemo(() => text.replaceAll(" ", " "), [text]);
 
   const wrapperClassNames = useMemo(
     () => cn(styles.wrapper, visible ? styles.visible : styles.hidden),
@@ -40,19 +42,31 @@ export const AnimatedLetters = ({
 
   if (!text) return null;
 
+  const words = formattedText.split(" ");
+
+  let globalIndex = 0;
+
   return (
     <div className={wrapperClassNames}>
-      {Array.from(formattedText).map((letter, n) => {
-        const style = getStyle(n);
+      {words.map((word, i) => (
+        <div className={styles.word} key={`word-${word}-${i}`}>
+          {Array.from(word).map((letter) => {
+            const localIndex = globalIndex++;
+            const style = getStyle(localIndex);
 
-        return (
-          <div key={`letter-${n}`} className={styles.charContainer}>
-            <div style={style} className={styles.char}>
-              {letter}
-            </div>
-          </div>
-        );
-      })}
+            return (
+              <div
+                key={`letter-${localIndex}`}
+                style={style}
+                className={cn(styles.char, letterClassName)}
+              >
+                {letter}
+              </div>
+            );
+          })}
+          {' '}
+        </div>
+      ))}
     </div>
   );
 };
