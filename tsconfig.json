@@ -18,6 +18,7 @@
     "paths": {
       "~/components/*": ["components/*"],
       "~/types/*": ["types/*"],
+      "~/layouts/*": ["layouts/*"],
       "~/styles/*": ["styles/*"],
       "~/sketches/*": ["sketches/*"]
     },
