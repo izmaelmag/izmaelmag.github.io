@@ -25,6 +25,7 @@
   & .char {
     transform-origin: 50% 100%;
     animation:
+      var(--rotateIn) easeInOutQuad both,
       var(--slideIn90) easeInOutQuint both,
       var(--zoomIn) easeInOutQuint both;
   }
@@ -34,6 +35,7 @@
   & .char {
     transform-origin: 50% 100%;
     animation:
+      var(--rotateOut) easeInOutQuad both,
       var(--slideOut0) easeInOutQuint both,
       var(--fadeOut) easeInOutQuint both;
   }
