@@ -19,7 +19,7 @@
   font-size: 5vw;
   font-weight: 900;
   text-transform: uppercase;
-  color: #191919;
+  color: var(--theme-green-light);
 }
 
 /* Enable hover only on non-touch devices */

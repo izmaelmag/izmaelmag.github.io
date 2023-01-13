@@ -1,0 +1,96 @@
+.view {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.title {
+  --slide-offset: 32px;
+  --zoom-scale: 0.6;
+  --rotate-angle: 30deg;
+
+  color: var(--theme-brown-light);
+  font-size: 50px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.mediaView {
+  --zoom-scale: 0.8;
+  --slide-offset: calc(25vw + 160px);
+	--squircle-radius: 24px;
+	--squircle-smooth: 0.9;
+
+  --height: 90vh;
+  --ratio: calc(9/16);
+  
+  background: #222;
+  mask-image: paint(squircle);
+  height: var(--height);
+  width: calc(var(--height) * var(--ratio));
+  
+  transition:
+    aspect-ratio 0.3s easeInOutQuint,
+    width 0.3s easeInOutQuint,
+    height 0.3s easeInOutQuint;
+
+  animation:
+    var(--slideIn180) 1s easeInOutQuint both,
+    var(--zoomIn) .5s 0.8s easeInOutQuint both;
+}
+
+.half {
+  width: 50%;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
+.contents {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.preview {
+  --slide-offset: 50vw;
+
+  background: #fafafa;
+  border-left: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation:
+    var(--slideIn180) 0.8s easeInOutQuint both;
+    /* var(--fadeIn) 0.8s ease both; */
+}
+
+.viewContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+}
+
+.viewText {
+  padding: 0;
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  z-index: 10;
+  position: relative;
+}
+
+.viewBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}

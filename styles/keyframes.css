@@ -132,3 +132,24 @@
     scale: var(--zoom-scale, 0.9);
   }
 }
+
+/* Rotation */
+@keyframes rotateIn {
+  from {
+    rotate: var(--rotate-angle, 10deg);
+  }
+
+  to {
+    rotate: 0deg;
+  }
+}
+
+@keyframes rotateOut {
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: var(--rotate-angle, -10deg);
+  }
+}

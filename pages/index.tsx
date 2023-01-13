@@ -1,14 +1,8 @@
 import Head from "next/head";
 import cn from "classnames";
-import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import { AnimatedLetters } from "~/components/AnimatedLetters";
-import { P5Sketch } from "~/components/P5Sketch";
-import { HomeSketch } from '~/sketches/home'
-
-const fontFamily = Inter({
-  subsets: ["latin"],
-});
+import { Heading } from "~/components/Heading";
 
 export default function Home() {
   return (
@@ -21,18 +15,14 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={cn(fontFamily.className, styles.title)}>
+        <Heading>
           <AnimatedLetters
             text="IzmaelMag"
             duration={1}
             delayStep={0.05}
             visible={true}
           />
-        </h1>
-
-        <P5Sketch
-          render={HomeSketch}
-        />
+        </Heading>
       </main>
     </>
   );

@@ -1,8 +1,19 @@
 .wrapper {
   display: flex;
   align-items: baseline;
-  flex-wrap: nowrap;
+  flex-wrap:wrap;
   justify-content: flex-start;
+}
+
+.word {
+  flex-shrink: 0;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+
+  &::after {
+    content: " ";
+  }
 }
 
 .charContainer {
@@ -12,11 +23,11 @@
 
 .visible {
   & .char {
-    transform-origin: 50% 50%;
+    transform-origin: 50% 100%;
     animation:
-      var(--zoomIn) easeInOutQuint both,
+      var(--rotateIn) easeInOutQuad both,
       var(--slideIn90) easeInOutQuint both,
-      var(--fadeIn) easeInOutQuint both;
+      var(--zoomIn) easeInOutQuint both;
   }
 }
 
@@ -24,8 +35,8 @@
   & .char {
     transform-origin: 50% 100%;
     animation:
-      var(--zoomOut) easeInOutQuint both,
-      var(--slideOut90) easeInOutQuint both,
+      var(--rotateOut) easeInOutQuad both,
+      var(--slideOut0) easeInOutQuint both,
       var(--fadeOut) easeInOutQuint both;
   }
 }
