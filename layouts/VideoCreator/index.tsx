@@ -34,17 +34,17 @@ export const VideoCreator = ({ ...props }: Props) => {
           const noiseX = noise3D(
             (x + 500) / 500,
             (y + 500) / 500,
-            p.millis() / 8000
+            p.millis() / 4000
           );
           const noiseY = noise3D(
             x / 500,
             (y + p.millis() / 50) / 500,
-            p.millis() / 8000
+            p.millis() / 4000
           );
           const noiseR = noise3D(
             x / 500,
             (y + p.millis() / 10) / 500,
-            p.millis() / 10000
+            p.millis() / 4000
           );
 
           p.fill(255 * noiseX, 255 * noiseY, 255);
