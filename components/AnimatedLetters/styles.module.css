@@ -18,25 +18,24 @@
 
 .charContainer {
   position: relative;
-  line-height: 1;
+  overflow: hidden;
 }
 
 .visible {
+  --slide-offset: 1.2em;
+  
   & .char {
-    transform-origin: 50% 100%;
-    animation:
-      var(--rotateIn) easeInOutQuad both,
-      var(--slideIn90) easeInOutQuint both,
-      var(--zoomIn) easeInOutQuint both;
+    letter-spacing: -0.2vw;
+    animation: var(--slideIn180) easeInOutQuint both;
+
+    &.odd {
+      animation: var(--slideIn0) easeInOutQuint both;
+    }
   }
 }
 
 .hidden {
   & .char {
-    transform-origin: 50% 100%;
-    animation:
-      var(--rotateOut) easeInOutQuad both,
-      var(--slideOut0) easeInOutQuint both,
-      var(--fadeOut) easeInOutQuint both;
+    animation: var(--slideOut270) easeInOutQuint both;
   }
 }

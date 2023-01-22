@@ -57,14 +57,15 @@ export const AnimatedLetters = ({
             return (
               <div
                 key={`letter-${localIndex}`}
-                style={style}
-                className={cn(styles.char, letterClassName)}
+                className={styles.charContainer}
               >
-                {letter}
+                <div style={style} className={cn(styles.char, letterClassName, { [styles.odd]: localIndex % 2 === 0})}>
+                  {letter}
+                </div>
               </div>
             );
           })}
-          {' '}
+          {" "}
         </div>
       ))}
     </div>

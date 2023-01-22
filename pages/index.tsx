@@ -17,9 +17,9 @@ export default function Home() {
       <main className={styles.main}>
         <Heading>
           <AnimatedLetters
-            text="IzmaelMag"
-            duration={1}
-            delayStep={0.05}
+            text="IZMAEL MAGOMED"
+            duration={1.5}
+            delayStep={0.1}
             visible={true}
           />
         </Heading>
