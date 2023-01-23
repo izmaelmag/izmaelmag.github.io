@@ -25,7 +25,6 @@
   --slide-offset: 1.2em;
   
   & .char {
-    letter-spacing: -0.2vw;
     animation: var(--slideIn180) easeInOutQuint both;
 
     &.odd {
