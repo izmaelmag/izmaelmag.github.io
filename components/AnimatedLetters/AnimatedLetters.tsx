@@ -21,11 +21,6 @@ export const AnimatedLetters = ({
 }: Props) => {
   const formattedText = useMemo(() => text.replaceAll(" ", " "), [text]);
 
-  const wrapperClassNames = useMemo(
-    () => cn(styles.wrapper, visible ? styles.visible : styles.hidden),
-    [visible]
-  );
-
   const getStyle = useCallback(
     (n: number) => {
       const delay = reversed
@@ -47,7 +42,7 @@ export const AnimatedLetters = ({
   let globalIndex = 0;
 
   return (
-    <div className={wrapperClassNames}>
+    <div className={cn(styles.wrapper, visible ? styles.visible : styles.hidden)}>
       {words.map((word, i) => (
         <div className={styles.word} key={`word-${word}-${i}`}>
           {Array.from(word).map((letter) => {
