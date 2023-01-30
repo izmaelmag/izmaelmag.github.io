@@ -46,7 +46,7 @@
 .text {
   --slide-offset: 10px;
 
-  color: var(--color);
+  color: var(--color, #fff);
   font-family: system-ui, sans-serif;
   font-size: 32px;
   text-transsform: uppercase;

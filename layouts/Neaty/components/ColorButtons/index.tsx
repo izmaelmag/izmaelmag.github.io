@@ -13,7 +13,6 @@ const colors = [
   "#059669",
   "#65a30d",
   "#d97706",
-  "#dc2626",
 ];
 
 const textAnimMs = 320;
@@ -45,7 +44,7 @@ const ColorButtons = () => {
   return (
     <div className={style.container} ref={containerRef}>
       <div className={style.buttons}>
-        {colors.map((color) => (
+        {colors.map((color, index) => (
           <button
             className={cn(style.button, {
               [style.active]: color === currentColor,
@@ -59,10 +58,11 @@ const ColorButtons = () => {
 
       <div className={style.text}>
         <AnimatedLetters
-          text={"이거 번역할 때 구글 쓰셨어요?"}
+          text={"오늘 엉덩이 씻었어?"}
+          byWord={textVisible}
           visible={textVisible}
-          duration={0.2}
-          delayStep={0.015}
+          duration={textVisible ? 0.5 : 0.2}
+          delayStep={textVisible ? 0.1 : 0.02}
         />
       </div>
     </div>

@@ -20,15 +20,13 @@
   position: relative;
   /* overflow: hidden; */
 }
-
-.visible {  
-  & .char {
-    animation: var(--slideIn270) cubic-bezier(0.33, -0.14, 0, 1.76) both, var(--fadeIn) cubic-bezier(0.33, -0.14, 0, 1.76) both;
-  }
+  
+.visible .wordAnimated,
+.visible .char {
+  animation: var(--slideIn270) cubic-bezier(0.33, -0.14, 0, 1.76) both, var(--fadeIn) cubic-bezier(0.33, -0.14, 0, 1.76) both;
 }
 
-.hidden {
-  & .char {
-    animation: var(--slideOut90) cubic-bezier(0.33, -0.14, 0, 1.76) both, var(--fadeOut) cubic-bezier(0.33, -0.14, 0, 1.76) both;
-  }
+.hidden .wordAnimated,
+.hidden .char {
+  animation: var(--slideOut180) cubic-bezier(0.33, -0.14, 0, 1.76) both, var(--fadeOut) cubic-bezier(0.33, -0.14, 0, 1.76) both;
 }
