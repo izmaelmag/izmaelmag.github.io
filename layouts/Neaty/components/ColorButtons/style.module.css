@@ -7,12 +7,18 @@
   justify-content: center;
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
 .button {
   position: relative;
   padding: 0;
   width: 48px;
   height: 48px;
-  margin-right: 10px;
   border-radius: 6px;
   border: 0;
   cursor: pointer;
@@ -25,9 +31,19 @@
   display: block;
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: -8px;
+  width: calc(100% + 16px);
   height: calc(100% + 5px);
+}
+
+.buttons:not(:hover) .button:focus:not(.active) {
+  box-shadow: none;
+  transform: translateY(-10px);
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px currentcolor;
+}
+
+.button:focus {
+  outline: none;
 }
 
 .button:hover {
@@ -39,7 +55,7 @@
 }
 
 .button.active {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px currentcolor;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px currentcolor;
   animation: jump 0.3s var(--easing);
 }
 
@@ -55,6 +71,14 @@
   transition: color 0.2s ease;
   margin-top: 16px;
   user-select: none;
+}
+
+.colorContainer {
+  --slide-offset: 48px;
+  --zoom-scale: 0.2;
+
+  animation: var(--slideIn90) 0.5s var(--easing) both,
+    var(--fadeIn) 0.5s var(--easing) both, var(--zoomIn) 0.5s var(--easing) both;
 }
 
 @keyframes jump {

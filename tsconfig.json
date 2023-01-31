@@ -20,7 +20,8 @@
       "~/types/*": ["types/*"],
       "~/layouts/*": ["layouts/*"],
       "~/styles/*": ["styles/*"],
-      "~/sketches/*": ["sketches/*"]
+      "~/sketches/*": ["sketches/*"],
+      "~/utils/*": ["utils/*"]
     },
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
