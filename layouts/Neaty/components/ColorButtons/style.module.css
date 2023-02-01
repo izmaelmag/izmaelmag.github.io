@@ -1,5 +1,5 @@
 .container {
-  --easing: cubic-bezier(0.33, -0.14, 0, 1.76);
+  --gap: 12px;
 
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: var(--gap);
 }
 
 .button {
@@ -21,9 +21,9 @@
   height: 48px;
   border-radius: 6px;
   border: 0;
-  cursor: pointer;
   transform: translateY(0px);
-  transition: transform 0.2s var(--easing), box-shadow 0.2s var(--easing);
+  transition: transform 0.2s var(--easeSpring),
+    box-shadow 0.2s var(--easeSpring);
 }
 
 .button:after {
@@ -31,14 +31,15 @@
   display: block;
   position: absolute;
   top: 0;
-  left: -8px;
-  width: calc(100% + 16px);
+  left: calc(var(--gap) / -2);
+  width: calc(100% + var(--gap));
   height: calc(100% + 5px);
+  /* background: rgba(255, 0, 0, 0.25); */
 }
 
 .buttons:not(:hover) .button:focus:not(.active) {
   box-shadow: none;
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   box-shadow: 0 0 0 2px #fff, 0 0 0 4px currentcolor;
 }
 
@@ -51,16 +52,18 @@
 }
 
 .button:hover:after {
-  top: 15px;
+  top: 10px;
+  height: calc(100% + 20px);
 }
 
 .button.active {
   box-shadow: 0 0 0 3px #fff, 0 0 0 6px currentcolor;
-  animation: jump 0.3s var(--easing);
+  animation: var(--pushBack) 0.3s var(--easeSpring);
+  transform: translateY(-10px);
 }
 
 .text {
-  --slide-offset: 10px;
+  --push-scale: 1;
 
   color: var(--color, #fff);
   font-family: system-ui, sans-serif;
@@ -77,20 +80,8 @@
   --slide-offset: 48px;
   --zoom-scale: 0.2;
 
-  animation: var(--slideIn90) 0.5s var(--easing) both,
-    var(--fadeIn) 0.5s var(--easing) both, var(--zoomIn) 0.5s var(--easing) both;
-}
-
-@keyframes jump {
-  0% {
-    scale: 1;
-  }
-
-  40% {
-    scale: 0.9;
-  }
-
-  100% {
-    scale: 1;
-  }
+  animation:
+    var(--slideIn90) 0.5s var(--easeSpring) both,
+    var(--fadeIn) 0.5s var(--easeSpring) both,
+    var(--zoomIn) 0.5s var(--easeSpring) both;
 }

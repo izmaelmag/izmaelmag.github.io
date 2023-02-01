@@ -77,10 +77,9 @@ const ColorButtons = () => {
       <div className={style.text}>
         <AnimatedLetters
           text={"오늘 엉덩이 씻었어?"}
-          byWord={textVisible}
           visible={textVisible}
-          duration={textVisible ? 0.5 : 0.2}
-          delayStep={textVisible ? 0.1 : 0.02}
+          duration={0.4}
+          delayStep={0.05}
         />
       </div>
     </div>

@@ -1,4 +1,4 @@
-@import './keyframes.css';
+@import "./keyframes.css";
 
 :root {
   --fadeIn: fadeIn;
@@ -19,4 +19,9 @@
 
   --rotateIn: rotateIn;
   --rotateOut: rotateOut;
+
+  --pushBack: pushBack;
+  --pushFront: pushFront;
+
+  --easeSpring: cubic-bezier(0.33, -0.14, 0, 1.76);
 }

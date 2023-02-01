@@ -153,3 +153,31 @@
     rotate: var(--rotate-angle, -10deg);
   }
 }
+
+@keyframes pushBack {
+  0% {
+    scale: 1;
+  }
+
+  40% {
+    scale: calc(1 - var(--push-scale));
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes pushFront {
+  0% {
+    scale: 1;
+  }
+
+  40% {
+    scale: calc(1 + var(--push-scale));
+  }
+
+  100% {
+    scale: 1;
+  }
+}

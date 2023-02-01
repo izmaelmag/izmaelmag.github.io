@@ -28,6 +28,9 @@ export const AnimatedLetters = ({
         : delayStep * n;
 
       return {
+        transitionDelay: `${delay}s`,
+        transitionDuration: `${duration}s`,
+
         animationDelay: `${delay}s`,
         animationDuration: `${duration}s`,
       };
@@ -51,7 +54,7 @@ export const AnimatedLetters = ({
         return (
           <div
             style={byWord ? wordStyle : {}}
-            className={cn(styles.word, { [styles.wordAnimated]: byWord })} 
+            className={cn(styles.word, { [styles.wordAnimated]: byWord })}
             key={`word-${word}-${i}`}
           >
             {Array.from(word).map((letter) => {
@@ -63,7 +66,10 @@ export const AnimatedLetters = ({
                   key={`letter-${localIndex}`}
                   className={styles.charContainer}
                 >
-                  <div style={byWord ? {} : charStyle} className={byWord ? '' : styles.char}>
+                  <div
+                    style={byWord ? {} : charStyle}
+                    className={byWord ? "" : styles.char}
+                  >
                     {letter}
                   </div>
                 </div>
