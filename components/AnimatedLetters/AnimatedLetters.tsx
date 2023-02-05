@@ -17,7 +17,6 @@ export const AnimatedLetters = ({
   visible = true,
   reversed = false,
   delayStep = 0.05,
-  duration = 0.5,
 }: Props) => {
   const formattedText = useMemo(() => text.replaceAll(" ", " "), [text]);
 
@@ -29,13 +28,10 @@ export const AnimatedLetters = ({
 
       return {
         transitionDelay: `${delay}s`,
-        transitionDuration: `${duration}s`,
-
         animationDelay: `${delay}s`,
-        animationDuration: `${duration}s`,
       };
     },
-    [delayStep, duration, formattedText, reversed]
+    [delayStep, formattedText, reversed]
   );
 
   if (!text) return null;

@@ -1,0 +1,128 @@
+.container {
+  --squashiness: 0.1;
+  --initial-state: translateX(0px) translateY(0px) rotate(0deg) scale(1, 1);
+  --up-state: translateX(0px) translateY(-10px) rotate(-6deg) scale(1, 1);
+  --up-back-state: translateX(0px) translateY(-10px) rotate(-15deg) scale(1, 1);
+  --down-state: translateX(-10px) translateY(10px) rotate(0deg) scale(calc(1 + var(--squashiness)), calc(1 - var(--squashiness)));
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonWrapper {
+  --slide-offset: 48px;
+
+  animation: var(--slideIn180) .3s .1s var(--easeSpring) both, var(--fadeIn) .3s .1s var(--easeSpring) both;
+  transform-origin: 50% 100%;
+  
+  &:nth-child(2) {
+    animation: var(--slideIn0) .3s .1s var(--easeSpring) both, var(--fadeIn) .3s .1s var(--easeSpring) both;
+  }
+}
+
+.icon {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: transform .3s var(--easeSpring);
+  transform-origin: -50% 50%;
+}
+
+.icon:hover {
+  transform: var(--up-state);
+}
+
+.up {
+  color: #ccc;
+  transition: color .2s ease;
+  transform: translateY(-9px);
+}
+
+.down {
+  color: #ccc;
+  transition: color .2s ease;
+  transform: translateY(8px);
+}
+
+.icon.active {
+  animation: likeJump .5s var(--easeSpring) both;
+
+  .up {
+    color: #65a30d;
+  }
+  
+  .down {
+    color: #e11d48;
+  }
+}
+
+@keyframes likeJump {
+  0% {
+    transform: var(--up-state);
+    transition: none;
+  }
+  
+  25% {
+    transform: var(--up-back-state);
+    transition: none;
+  }
+  
+  30% {
+    transform: var(--up-back-state);
+    transition: none;
+  }
+
+  70% {
+    transform: var(--down-state);
+    transition: none;
+  }
+
+  100% {
+    transform: var(--initial-state);
+    transition: transform .3s var(--easeSpring);
+  }
+}
+
+.text {
+  --visible-animation: var(--slideIn90) 0.25s var(--easeSpring) both, var(--fadeIn) 0.25s var(--easeSpring) both;
+  --hidden-animation: var(--slideOut90) 0.25s var(--easeSpring) both, var(--fadeOut) 0.25s var(--easeSpring) both;
+
+  color: inherit;
+  font-family: system-ui, sans-serif;
+  font-size: 32px;
+  line-height: 32px;
+  height: 32px;
+  text-transform: uppercase;
+  font-weight: 900;
+  transition: color 0.2s ease;
+  margin-top: 16px;
+  user-select: none;
+  width: 100%;
+  position: relative;
+}
+
+.textItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  color: var(--theme-brown-dark);
+}
+
+.textUp {
+  color: #65a30d;
+}
+
+.textDown {
+  color: #e11d48;
+}
+
+.textHidden {
+  color: #fff;
+}

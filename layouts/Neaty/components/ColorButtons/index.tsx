@@ -78,7 +78,6 @@ const ColorButtons = () => {
         <AnimatedLetters
           text={"오늘 엉덩이 씻었어?"}
           visible={textVisible}
-          duration={0.4}
           delayStep={0.05}
         />
       </div>

@@ -23,10 +23,10 @@
   
 .visible .wordAnimated,
 .visible .char {
-  animation: var(--zoomIn) var(--easeSpring) both;
+  animation: var(--visible-animation);
 }
 
 .hidden .wordAnimated,
 .hidden .char {
-  animation: var(--zoomOut) var(--easeSpring) both;
+  animation: var(--hidden-animation);
 }

@@ -1639,6 +1639,16 @@ homedir-polyfill@^1.0.1:
   dependencies:
     parse-passwd "^1.0.0"
 
+iconoir-react@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/iconoir-react/-/iconoir-react-6.2.0.tgz#a5160a36ad76a648394373d69ecfdcc50c930c8a"
+  integrity sha512-y0IoL1vty1Afdc7Z66QgrF80imSp6edhgXA3a+nZPk4UYNCAqMxSxZo+VwMic/V7PrSrjD/tKLyx81EcbGFOPQ==
+
+iconoir@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/iconoir/-/iconoir-6.2.0.tgz#fe8a3b538421bb1cab24ff4d023535ca55423266"
+  integrity sha512-N66dDd6MjpYFMpyzs+c91dHFodFWrtQHpzBJe6qAz5kA8Mt0Qy2PFxYaF3pesZzkTnHrZ6nArSD+EhbfnSImyg==
+
 iconv-lite@^0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
