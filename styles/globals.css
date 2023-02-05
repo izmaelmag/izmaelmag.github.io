@@ -60,3 +60,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}

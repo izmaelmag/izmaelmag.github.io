@@ -31,8 +31,20 @@
   transform-origin: -50% 50%;
 }
 
-.icon:hover {
-  transform: var(--up-state);
+@media (min-width: 480px) {
+  .icon:hover {
+    transform: var(--up-state);
+  }
+
+  .icon.active {
+    animation: likeJump .5s var(--easeSpring) both;
+  }
+}
+
+@media (max-width: 480px) {
+  .icon.active {
+    animation: likeJumpMobile .5s var(--easeSpring) both;
+  }
 }
 
 .up {
@@ -48,8 +60,6 @@
 }
 
 .icon.active {
-  animation: likeJump .5s var(--easeSpring) both;
-
   .up {
     color: #65a30d;
   }
@@ -86,9 +96,33 @@
   }
 }
 
+@keyframes likeJumpMobile {
+  0% {
+    transform: var(--initial-state);
+    transition: none;
+  }
+  
+  30% {
+    transform: var(--up-state);
+    transition: none;
+  }
+
+  70% {
+    transform: var(--down-state);
+    transition: none;
+  }
+
+  100% {
+    transform: var(--initial-state);
+    transition: transform .3s var(--easeSpring);
+  }
+}
+
 .text {
-  --visible-animation: var(--slideIn90) 0.25s var(--easeSpring) both, var(--fadeIn) 0.25s var(--easeSpring) both;
-  --hidden-animation: var(--slideOut90) 0.25s var(--easeSpring) both, var(--fadeOut) 0.25s var(--easeSpring) both;
+  --zoom-scale: 0;
+  --slide-offset: 32px;
+  --visible-animation: var(--slideIn90) 0.35s var(--easeSpring) both, var(--zoomIn) 0.35s var(--easeSpring) both, var(--fadeIn) 0.35s var(--easeSpring) both;
+  --hidden-animation: var(--slideOut90) 0.35s var(--easeSpring) both, var(--zoomOut) 0.35s var(--easeSpring) both, var(--fadeOut) 0.35s var(--easeSpring) both;
 
   color: inherit;
   font-family: system-ui, sans-serif;
