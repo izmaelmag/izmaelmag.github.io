@@ -49,7 +49,7 @@ const LikeButton = () => {
           })}
         >
           <AnimatedLetters
-            text={"좋다! (•¯ ∀ ¯•)"}
+            text={"좋다!    (•¯ ∀ ¯•)"}
             visible={isUp}
             delayStep={0.03}
           />
@@ -61,7 +61,7 @@ const LikeButton = () => {
           })}
         >
           <AnimatedLetters
-            text={"싫어함! ㅠ_ㅠ"}
+            text={"싫어함!    ㅠ_ㅠ"}
             visible={isDown}
             delayStep={0.03}
           />

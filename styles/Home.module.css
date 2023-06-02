@@ -1,33 +1,34 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  --spacing: 24px;
+
+  width: 100%;
   height: 100vh;
+  padding: var(--spacing);
+  display: flex;
+  align-items: stretch;
+  gap: var(--spacing);
 }
 
-.title {
-  --slide-offset: 20px;
-  --zoom-scale: 0;
+.main aside {
+	--squircle-radius: 24px;
+  --squircle-smooth: 0.9;
 
-  position: fixed;
-  top: 2vh;
-  left: 50%;
-  translate: -50% 0;
-  letter-spacing: -0.05em;
-  font-size: 5vw;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: var(--theme-green-light);
+  
+  min-width: 320px;
+  mask-image: paint(squircle);
+  width: 25%;
+  height: 100%;
+  background-color: #333;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-}
-
-@media (prefers-reduced-motion) {
-}
-
-@media (prefers-color-scheme: dark) {
+.main main {
+  --squircle-radius: 24px;
+  --squircle-smooth: 0.9;
+  --squircle-outline: 2px;
+  
+  mask-image: paint(squircle);
+  
+  width: 100%;
+  min-width: 0;
+  background-color: #fff;
 }

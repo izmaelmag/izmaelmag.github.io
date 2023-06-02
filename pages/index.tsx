@@ -1,8 +1,5 @@
 import Head from "next/head";
-import cn from "classnames";
-import styles from "../styles/Home.module.css";
-import { AnimatedLetters } from "~/components/AnimatedLetters";
-import { Heading } from "~/components/Heading";
+import styles from '~/styles/Home.module.css'
 
 export default function Home() {
   return (
@@ -14,16 +11,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <Heading>
-          <AnimatedLetters
-            text="IZMAEL MAGOMED"
-            duration={1.5}
-            delayStep={0.1}
-            visible={true}
-          />
-        </Heading>
-      </main>
+      <div className={styles.main}>
+        <aside></aside>
+        <main></main>
+      </div>
     </>
   );
 }
